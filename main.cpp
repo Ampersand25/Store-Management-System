@@ -19,7 +19,7 @@ void testApp()
 int main(int argc, char* argv[])
 {
     // Testarea aplicatiei
-    testApp();
+    //testApp();
 
     int exit_code;
 
