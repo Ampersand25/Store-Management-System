@@ -30,10 +30,3 @@
 *.exe
 *.out
 *.app
-
-*.shader
-*.cginc
-*.glslinc
-*.compute
-*.cg
-*.hlsl
