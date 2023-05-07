@@ -1007,9 +1007,9 @@ void GUI::initGuiCmp()
 
 	sort_options_combo_box->addItem("Nume");
 	sort_options_combo_box->addItem("Tip");
+	sort_options_combo_box->addItem("Nume + tip");
 	sort_options_combo_box->addItem("Pret");
 	sort_options_combo_box->addItem("Producator");
-	sort_options_combo_box->addItem("Nume + tip");
 
 	btns_sort_ly->addWidget(sort_options_combo_box);
 	btns_sort_ly->addWidget(btn_sort);
@@ -1062,8 +1062,9 @@ void GUI::initGuiCmp()
 
 	QHBoxLayout* btns_filter_ly = new QHBoxLayout;
 
-	filter_options_combo_box->addItem("Pret");
 	filter_options_combo_box->addItem("Nume");
+	filter_options_combo_box->addItem("Tip");
+	filter_options_combo_box->addItem("Pret");
 	filter_options_combo_box->addItem("Producator");
 
 	btns_filter_ly->addWidget(filter_options_combo_box);
@@ -2543,6 +2544,8 @@ void GUI::connectSignals()
 			filterProductsGUI("2", "");
 		else if (option == "Producator")
 			filterProductsGUI("3", "");
+		else if (option == "Tip")
+			filterProductsGUI("4", "");
 		});
 
 	QObject::connect(btn_filter_price, &QPushButton::clicked, this, [&]() {

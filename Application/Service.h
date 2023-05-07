@@ -188,6 +188,18 @@ private:
 	*/
 	void filterAfterProducer(const vector<Product>& products, vector<Product>& filtered_list, const string& producer) const;
 
+	/*
+	* Procedura care filtreaza o lista de produse (obiecte de clasa Product) dupa criteriul tip (in functie de atributul type)
+	* Date de intrare: products      - referinta constanta la o lista de obiecte de clasa Product (lista care se filtreaza)
+	*                  filtered_list - referinta constanta la o lista de obiecte de clasa Product (lista in care are loc filtrarea)
+	*                  type          - referinta constanta la un string
+	* Preconditii: -
+	* Date de iesire (rezultate): -
+	* Postconditii: lista filtered_list va contine toate produsele (obiectele de clasa Product) din products care satisfac filtrul impus: au atributul type (tip de produs) asemenea cu parametrul type
+	* Exceptii: - (subrutina nu arunca/ridica exceptii)
+	*/
+	void filterAfterType(const vector<Product>& products, vector<Product>& filtered_list, const string& type) const;
+
 public:
 	// metode (functii) publice
 

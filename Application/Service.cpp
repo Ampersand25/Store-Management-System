@@ -212,6 +212,16 @@ void Service::filterAfterProducer(const vector<Product>& products, vector<Produc
 		});
 }
 
+void Service::filterAfterType(const vector<Product>& products, vector<Product>& filtered_list, const string& type) const
+{
+	copy_if(products.begin(),
+		products.end(),
+		back_inserter(filtered_list),
+		[&](const Product& p) noexcept {
+			return cmpStrings(p.getType(), type);
+		});
+}
+
 vector<Product> Service::filterProducts(const string& crt, const string& filter, const string& sign) const
 {
 	/*
@@ -251,6 +261,8 @@ vector<Product> Service::filterProducts(const string& crt, const string& filter,
 		filterAfterName(products, filtered_list, filter);
 	else if (crt == "3") // criteriu de filtrare: producator (fieldul producer)
 		filterAfterProducer(products, filtered_list, filter);
+	else if (crt == "4") // criteriu de filtrare: tip (fieldul type)
+		filterAfterType(products, filtered_list, filter);
 	else                 // criteriu de filtrare invalid
 		throw ServiceException("[!]Criteriu de filtrare invalid!\n");
 

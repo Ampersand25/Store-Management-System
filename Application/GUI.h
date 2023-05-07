@@ -94,7 +94,7 @@ private:
 	QLineEdit* price_line_edit = new QLineEdit;
 	QLineEdit* producer_line_edit = new QLineEdit;
 
-	QLabel* filter_crt_label = new QLabel{ "Nume/Pret/Producator filtrare" };
+	QLabel* filter_crt_label = new QLabel{ "Nume/Tip/Pret/Producator filtrare" };
 	QLineEdit* filter_crt_line_edit = new QLineEdit;
 
 	QListWidget* lst_products = new QListWidget();
