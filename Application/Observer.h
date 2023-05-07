@@ -37,7 +37,7 @@ public:
 class Observable {
 private:
 	vector<Observer*> observers; // vector din STL de pointeri la obiecte de clasa Observer
-	                             // folosim pointeri pentru a putea face un apel polimorfic (dynamic dispatch) pentru fiecare astfel de obiect dintr-o clasa derivata din clasa Observer (clasa de baza)
+	// folosim pointeri pentru a putea face un apel polimorfic (dynamic dispatch) pentru fiecare astfel de obiect dintr-o clasa derivata din clasa Observer (clasa de baza)
 
 protected:
 	/*
@@ -50,7 +50,7 @@ protected:
 		// folosim auto ci nu auto& la ranged for deoarece in cazul pointerilor nu exista diferente (nu se face copie)
 		for (auto obs : observers) // parcurgem lista de observeri
 			obs->update(); // pentru fiecare observer (obiect dintr-o clasa derivata din clasa pur abstracta Observer)
-		                   // apelam metoda publica update (se va face dynamic/late binding, adica legare intarziata, apelul fiind unul polimorfic, care se relizeaza in functie de tipul actual al obiectului de la runtime) 
+		// apelam metoda publica update (se va face dynamic/late binding, adica legare intarziata, apelul fiind unul polimorfic, care se relizeaza in functie de tipul actual al obiectului de la runtime) 
 	}
 
 public:
@@ -67,7 +67,7 @@ public:
 	void attachObserver(Observer* obs) {
 		observers.push_back(obs); // atasam observerul obs la obiectul nostru de clasa Observable
 	}
-	
+
 	/*
 	* Metoda publica care detaseaza un observer (obiect dintr-o clasa derivata din clasa pur virtuala Observer (clasa de baza)) de la un obiect de clasa Observable (sau derivat din clasa Observable)
 	* Observerul trebuie sa fi fost atasat anterior (prin apelul metodei publice attachObserver, complementara cu metoda/functia curenta) pentru a avea loc detasarea
@@ -79,9 +79,9 @@ public:
 		// perechea (observers.begin(), observers.end()) ne ajuta sa definim orice secventa din vectorul/containerul observers (inclusiv secventa vida)
 		// observers.begin() refera elementul observers[0]
 		// observers.end()   refera elementul observers[observers.size()] (observers.size() = numarul de elemente din container)
-		
+
 		auto iter{ observers.begin() }; // obtinem un iterator pozitionat pe primul element din vectorul observers
-		
+
 		while (iter != observers.end()) // ciclam/iteram atata timp cat iteratorul este unul valid (pozitionat pe un element din container)
 		{
 			if (*iter == obs) // elementul curent din vectorul observers este obiectul obs cautat
@@ -90,7 +90,7 @@ public:
 
 				return; // iesim in mod fortat din functie/metoda
 			}
-			
+
 			++iter; // pozitionam iteratorul pe urmatorul element din container
 		}
 

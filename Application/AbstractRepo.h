@@ -24,7 +24,7 @@ public:
 	* Setam constructorul ca fiind implicit folosind calificativul default
 	*/
 	AbstractRepo() = default;
-	
+
 	/*
 	* Metoda pur virtuala care incearca sa adauge un produs (obiect de clasa Product) product in repository (repozitoriu)
 	* Date de intrare: product - referinta constanta la un obiect de clasa Product
@@ -44,7 +44,7 @@ public:
 	* Date de iesire (rezultate): -
 	* Postconditii: -
 	* Exceptii: metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Nu exista produse in magazin!\n" daca lista de obiecte este vida/goala (nu exista inregistrari in repo)
-	*           metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Produs inexistent!\n" daca produsul product nu se afla in magazin (nu exista obiect de clasa Product (entitati/inregistrari) nu numele name si producatorul producer in lista din repo)    
+	*           metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Produs inexistent!\n" daca produsul product nu se afla in magazin (nu exista obiect de clasa Product (entitati/inregistrari) nu numele name si producatorul producer in lista din repo)
 	*/
 	virtual void deleteProduct(const string& name, const string& producer) = 0;
 

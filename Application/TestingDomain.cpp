@@ -63,7 +63,7 @@ void TestingDomain::runTestsDomainSetters() const
 	assert(p.getProducer() == "Milka UK");
 
 	p.setType("produse curatenie");
-	
+
 	assert(p.getName() == "Milka cu lapte");
 	assert(p.getType() == "produse curatenie");
 	assert(fabs(p.getPrice() - 6.99) < 1e-12);
@@ -259,37 +259,37 @@ void TestingDomain::runTestsNotEqualOperator() const
 
 	// Comparam primul produs (product_1) cu toate
 
-	assert((product_1 != product_2) == true) , assert((product_2 != product_1) == true);
-	assert((product_1 != product_3) == true) , assert((product_3 != product_1) == true);
-	assert((product_1 != product_4) == true) , assert((product_4 != product_1) == true);
+	assert((product_1 != product_2) == true), assert((product_2 != product_1) == true);
+	assert((product_1 != product_3) == true), assert((product_3 != product_1) == true);
+	assert((product_1 != product_4) == true), assert((product_4 != product_1) == true);
 	assert((product_1 != product_5) == false), assert((product_5 != product_1) == false);
-	assert((product_1 != product_6) == true) , assert((product_6 != product_1) == true);
-	assert((product_1 != product_7) == true) , assert((product_7 != product_1) == true);
-	assert((product_1 != product_8) == true) , assert((product_8 != product_1) == true);
+	assert((product_1 != product_6) == true), assert((product_6 != product_1) == true);
+	assert((product_1 != product_7) == true), assert((product_7 != product_1) == true);
+	assert((product_1 != product_8) == true), assert((product_8 != product_1) == true);
 
 	// Comparam al doilea produs (product_2) cu toate ramase
 
-	assert((product_2 != product_3) == true) , assert((product_3 != product_2) == true);
-	assert((product_2 != product_4) == true) , assert((product_4 != product_2) == true);
-	assert((product_2 != product_5) == true) , assert((product_5 != product_2) == true);
-	assert((product_2 != product_6) == true) , assert((product_6 != product_2) == true);
-	assert((product_2 != product_7) == true) , assert((product_7 != product_2) == true);
+	assert((product_2 != product_3) == true), assert((product_3 != product_2) == true);
+	assert((product_2 != product_4) == true), assert((product_4 != product_2) == true);
+	assert((product_2 != product_5) == true), assert((product_5 != product_2) == true);
+	assert((product_2 != product_6) == true), assert((product_6 != product_2) == true);
+	assert((product_2 != product_7) == true), assert((product_7 != product_2) == true);
 	assert((product_2 != product_8) == false), assert((product_8 != product_2) == false);
 
 	// Comparam al treilea produs (product_3) cu toate ramase
 
-	assert((product_3 != product_4) == true) , assert((product_4 != product_3) == true);
-	assert((product_3 != product_5) == true) , assert((product_5 != product_3) == true);
+	assert((product_3 != product_4) == true), assert((product_4 != product_3) == true);
+	assert((product_3 != product_5) == true), assert((product_5 != product_3) == true);
 	assert((product_3 != product_6) == false), assert((product_6 != product_3) == false);
-	assert((product_3 != product_7) == true) , assert((product_7 != product_3) == true);
-	assert((product_3 != product_8) == true) , assert((product_8 != product_3) == true);
+	assert((product_3 != product_7) == true), assert((product_7 != product_3) == true);
+	assert((product_3 != product_8) == true), assert((product_8 != product_3) == true);
 
 	// Comparam al patrulea produs (product_4) cu toate ramase
 
-	assert((product_4 != product_5) == true) , assert((product_5 != product_4) == true);
-	assert((product_4 != product_6) == true) , assert((product_6 != product_4) == true);
+	assert((product_4 != product_5) == true), assert((product_5 != product_4) == true);
+	assert((product_4 != product_6) == true), assert((product_6 != product_4) == true);
 	assert((product_4 != product_7) == false), assert((product_7 != product_4) == false);
-	assert((product_4 != product_8) == true) , assert((product_8 != product_4) == true);
+	assert((product_4 != product_8) == true), assert((product_8 != product_4) == true);
 
 	// Comparam al cincilea produs (product_5) cu toate ramase
 

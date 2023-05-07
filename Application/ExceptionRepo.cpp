@@ -20,7 +20,7 @@ using std::cout;
 void ExceptionRepo::checkProbability() const
 {
 	mt19937 mt{ random_device{}() };
-	const uniform_int_distribution<> dist(0, 99);
+	uniform_int_distribution<> dist(0, 99);
 
 	const double random_double{ dist(mt) / 100.0 };
 
@@ -35,7 +35,7 @@ bool ExceptionRepo::isEmpty() const noexcept
 	for (const auto& elem : elems)
 		if (elem.value) // if (elem.value == true)
 			return false;
-	
+
 	return true;
 }
 
@@ -57,7 +57,7 @@ void ExceptionRepo::addProduct(const TKey& product)
 
 				return;
 				*/
-				
+
 				break;
 			}
 		}

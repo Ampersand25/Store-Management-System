@@ -67,7 +67,7 @@ private:
 	* Functie de test care verifica daca un produs p are atributul name identic cu name, atributul type identic cu type, atributul price identic cu price si atributul producer identic cu producer
 	*/
 	void testFunction(const Product& p, const string& name, const string& type, const double& price, const string& producer) const noexcept;
-	
+
 	/*
 	* Metoda care testeaza functia filterProducts (de filtrare a produselor dupa un criteriu) din fisierul header/antet Business.h
 	*/
@@ -141,7 +141,7 @@ public:
 	* Constructor custom al unui obiect de clasa TestingService care primeste o referinta la un obiect valid de clasa ProductValidator
 	* Contructorul va popula atributul privat valid al obiectului instantiat cu obiectul primit
 	*/
-	TestingService(ProductValidator& valid) noexcept : valid{ valid }  {
+	TestingService(ProductValidator& valid) noexcept : valid{ valid } {
 
 	}
 

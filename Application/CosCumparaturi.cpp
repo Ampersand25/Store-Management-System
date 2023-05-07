@@ -43,8 +43,8 @@ void CosCumparaturi::adaugaInCos(const string& name, const string& producer)
 	const auto& products{ repo.getAll() };
 
 	const auto& p = find_if(products.begin(),
-							products.end(),
-							[&name, &producer](const Product& product) noexcept {return product.getName() == name && product.getProducer() == producer; });
+		products.end(),
+		[&name, &producer](const Product& product) noexcept {return product.getName() == name && product.getProducer() == producer; });
 
 	if (p == products.end())
 		throw CosException("[!]Produsul cautat nu se afla in stoc!\n");
@@ -59,7 +59,7 @@ void CosCumparaturi::adaugaInCos(const string& name, const string& producer)
 		{
 			++cos[elem.key];
 			found = true;
-			
+
 			break;
 		}
 	}
@@ -77,7 +77,7 @@ void CosCumparaturi::genereazaCos(unsigned number_of_products)
 	const auto& products{ repo.getAll() };
 
 	mt19937 mt{ random_device{}() };
-	const uniform_int_distribution<> dist(0, (int)products.size() - 1);
+	uniform_int_distribution<> dist(0, (int)products.size() - 1);
 
 	for (unsigned i{ 0 }; i < number_of_products; ++i)
 	{
@@ -118,7 +118,7 @@ void CosCumparaturi::exportCosFisierCSV(const string& filename) const
 	const auto full_filename{ path + filename + extension }; // const string full_filename{ path + filename + extension };
 
 	ofstream out{ full_filename }; // ofstream out(full_filename);
-	
+
 	out << "Index,Nume,Tip,Pret,Producator,Cantitate\n"; // de la berlioz10 (aka Dragon Spiridus)
 
 	auto idx{ 0 };
@@ -129,11 +129,11 @@ void CosCumparaturi::exportCosFisierCSV(const string& filename) const
 		const auto& quantity{ elem.value };
 
 		out << ++idx << ',' <<
-		prod.getName() << ',' <<
-		prod.getType() << ',' <<
-		prod.getPrice() << ',' <<
-		prod.getProducer() << ',' <<
-		quantity << '\n';
+			prod.getName() << ',' <<
+			prod.getType() << ',' <<
+			prod.getPrice() << ',' <<
+			prod.getProducer() << ',' <<
+			quantity << '\n';
 	}
 
 	out.close();
@@ -143,11 +143,11 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 {
 	//if (cosGol()) // if (this->cosGol())
 	//	throw CosException("[!]Nu exista produse in cosul de cumparaturi!\n");
-	
+
 	const auto path{ ".\\Export cos cumparaturi\\" };        // const string path{ ".\\Export cos cumparaturi\\" };
 	const auto extension{ ".html" };                         // const string extension{ ".html" };
 	const auto full_filename{ path + filename + extension }; // const string full_filename{ path + filename + extension };
-	
+
 	ofstream out{ full_filename }; // ofstream out(full_filename);
 
 	/*
@@ -177,7 +177,7 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 			quantity << "<br>";
 		}
 	}
-	
+
 	out << "</p>\n";
 
 	out << "\n<span style=\"color:blue\">[$]Pret total produse: " << this->getTotal() << "</span>\n";
@@ -187,10 +187,10 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 
 	out.close();
 	*/
-	
+
 	out << "<!DOCTYPE html>\n";
 	out << "<html lang=\"en\">\n";
-	
+
 	out << "<head>\n";
 	out << "<title>Cos produse magazin</title>\n";
 	out << "<meta charset=\"utf-8\">\n";
@@ -199,7 +199,7 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 	out << "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>\n";
 	out << "<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>\n";
 	out << "</head>\n";
-	
+
 	out << "<body>\n";
 	out << "<div class=\"cos cumparaturi\">\n";
 	out << "<h1><b>Cos de cumparaturi</b></h1>\n";
@@ -223,7 +223,7 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 		out << "</thead>\n";
 
 		out << "<tbody>\n";
-		
+
 		auto idx{ 0 };
 
 		for (const auto& elem : cos)
@@ -244,7 +244,7 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 		out << "</tbody>\n";
 		out << "</table>\n";
 	}
-	
+
 	out << "</div>\n";
 
 	out << "<h4 style=\"color:green\">[=]Numar total produse cos: " << this->nrProduseCos() << "</h4>\n";
@@ -313,14 +313,14 @@ void CosCumparaturi::modificaProduseCos(const Product& product)
 {
 	auto iter{ cos.begin() };
 
-	while(iter != cos.end())
+	while (iter != cos.end())
 	{
 		const auto& elem{ *iter };
 		const auto& prod{ elem.key };
 		const auto quantity{ elem.value };
 
 		if (prod == product) // if (prod.getName() == product.getName() && prod.getProducer() == product.getProducer())
-			                 // if (prod.cmpProducts(product))
+			// if (prod.cmpProducts(product))
 		{
 			total_price -= prod.getPrice() * quantity;
 			total_price += product.getPrice() * quantity;
@@ -353,7 +353,7 @@ void CosCumparaturi::stergeProduseCos(const string& name, const string& producer
 			cos.erase(iter);
 
 			this->notify(); // notify();
-			
+
 			return;
 		}
 

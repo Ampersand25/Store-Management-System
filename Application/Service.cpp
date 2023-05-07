@@ -38,12 +38,12 @@ void Service::verifyIfInteger(const string& str) const
 void Service::add(const string& name, const string& type, const double& price, const string& producer)
 {
 	Product product{ name, type, price, producer }; // cream produsul cu numele name, tipul type, pretul price si producatorul producer
-	
+
 	valid.validateProduct(product); // validam obiectul de clasa Product (produsul) creat (instantiat) anterior/precedent
 	repo.addProduct(product); // incercam sa adaugam in repo produsul product
 
 	undo_list.push_back(make_unique<UndoAdauga>(repo, product)); // adaugam in lista (vectorul) undo_list un smart pointer la un obiect de clasa UndoAdauga care va retine un obiect de clasa Repository si elementeul (obiect de clasa Product) adaugat in repo
-	
+
 	this->notify(); // notify();
 }
 
@@ -51,19 +51,19 @@ void Service::del(const string& name, const string& producer)
 {
 	// validam numele name si producatorul producer
 	string err{ "" }; // lista de erori (string)
-	
+
 	if (!name.size())     // if (name == "")
 		err += "[!]Nume invalid!\n";       // name invalid
 	if (!producer.size()) // if (producer == "")
 		err += "[!]Producator invalid!\n"; // producer invalid
 
-	if(err.size()) // lista de erori contine cel putin o eroare (name si/sau producer sunt stringuri vide, deci invalide)
+	if (err.size()) // lista de erori contine cel putin o eroare (name si/sau producer sunt stringuri vide, deci invalide)
 		throw ServiceException(err); // aruncam exceptie de clasa ServiceException cu mesajul de eroare/exceptie err
 
 	// salvam in variabila deleted_product o copie a produsului (obiect de clasa Product) de dinainte de stergere
 	auto deleted_product{ this->search(name, producer) }; // const auto& deleted_product{ repo.searchProduct(name, producer) };
 	repo.deleteProduct(name, producer); // incercam sa stergem produsul cu numele name si producatorul producer din magazin (repo)
-	
+
 	// pe linia asta se ajunge daca exista un produs (obiect de clasa Product) cu numele name si producatorul producer
 	// cu alte cuvinte, metoda publica deleteProduct a obiectului repo nu a aruncat exceptie (deci stergerea s-a realizat cu succes)
 	cos.stergeProduseCos(name, producer); // stergem/eliminam toate produsele din cosul de cumparaturi cu numele name si producatorul producer
@@ -76,12 +76,12 @@ void Service::del(const string& name, const string& producer)
 void Service::modify(const string& name, const string& type, const double& price, const string& producer)
 {
 	Product product{ name, type, price, producer }; // cream produsul cu numele name, tipul type, pretul price si producatorul producer
-	
+
 	valid.validateProduct(product); // validam obiectul de clasa Product (produsul) creat (instantiat) anterior/precedent
 	// salvam in variabila modified_product o copie a produsului (obiect de clasa Product) de dinainte de modificare
 	auto modified_product{ this->search(name, producer) }; // const auto& modified_product{ repo.searchProduct(name, producer) };
 	repo.modifyProduct(product); // incercam sa modificam un produs care are numele name si producatorul producer din repo (daca acesta exista) cu noul produs product
-	
+
 	// pe linia asta se ajunge daca exista un produs (obiect de clasa Product) product in magazin (repository)
 	// cu alte cuvinte, metoda publica modifyProduct a obiectului repo nu a aruncat exceptie (deci modificarea s-a realizat cu succes)
 	cos.modificaProduseCos(product); // modificam toate produsele din cosul de cumparaturi care au acelasi nume si producator cu produsul product (adica numele name si producatorul producer)
@@ -100,7 +100,7 @@ const Product& Service::search(const string& name, const string& producer) const
 		throw ServiceException("[!]Nume invalid!\n");
 	if (!producer.size())                // if (producer == "")
 		throw ServiceException("[!]Producator invalid!\n");
-	
+
 	return repo.searchProduct(name, producer); // cautam un produs cu numele name si producatorul producer in lista de produse din repository
 }
 
@@ -340,7 +340,7 @@ vector<Product> Service::sortProducts(const string& crt, const string& ord) cons
 {
 	/*
 	auto products = repo.getAll();
-	
+
 	if (ord == "c" || ord == "C")      // ordinea de sortare: crescator
 		sortProductsAscending(products, crt);
 	else if (ord == "d" || ord == "D") // ordinea de sortare: descrescator

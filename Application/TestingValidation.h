@@ -33,4 +33,3 @@ public:
 	*/
 	void runTestsProductValidator() const;
 };
-

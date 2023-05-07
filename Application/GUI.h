@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include "Service.h"
 #include "HistogramGUI.h"
@@ -33,7 +33,7 @@ private:
 	// atribute/campuri private
 
 	bool theme{ false }; // false - light theme
-						 // true  - dark theme (beta)
+	// true  - dark theme (beta)
 
 	Service& srv; // referinta la un obiect de clasa Service
 
@@ -99,10 +99,10 @@ private:
 
 	QListWidget* lst_products = new QListWidget();
 	QTableWidget* tbl_products = new QTableWidget();
-	
+
 	QListView* lst_products_view = new QListView{};
 	QTableView* tbl_products_view = new QTableView{};
-	
+
 	ListModelProducts* lst_products_model;
 	TableModelProducts* tbl_products_model;
 
@@ -144,40 +144,21 @@ private:
 
 	QListView* lst_cumparaturi_view = new QListView;
 	QTableView* tbl_cumparaturi_view = new QTableView;
-	
+
 	ListModelCos* lst_cumparaturi_model = new ListModelCos{ srv.getCosSrv() };
 	TableModelCos* tbl_cumparaturi_model = new TableModelCos{ srv.getCosSrv() };
 
 	QComboBox* sort_options_combo_box = new QComboBox;
 	QComboBox* filter_options_combo_box = new QComboBox;
 
-	//const QIcon shopping_cart_icon{ "./Logo-uri aplicatie/cart" };
-	//const QIcon store_icon{ "./Logo-uri aplicatie/store" };
-	//const QIcon store_sucpi_icon{ "./Logo-uri aplicatie/Sucpi" };
-	//const QIcon product_icon{ "./Logo-uri aplicatie/product" };
-	//const QIcon pls_pp_icon{ "./Logo-uri aplicatie/xoaye" };
-	//const QIcon pog_icon{ "./Logo-uri aplicatie/pog" };
-	//const QIcon perne_icon{ "./Logo-uri aplicatie/perne" };
-	//const QIcon cos_read_only_icon{ "./Logo-uri aplicatie/CosReadOnlyIcon" };
-	//const QIcon cos_crud_icon{ "./t/CosCRUDIcon" };
+	const QIcon shopping_cart_icon{ "./Logo-uri aplicatie/shoppingCartIcon" };
+	const QIcon store_icon{ "./Logo-uri aplicatie/storeIcon" };
+	const QIcon product_icon{ "./Logo-uri aplicatie/productIcon" };
+	const QIcon cos_read_only_icon{ "./Logo-uri aplicatie/shoppingReadOnlyIcon" };
+	const QIcon cos_crud_icon{ "./Logo-uri aplicatie/shoppingCRUDIcon" };
 
-	const QIcon shopping_cart_icon{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\cart" };
-	const QIcon store_icon{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\store" };
-	const QIcon store_sucpi_icon{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\Sucpi" };
-	const QIcon product_icon{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\product" };
-	const QIcon pls_pp_icon{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\xoaye" };
-	const QIcon pog_icon{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\pog" };
-	const QIcon perne_icon{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\perne" };
-	const QIcon cos_read_only_icon{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\CosReadOnlyIcon" };
-	const QIcon cos_crud_icon{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\CosCRUDIcon" };
-
-	//const QPixmap sad_pix_map{ "./Logo-uri aplicatie/sad" };
-	//const QPixmap happy_pix_map{ "./Logo-uri aplicatie/happy" };
-	//const QPixmap horny_pix_map{ "./Logo-uri aplicatie/horny" };
-
-	const QPixmap sad_pix_map{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\sad" };
-	const QPixmap happy_pix_map{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\happy" };
-	const QPixmap horny_pix_map{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\horny" };
+	const QPixmap sad_pix_map{ "./Logo-uri aplicatie/sad" };
+	const QPixmap happy_pix_map{ "./Logo-uri aplicatie/happy" };
 
 	unsigned number_of_undo;
 
@@ -214,10 +195,6 @@ private:
 	void initGuiCmp();
 	void connectSignals();
 	void setInitialState();
-
-	QDialog* pls_pp_dialog = nullptr;
-	QPushButton* btn_pls_pp = new QPushButton{ "&1pls pp" };
-	QLineEdit* pls_pp_edt = new QLineEdit;
 
 	// Varianta veche (fara Observer)
 	QWidget* cosCRUDGUI_wdg;

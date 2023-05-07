@@ -300,7 +300,7 @@ void TestingRepo::runTestsRepoModifyProduct() const
 	assert(repo.len() == 5);
 
 	try {
-		repo.modifyProduct({"Nume produs 1", "Tip produs 1 nou", 83, "Producator produs 2"});
+		repo.modifyProduct({ "Nume produs 1", "Tip produs 1 nou", 83, "Producator produs 2" });
 		assert(false);
 	}
 	catch (const RepoException& re) {
@@ -390,7 +390,7 @@ void TestingRepo::runTestsRepoSearchProduct() const
 	assert(repo.len() == 0);
 
 	try {
-		repo.searchProduct("Nume produs 1", "Producator produs 1" );
+		repo.searchProduct("Nume produs 1", "Producator produs 1");
 		assert(false);
 	}
 	catch (const RepoException& re) {
@@ -408,7 +408,7 @@ void TestingRepo::runTestsRepoSearchProduct() const
 		repo.searchProduct("Nume produs 2", "Producator produs 1");
 		assert(false);
 	}
-	catch(const RepoException& re){
+	catch (const RepoException& re) {
 		assert(re.getMessage() == "[!]Produs inexistent!\n");
 	}
 	assert(repo.len() == 5);

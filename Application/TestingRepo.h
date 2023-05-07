@@ -15,22 +15,22 @@ private:
 	* atributul/campul privat producer (producator produs) identic cu parametrul/argumentul producer
 	*/
 	void testFunction(const Product& p, const string& name, const string& type, const double& price, const string& producer) const noexcept;
-	
+
 	/*
 	* Metoda care testeaza functia addProduct din repo
 	*/
 	void runTestsRepoAddProduct() const;
-	
+
 	/*
 	* Metoda care testeaza functia deleteProduct din repo
 	*/
 	void runTestsRepoDeleteProduct() const;
-	
+
 	/*
 	* Metoda care testeaza functia modifyProduct din repo
 	*/
 	void runTestsRepoModifyProduct() const;
-	
+
 	/*
 	* Metoda care testeaza functia searchProduct din repo
 	*/
@@ -54,4 +54,3 @@ public:
 	*/
 	void runTestsRepo() const;
 };
-

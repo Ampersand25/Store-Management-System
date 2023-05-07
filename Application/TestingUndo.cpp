@@ -21,7 +21,7 @@ void TestingUndo::testFunction(const Product& product_1, const Product& product_
 void TestingUndo::runTestsUndoAdauga() const
 {
 	RepoProducts repo;
-	Product product_1{"x", "y", 4.73, "z"};
+	Product product_1{ "x", "y", 4.73, "z" };
 	Product product_2{ "a", "b", 16.361, "c" };
 	Product product_3{ "d", "e", 8.3, "f" };
 
@@ -42,7 +42,7 @@ void TestingUndo::runTestsUndoAdauga() const
 	testFunction(repo.getAll().at(1), product_2);
 	testFunction(repo.getAll().at(2), product_3);
 
-	UndoAdauga undo_adauga_2{repo, product_2};
+	UndoAdauga undo_adauga_2{ repo, product_2 };
 	undo_adauga_2.doUndo();
 	assert(repo.len() == 2);
 	testFunction(repo.getAll().at(0), product_1);

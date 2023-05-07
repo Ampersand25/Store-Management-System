@@ -15,7 +15,7 @@ public:
 	TableModelCosCRUDGUI() = delete;
 
 	TableModelCosCRUDGUI(CosCumparaturi& cos) : cos{ cos } {
-		
+
 	}
 
 	TableModelCosCRUDGUI(TableModelCosCRUDGUI& ot) = delete;

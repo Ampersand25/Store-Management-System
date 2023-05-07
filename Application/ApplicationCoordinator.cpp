@@ -70,9 +70,9 @@ string readOptionDataPersistence(void)
     // ans este stringul "1", "2" sau "3"
 
     return ans; // returnam/intoarcem prin numele functiei stringul care reprezinta modul in care se vor salva datele in fisier
-                // ans = "1" - salvarea datelor in memorie
-                // ans = "2" - salvarea datelor in fisier
-                // ans = "3" - salvarea datelor in memorie folosind un repository de exceptii
+    // ans = "1" - salvarea datelor in memorie
+    // ans = "2" - salvarea datelor in fisier
+    // ans = "3" - salvarea datelor in memorie folosind un repository de exceptii
 }
 
 /*
@@ -87,7 +87,7 @@ string readFilename(void)
     getline(cin, filename); // citim stringul filename de la tastatura (intrarea standard) cu functia getline (care citeste si spatiile, pana la newline = end of line)
 
     while (filename.empty()) // while (!filename.size())
-                             // while (filename == "")
+        // while (filename == "")
     {
         // stringul citit de la tastatura (filename) este vid/gol
         // acesta nu poate reprezenta numele unui fisier text
@@ -101,7 +101,7 @@ string readFilename(void)
     // stringul filename contine cel putin un element (caracter) <=> nu este gol
 
     return filename; // returnam/intoarcem prin numele functiei un string (sir de caractere din STL) care reprezinta numele fisierului text in care se vor salva datele din aplicatie
-                     // filename <> "" (stringul filename nu este stringul vid)
+    // filename <> "" (stringul filename nu este stringul vid)
 }
 
 /*
@@ -124,13 +124,13 @@ void runApplication(const unique_ptr<AbstractRepo>& repo)
 double readProbability(void)
 {
     cout << "Dati probabilitatea (valoare reala intre 0 si 1) cu care repo-ul sa arunce exceptie: ";
-    
+
     string str_probability{ "" };  // probabilitatea cu care repository-ul sa arunce/ridice exceptie in oricare din metodele sale
-                                   // string str_probability;
+    // string str_probability;
     getline(cin, str_probability); // citim stringul str_probability de la tastatura (intrarea standard) cu functia getline (care citeste si spatiile, pana la newline = end of line)
 
     double probability; // probabilitatea repository-ului de exceptii
-                        // probability - numar real in dubla precizie (pe 64 de biti) din intervalul [0, 1]
+    // probability - numar real in dubla precizie (pe 64 de biti) din intervalul [0, 1]
 
     try {
         probability = stod(str_probability); // apelam functia build-in std::stod (string to double) din libraria string
@@ -158,12 +158,12 @@ void setUpRepository(void)
     cout << "\n>>>";
 
     const string ans{ readOptionDataPersistence() }; // string in care retinem modul de salvare a datelor in aplicatie
-                                                     // ans = "1" - salvare in memorie
-                                                     // ans = "2" - salvare in fisier text
-                                                     // ans = "3" - salvare in repo de exceptii
+    // ans = "1" - salvare in memorie
+    // ans = "2" - salvare in fisier text
+    // ans = "3" - salvare in repo de exceptii
 
     unique_ptr<AbstractRepo> repo{}; // unique_ptr<AbstractRepo> repo;
-                                     // smart pointer care retine un obiect de clasa AbstractRepo (sau obiecte de clasa derivata din aceasta)
+    // smart pointer care retine un obiect de clasa AbstractRepo (sau obiecte de clasa derivata din aceasta)
 
     if (ans == "1")
     {
@@ -187,8 +187,8 @@ void setUpRepository(void)
 
         double probability{}; // probabilitatea cu care repo-ul sa ridice exceptie (numar real din intervalul [0, 1])
         auto valid_probability{ false }; // semafor (flag) care sa indice daca probabilitatea citita este sau nu valida
-                                         // valid_probability = false - probabilitatea citita in functia readProbability nu este o valoare reala intre 0 si 1
-                                         // valid_probability = true  - in caz contrar
+        // valid_probability = false - probabilitatea citita in functia readProbability nu este o valoare reala intre 0 si 1
+        // valid_probability = true  - in caz contrar
 
         while (!valid_probability) // cat timp probabilitatea nu este valida (un numar real din intervalul [0, 1]), reapelam functia readProbability pentru a citi o probabilitate noua
         {
@@ -208,9 +208,9 @@ void setUpRepository(void)
 
         repo = make_unique<ExceptionRepo>(probability); // instantiem un obiect de clasa ExceptionRepo caruia ii atribuim ca si camp privat valoarea reala probability
     }
-    
+
     cout << endl; // simulam trecerea la rand nou (linie noua)
-                  // endl = end of line (caracterul '\n')
+    // endl = end of line (caracterul '\n')
 
     system("pause"); // oprim consola (terminaul) pana la primirea de input de la user (utilizator)
 
@@ -242,7 +242,7 @@ int oldMain(void)
 
     // Asamblarea si rularea aplicatie
     setUpRepository();
-    
+
     // Testam aplicatia de memory leaks (scurgeri/leak-uri de memorie)
     testMemoryLeaks();
 

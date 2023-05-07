@@ -14,8 +14,7 @@ using std::uniform_int_distribution;
 
 class Histogram : public QWidget, public Observer {
 private:
-	//const QIcon histogram_icon{ "./Logo-uri aplicatie/happy_sad" };
-	const QIcon histogram_icon{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\HistogramIcon" };
+	const QIcon histogram_icon{ "./Logo-uri aplicatie/histogramIcon" };
 
 	const QString histogram_title{ "Histograma tipuri produse" };
 
@@ -48,7 +47,7 @@ public:
 	void paintEvent(QPaintEvent* ev) override {
 		QPainter painter{ this };
 
-		const uniform_int_distribution<> dist_color(0, 255);
+		uniform_int_distribution<> dist_color(0, 255);
 
 		auto cont{ 0 };
 		const auto fixed_increase{ 50 };

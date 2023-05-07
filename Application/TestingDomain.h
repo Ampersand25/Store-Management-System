@@ -14,17 +14,17 @@ private:
 	* Metoda care testeaza functiile de tip getter din domain (domeniu)
 	*/
 	void runTestsDomainGetters() const;
-	
+
 	/*
 	* Metoda care testeaza functiile de tip setter din domain (domeniu)
 	*/
 	void runTestsDomainSetters() const;
-	
+
 	/*
 	* Metoda care testeaza functia cmpProducts din domain (domeniu) care compara doua obiecte de clasa Product
 	*/
 	void runTestsDomainCmpProducts() const;
-	
+
 	/*
 	* Metoda care testeaza functia strProduct din domain (domeniu)
 	*/

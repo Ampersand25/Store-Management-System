@@ -111,7 +111,7 @@ public:
 		this->visible = value; // visible = value;
 
 		this->setCumparaturi(); // setCumparaturi();
-								// emit layoutChanged();
+		// emit layoutChanged();
 	}
 
 	void setLastSelectedItem(const int& last) {

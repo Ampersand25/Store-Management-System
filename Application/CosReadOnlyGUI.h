@@ -17,20 +17,10 @@ using std::uniform_int_distribution;
 
 class CosReadOnlyGUI : public QWidget, public Observer {
 private:
-	//const QIcon cos_read_only_icon{ "./Logo-uri aplicatie/CosReadOnlyIcon" };
-	const QIcon cos_read_only_icon{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\CosReadOnlyIcon" };
+	const QIcon cos_read_only_icon{ "./Logo-uri aplicatie/shoppingReadOnlyIcon" };
 
-	//QImage img1{ "./Logo-uri aplicatie/happy_sad" };
-	QImage img1{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\happy_sad" };
-
-	//QImage img2{ "./Logo-uri aplicatie/happy" };
-	QImage img2{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\happy" };
-
-	//QImage img3{ "./Logo-uri aplicatie/xoaye" };
-	QImage img3{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\xoaye" };
-
-	//QImage img4{ "./Logo-uri aplicatie/amogus" };
-	QImage img4{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\amogus" };
+	QImage img1{ "./Logo-uri aplicatie/sadIcon" };
+	QImage img2{ "./Logo-uri aplicatie/happyIcon" };
 
 	mt19937 mt{ random_device{}() };
 
@@ -52,8 +42,8 @@ public:
 		this->setWindowTitle("Fereastra CosReadOnlyGUI");
 		this->setWindowIcon(cos_read_only_icon);
 
-		const uniform_int_distribution<> dist_x(0, 900);
-		const uniform_int_distribution<> dist_y(0, 300);
+		uniform_int_distribution<> dist_x(0, 900);
+		uniform_int_distribution<> dist_y(0, 300);
 
 		const auto ax{ dist_x(mt) };
 		const auto ay{ dist_y(mt) };
@@ -84,11 +74,11 @@ public:
 
 		QPainter painter{ this };
 
-		const uniform_int_distribution<> dist_bin(0, 1);
-		const uniform_int_distribution<> dist_x(0, this->width() - MAX(MAX(img1.width(), size_1), MAX(img2.width(), size_2)));
-		const uniform_int_distribution<> dist_y(0, this->height() - MAX(MAX(img1.height(), size_1), MAX(img2.height(), size_2)));
-		const uniform_int_distribution<> dist_color(0, 255);
-		const uniform_int_distribution<> dist_xoaye(1, 420);
+		uniform_int_distribution<> dist_bin(0, 1);
+		uniform_int_distribution<> dist_x(0, this->width() - MAX(MAX(img1.width(), size_1), MAX(img2.width(), size_2)));
+		uniform_int_distribution<> dist_y(0, this->height() - MAX(MAX(img1.height(), size_1), MAX(img2.height(), size_2)));
+		uniform_int_distribution<> dist_color(0, 255);
+		uniform_int_distribution<> dist_xoaye(1, 420);
 
 		for (auto i{ 0 }; i < cos_size; ++i)
 		{
@@ -96,42 +86,59 @@ public:
 			const int y{ dist_y(mt) }; // height
 
 			QPoint point{ x, y };
-			
-			const auto luck{ dist_xoaye(mt) };
 
-			//if (luck <= 6)
-			//	painter.drawImage(point, img3);
-			//else if(luck <= 12)
-			//	painter.drawImage(point, img4);
+			const auto luck{ dist_xoaye(mt) };
+			
+			// Varianta cu dreptunghiuri orizontale si verticale
+			painter.setBrush(QBrush(QColor::fromRgb(dist_color(mt), dist_color(mt), dist_color(mt), 255), Qt::SolidPattern));
+
+			QRect rect;
+
+			rect.setX(x);
+			rect.setY(y);
+
 			if (!dist_bin(mt))
 			{
-				// Varianta cu imagini
-				if (!dist_bin(mt))
-					painter.drawImage(point, img1);
-				else
-					painter.drawImage(point, img2);
+				rect.setHeight(size_1);
+				rect.setWidth(size_2);
 			}
 			else {
-				// Varianta cu dreptunghiuri orizontale si verticale
-				painter.setBrush(QBrush(QColor::fromRgb(dist_color(mt), dist_color(mt), dist_color(mt), 255), Qt::SolidPattern));
-
-				QRect rect;
-
-				rect.setX(x);
-				rect.setY(y);
-
-				if (!dist_bin(mt))
-				{
-					rect.setHeight(size_1);
-					rect.setWidth(size_2);
-				}
-				else {
-					rect.setHeight(size_2);
-					rect.setWidth(size_1);
-				}
-
-				painter.drawPolygon(rect); // painter.drawRect(rect);
+				rect.setHeight(size_2);
+				rect.setWidth(size_1);
 			}
+
+			painter.drawPolygon(rect); // painter.drawRect(rect);
+
+			// Varianta cu dreptunghiuri orizontale si verticale si imagini (random)
+			//if (!dist_bin(mt))
+			//{
+			//	// Varianta cu imagini
+			//	if (!dist_bin(mt))
+			//		painter.drawImage(point, img1);
+			//	else
+			//		painter.drawImage(point, img2);
+			//}
+			//else {
+			//	// Varianta cu dreptunghiuri orizontale si verticale
+			//	painter.setBrush(QBrush(QColor::fromRgb(dist_color(mt), dist_color(mt), dist_color(mt), 255), Qt::SolidPattern));
+
+			//	QRect rect;
+
+			//	rect.setX(x);
+			//	rect.setY(y);
+
+			//	if (!dist_bin(mt))
+			//	{
+			//		rect.setHeight(size_1);
+			//		rect.setWidth(size_2);
+			//	}
+			//	else {
+			//		rect.setHeight(size_2);
+			//		rect.setWidth(size_1);
+			//	}
+
+			//	painter.drawPolygon(rect); // painter.drawRect(rect);
+			//}
 		}
 	}
 

@@ -20,13 +20,13 @@ class CosCumparaturi : public Observable
 {
 private:
 	// atribute/campuri private (nu pot fi accesate din exteriorul clasei)
-	
+
 	dictionary cos;     // cos         - map (TAD Dictionar ordonat/sortat implementat cu Red-Black Tree) din STL care mapeaza chei (obiecte de clasa Product) la valori intregi fara semn (unsigned)
 	AbstractRepo& repo; // repo        - referinta la un obiect de clasa AbstractRepo
 	double total_price; // total_price - variabila de tip double (numar real reprezentat in virgula mobila/flotanta cu dubla precizie)
 
 	// metodele private (nu pot fi apelate din exteriorul clasei)
-	
+
 	/*
 	* Functie de tip operand care verifica daca cosul de cumparaturi este sau nu gol
 	* Date de intrare: -
@@ -53,7 +53,7 @@ public:
 	* Pe atributul privat cos (de tipul vector) se va apela constructorul default si acesta va fi un vector vid (fara elemente)
 	*/
 	CosCumparaturi(AbstractRepo& repo) noexcept : repo{ repo }, total_price{ 0 } {
-	
+
 	}
 
 	/*

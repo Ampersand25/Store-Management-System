@@ -66,7 +66,7 @@ void TestingApp::runTestsApp() const
 	{
 		RepoProducts repo;
 		CosCumparaturi cos_cumparaturi{ repo };
-		
+
 		const TestingCosCumparaturi testing_cos_cumparaturi{ cos_cumparaturi, repo };
 		testing_cos_cumparaturi.runTestsCosCumparaturi();
 	}

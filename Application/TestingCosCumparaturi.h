@@ -110,4 +110,3 @@ public:
 	*/
 	void runTestsCosCumparaturi() const;
 };
-

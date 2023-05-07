@@ -108,7 +108,7 @@ public:
 		this->visible = value; // visible = value;
 
 		this->setCosCumparaturi(); // setCosCumparaturi();
-		                           // emit layoutChanged();
+		// emit layoutChanged();
 	}
 
 	~TableModelCos() = default;

@@ -5,7 +5,7 @@
 #include <cassert> // #include <assert.h>
 
 void TestingValidation::runTestsProductValidator() const
-{	
+{
 	try {
 		valid.validateProduct(Product{ "a", "b", 0.1, "c" });
 		assert(true);

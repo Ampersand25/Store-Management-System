@@ -25,7 +25,7 @@ public:
 	* si instantiaza un obiect de clasa Exception care sa aiba ca si camp/atribut privat msg o copie a valorii stringului msg
 	*/
 	Exception(const string& msg) : msg{ msg } {
-		
+
 	}
 
 	/*
@@ -42,4 +42,3 @@ public:
 	*/
 	const string& getMessage() const noexcept;
 };
-

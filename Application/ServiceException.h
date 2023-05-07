@@ -8,12 +8,12 @@ public:
 	// ServiceException() = delete;
 
 	ServiceException(const string& msg) : Exception(msg) {
-	
+
 	}
 
 	/*
 	ServiceException(const string& msg) : Exception{ msg } {
-	
+
 	}
 	*/
 };

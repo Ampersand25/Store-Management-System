@@ -138,16 +138,15 @@ void CosCRUDGUI::initGuiCmpCosCRUDGUI()
 
 	mt19937 mt{ random_device{}() };
 
-	const uniform_int_distribution<> dist_x(0, 1000);
-	const uniform_int_distribution<> dist_y(0, 400);
+	uniform_int_distribution<> dist_x(0, 1000);
+	uniform_int_distribution<> dist_y(0, 400);
 
 	const auto ax{ dist_x(mt) };
 	const auto ay{ dist_y(mt) };
 
 	this->move(ax, ay);
 
-	//const QIcon cos_crud_icon{ "./Logo-uri aplicatie/CosCRUDIcon" };
-	const QIcon cos_crud_icon{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\CosCRUDIcon" };
+	const QIcon cos_crud_icon{ "./Logo-uri aplicatie/shoppingCRUDIcon" };
 
 	this->setWindowTitle("Fereastra CosCRUDGUI");
 	this->setWindowIcon(cos_crud_icon);
@@ -162,7 +161,7 @@ void CosCRUDGUI::initGuiCmpCosCRUDGUI()
 	// Varianta de liste/tabele fara model-view
 	//tab->addTab(lst_cos, "Lista produse cos");
 	//tab->addTab(tbl_cos, "Tabel produse cos");
-	
+
 	// Varianta de liste/tabele cu model-view
 	tab->addTab(lst_cos_view, "Lista produse cos");
 	tab->addTab(tbl_cos_view, "Tabel produse cos");
@@ -228,22 +227,26 @@ void CosCRUDGUI::connectSignalsCosCRUDGUI()
 		const auto val{ spin_box->value() };
 
 		QMessageBox* msg = new QMessageBox;
+		msg->setWindowTitle("Generare cos de cumparaturi");
 
 		try {
 			cos.genereazaCos(val);
 			btn_gol->setDisabled(false);
 
 			msg->setText("[*]Generarea cosului de cumparaturi s-a realizat cu succes!\n[$]Pret total: " + QString::number(cos.getTotal()) + "\n[#]Numar total produse cos: " + QString::number(cos.nrProduseCos()));
+			msg->setIcon(QMessageBox::Information);
 		}
 		catch (const RepoException& re) {
 			qDebug() << QString::fromStdString(re.getMessage());
 
 			msg->setText(QString::fromStdString(re.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
 		}
 		catch (const ServiceException& se) {
 			qDebug() << QString::fromStdString(se.getMessage());
 
 			msg->setText(QString::fromStdString(se.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
 		}
 
 		msg->show();
@@ -259,6 +262,8 @@ void CosCRUDGUI::connectSignalsCosCRUDGUI()
 
 	QObject::connect(btn_gol, &QPushButton::clicked, this, [&]() {
 		QMessageBox msg_box;
+		msg_box.setWindowTitle("Confirmare golire cos");
+		msg_box.setIcon(QMessageBox::Question);
 		msg_box.setText("Sunteti sigur ca doriti sa stergeti toate produsele din cosul de cumparaturi?");
 		msg_box.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
 		msg_box.setDefaultButton(QMessageBox::No);
@@ -266,6 +271,7 @@ void CosCRUDGUI::connectSignalsCosCRUDGUI()
 		const auto ret{ msg_box.exec() };
 
 		QMessageBox* msg = new QMessageBox;
+		msg->setWindowTitle("Golire cos de cumparaturi");
 
 		switch (ret) {
 		case QMessageBox::Yes:
@@ -277,11 +283,13 @@ void CosCRUDGUI::connectSignalsCosCRUDGUI()
 
 				//msg->setText("[*]Toate produsele din cosul de cumparaturi au fost eliminate cu succes!\n[$]Pret total: " + QString::number(srv.totalCos()) + "\n[#]Numar total produse cos: 0");
 				msg->setText("[*]Toate produsele din cosul de cumparaturi au fost eliminate cu succes!\n[$]Pret total: 0\n[#]Numar total produse cos: 0");
+				msg->setIcon(QMessageBox::Information);
 			}
 			catch (const CosException& ce) {
 				qDebug() << QString::fromStdString(ce.getMessage());
 
 				msg->setText(QString::fromStdString(ce.getMessage()));
+				msg->setIcon(QMessageBox::Critical);
 			}
 
 			msg->show();

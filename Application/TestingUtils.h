@@ -8,7 +8,7 @@ private:
 	// atribute private
 
 	Utils& utils; // atribut de tip referinta la un obiect utils de clasa Utils
-	
+
 	// metode private (nu pot fi apelate din exteriorul clasei, ci doar din interiorul acesteia)
 
 	/*
@@ -38,7 +38,7 @@ public:
 	* Constructor custom al unui obiect de clasa TestingUtils care primeste o referinta la un obiect utils de clasa Utils
 	* Contructorul va popula atributul privat utils al obiectului instantiat cu obiectul primit
 	*/
-	TestingUtils(Utils& utils) noexcept : utils { utils } {
+	TestingUtils(Utils& utils) noexcept : utils{ utils } {
 
 	}
 

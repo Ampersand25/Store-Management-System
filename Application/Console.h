@@ -6,7 +6,7 @@ class UI
 {
 private:
 	Service& srv; // referinta la un obiect de clsa Service
-	
+
 	/*
 	* Procedura care afiseaza/tipareste meniul aplicatiei (lista de comenzi disponibile)
 	*/
@@ -16,7 +16,7 @@ private:
 	* Procedura care incearca adaugarea unui produs in magazin
 	*/
 	void addUI() const;
-	
+
 	/*
 	* Procedura care incearca stergerea unui produs din magazin
 	*/
@@ -104,7 +104,7 @@ private:
 	* Procedura care sorteaza/ordoneaza produsele existente in magazin dupa un anumit criteriu si o ordine data (crescator sau descrescator)
 	*/
 	void sortUI() const;
-	
+
 	/*
 	* Procedura care afiseaza/tipareste meniul cosului de cumparaturi (lista de actiuni disponibile)
 	*/
@@ -157,7 +157,7 @@ private:
 	* Procedura care adauaga 10 obiecte de clasa Product (10 inregistrari) in lista din repo (adica in magazin)
 	*/
 	void debugUI() const;
-	
+
 public:
 	/*
 	* Constructorul default de instantiere (care nu primeste niciun argument/parametru)
@@ -184,4 +184,3 @@ public:
 	*/
 	void runApp() const;
 };
-

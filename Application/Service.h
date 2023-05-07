@@ -75,7 +75,7 @@ private:
 	* Exceptii: metoda ridica exceptie de tipul ServiceException cu mesajul de eroare/exceptie "[!]Criteriu de sortare invalid!\n" daca nu se respecta preconditiile (crt <> "1" si crt <> "2" si crt <> "3", adica criteriu de sortare este invalid)
 	*/
 	// void sortProductsAscending(vector<Product>& products, const string& crt) const;
-	
+
 	/*
 	* Metoda care sorteaza in-place descrescator o lista products de obiecte de clasa Product dupa un criteriu crt
 	* Date de intrare: products - referinta la o lista (vector) de obiecte de clasa Product
@@ -87,7 +87,7 @@ private:
 	* Exceptii: metoda ridica exceptie de tipul ServiceException cu mesajul de eroare/exceptie "[!]Criteriu de sortare invalid!\n" daca nu se respecta preconditiile (crt <> "1" si crt <> "2" si crt <> "3", adica criteriu de sortare este invalid)
 	*/
 	// void sortProductsDescending(vector<Product>& products, const string& crt) const;
-	
+
 	/*
 	* Metoda privata care sorteaza/ordoneaza in-place o lista de obiecte de clasa Product dupa atributul/campul name (nume) in ordine crescatoare sau descrescatoare
 	* Date de intrare: products - referinta la o lista (vector din STL) de obiecte de clasa Product
@@ -99,7 +99,7 @@ private:
 	* Exceptii aruncate/ridicate: -
 	*/
 	void sortCrtName(vector<Product>& products, bool reversed) const;
-	
+
 	/*
 	* Metoda privata care sorteaza/ordoneaza in-place o lista de obiecte de clasa Product dupa atributul/campul price (pret) in ordine crescatoare sau descrescatoare
 	* Date de intrare: products - referinta la o lista (vector din STL) de obiecte de clasa Product
@@ -177,15 +177,15 @@ public:
 	* Constructor custom al unui obiect de clasa Service care primeste o referinta la un obiect repo de clasa AbstractRepo si o referinta la un obiect valid de clasa ProductValidator
 	* Contructorul va popula atributele private repo si valid ale obiectului instantiat cu obiectele primite
 	*/
-	Service(AbstractRepo& repo, ProductValidator& valid) noexcept : repo{ repo }, valid{ valid }, cosCumparaturi{ repo }, cos{ cosCumparaturi }  {
-		
+	Service(AbstractRepo& repo, ProductValidator& valid) noexcept : repo{ repo }, valid{ valid }, cosCumparaturi{ repo }, cos{ cosCumparaturi } {
+
 	}
 
 	/*
 	* Constructor custom al unui obiect de clasa Service care primeste o referinta la un obiect repo de clasa AbstractRepo, o referinta la un obiect valid de clasa ProductValidator si o referinta la un obiect cos de clasa CosCumparaturi
 	* Contructorul va popula atributele private repo, valid si cos ale obiectului instantiat cu obiectele primite
 	*/
-	Service(AbstractRepo& repo, ProductValidator& valid, CosCumparaturi& cos) noexcept : repo{ repo }, valid{ valid }, cosCumparaturi{ repo }, cos{ cos }  {
+	Service(AbstractRepo& repo, ProductValidator& valid, CosCumparaturi& cos) noexcept : repo{ repo }, valid{ valid }, cosCumparaturi{ repo }, cos{ cos } {
 
 	}
 
@@ -464,4 +464,3 @@ public:
 	*/
 	vector<Product> getCosCumparaturi() const;
 };
-

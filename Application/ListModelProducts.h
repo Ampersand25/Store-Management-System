@@ -62,9 +62,9 @@ public:
 
 			const auto prod{ prods.at(index.row() - (size_t)1) };
 
-			if (find_if(filtered_prods.begin(), filtered_prods.end(), [&prod](const Product& ot) {return prod == ot;}) != filtered_prods.end())
+			if (find_if(filtered_prods.begin(), filtered_prods.end(), [&prod](const Product& ot) {return prod == ot; }) != filtered_prods.end())
 				return QBrush(Qt::green, Qt::SolidPattern);
-			
+
 			return QBrush(Qt::red, Qt::SolidPattern);
 		}
 		else if (role == Qt::TextAlignmentRole)
@@ -111,7 +111,7 @@ public:
 		this->visible = true; // visible = true;
 
 		this->setFilter(true); // setFilter(true);
-		                       // filter_selected = true;
+		// filter_selected = true;
 
 		filtered_prods = filtered;
 
@@ -139,7 +139,7 @@ public:
 		this->visible = value; // visible = value;
 
 		this->setLayoutChanged(products); // setLayoutChanged(products);
-										  // emit layoutChanged();
+		// emit layoutChanged();
 	}
 
 	void setLastSelectedItem(const int& last) {

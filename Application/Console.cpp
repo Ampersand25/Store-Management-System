@@ -33,16 +33,16 @@ void UI::showMenu() const
 void UI::addUI() const
 {
 	string name, type, price_str, producer;
-	
+
 	cout << "Nume: ";
 	getline(cin, name);
-	
+
 	cout << "Tip: ";
 	getline(cin, type);
-	
+
 	cout << "Pret: ";
 	getline(cin, price_str);
-	
+
 	try {
 		srv.verifyIfDouble(price_str);
 	}
@@ -50,14 +50,14 @@ void UI::addUI() const
 		cerr << endl << se.getMessage() << endl;
 		return;
 	}
-	
+
 	const auto& price{ stod(price_str, nullptr) };
-	
+
 	cout << "Producator: ";
 	getline(cin, producer);
-	
+
 	cout << endl;
-	
+
 	try {
 		srv.add(name, type, price, producer);
 		cout << "[*]Adaugarea s-a realizat cu succes!\n\n";
@@ -73,15 +73,15 @@ void UI::addUI() const
 void UI::delUI() const
 {
 	string name, producer;
-	
+
 	cout << "Nume: ";
 	getline(cin, name);
-	
+
 	cout << "Producator: ";
 	getline(cin, producer);
-	
+
 	cout << endl;
-	
+
 	try {
 		srv.del(name, producer);
 		cout << "[*]Stergerea s-a realizat cu succes!\n\n";
@@ -97,16 +97,16 @@ void UI::delUI() const
 void UI::modifyUI() const
 {
 	string name, type, price_str, producer;
-	
+
 	cout << "Nume: ";
 	getline(cin, name);
-	
+
 	cout << "Tip: ";
 	getline(cin, type);
-	
+
 	cout << "Pret: ";
 	getline(cin, price_str);
-	
+
 	try {
 		srv.verifyIfDouble(price_str);
 	}
@@ -114,14 +114,14 @@ void UI::modifyUI() const
 		cerr << endl << se.getMessage() << endl;
 		return;
 	}
-	
+
 	const auto& price{ stod(price_str, nullptr) };
-	
+
 	cout << "Producator: ";
 	getline(cin, producer);
-	
+
 	cout << endl;
-	
+
 	try {
 		srv.modify(name, type, price, producer);
 		cout << "[*]Modificarea s-a realizat cu succes!\n\n";
@@ -137,15 +137,15 @@ void UI::modifyUI() const
 void UI::searchUI() const
 {
 	string name, producer;
-	
+
 	cout << "Nume: ";
 	getline(cin, name);
-	
+
 	cout << "Producator: ";
 	getline(cin, producer);
-	
+
 	cout << '\n';
-	
+
 	try {
 		const auto& p{ srv.search(name, producer) };
 		cout << "Produsul cu numele " << name << " si producatorul " << producer << " este:\n" << p.strProduct() << endl;
@@ -164,19 +164,19 @@ void UI::typeProducts(const vector<Product>& products) const
 
 	for (const auto& p : products)
 		cout << "\nProdusul #" << ++cont << ":\n" << p.strProduct();
-	
+
 	cout << endl;
 }
 
 void UI::printAllUI() const
 {
-	try{
+	try {
 		const auto& products{ srv.getAll() };
-		
+
 		cout << "Produsele din magazin sunt:\n";
 		typeProducts(products);
 	}
-	catch(const RepoException& re){
+	catch (const RepoException& re) {
 		cerr << re.getMessage() << endl;
 	}
 }
@@ -234,7 +234,7 @@ void UI::undoUI() const
 		auto msg_undo{ srv.undo() };
 		cout << msg_undo << endl;
 	}
-	catch(const ServiceException& se){
+	catch (const ServiceException& se) {
 		cerr << se.getMessage() << endl;
 	}
 }
@@ -250,34 +250,34 @@ void UI::showFilterCriterions() const
 string UI::readFilterCrt() const
 {
 	showFilterCriterions();
-	
+
 	cout << "\nIntroduceti criteriu de filtrare dorit [1|2|3]: ";
 	string crt;
 	getline(cin, crt);
-	
+
 	while (crt != "1" && crt != "2" && crt != "3")
 	{
 		cerr << "[X]Criteriu de filtrare invalid!\n";
-		
+
 		cout << "\nReintroduceti criteriu dorit [1|2|3]: ";
 		getline(cin, crt);
 	}
-	
+
 	return crt;
 }
 
 string UI::readFilter(const string& crt) const
-{	
+{
 	if (crt == "1")
 		cout << "\nAlegeti pretul dupa care sa se faca filtrarea: ";
 	else if (crt == "2")
 		cout << "\nAlegeti numele dupa care sa se faca filtrarea: ";
 	else
 		cout << "\nAlegeti producatorul dupa care sa se faca filtrarea: ";
-	
+
 	string filter;
 	getline(cin, filter);
-	
+
 	return filter;
 }
 
@@ -286,15 +286,15 @@ string UI::readFilterSign() const
 	cout << "\nAlegeti cum sa fie pretul produselor filtrate in raport cu pretul introdus [<|=|>]: ";
 	string sign;
 	getline(cin, sign);
-	
+
 	while (sign != "<" && sign != "=" && sign != ">")
 	{
 		cerr << "[X]Semnul de inegalitate intre preturi este invalid!\n";
-		
+
 		cout << "\nReintroduceti semnul de inegalitate dorit [<|=|>]: ";
 		getline(cin, sign);
 	}
-	
+
 	return sign;
 }
 
@@ -302,23 +302,23 @@ void UI::filterUI() const
 {
 	const auto crt{ readFilterCrt() };
 	const auto filter{ readFilter(crt) };
-	
+
 	string sign{ "-" };
-	
+
 	if (crt == "1")
 		sign = readFilterSign();
 	try {
 		const auto& products = srv.filterProducts(crt, filter, sign);
-		
+
 		if (!products.size())
 			cout << "\nNu exista produse in magazin cu ";
 		else
 			cout << "\nProdusele din magazin cu ";
-		
+
 		if (crt == "1")
 		{
 			cout << "pretul ";
-			
+
 			if (sign == "<")
 				cout << "mai mic (strict) decat ";
 			else if (sign == "=")
@@ -330,9 +330,9 @@ void UI::filterUI() const
 			cout << "numele ";
 		else
 			cout << "producatorul ";
-		
+
 		cout << filter;
-		
+
 		if (products.size())
 		{
 			cout << " sunt:\n";
@@ -364,7 +364,7 @@ string UI::readSortingCrt() const
 	cout << "\nIntroduceti criteriu de sortare dorit [1|2|3]: ";
 	string crt;
 	getline(cin, crt);
-	
+
 	while (crt != "1" && crt != "2" && crt != "3")
 	{
 		cerr << "[X]Criteriu de sortare invalid!\n";
@@ -372,7 +372,7 @@ string UI::readSortingCrt() const
 		cout << "\nReintroduceti criteriu dorit [1|2|3]: ";
 		getline(cin, crt);
 	}
-	
+
 	return crt;
 }
 
@@ -390,15 +390,15 @@ string UI::readSortingOrd() const
 	cout << "\nIntroduceti ordinea de sortare dorita [c|d]: ";
 	string ord;
 	getline(cin, ord);
-	
+
 	while (ord != "c" && ord != "C" && ord != "d" && ord != "D")
 	{
 		cerr << "[X]Ordine de sortare invalida!\n";
-		
+
 		cout << "\nReintroduceti ordinea dorita [c|d]: ";
 		getline(cin, ord);
 	}
-	
+
 	return ord;
 }
 
@@ -409,23 +409,23 @@ void UI::sortUI() const
 
 	try {
 		const auto& products{ srv.sortProducts(crt, ord) };
-		
+
 		cout << "\nProdusele din magazin ordonate ";
-		
-		if(ord == "d" || ord == "D")
+
+		if (ord == "d" || ord == "D")
 			cout << "des";
 
 		cout << "crescator dupa ";
-		
+
 		if (crt == "1")
 			cout << "nume";
 		else if (crt == "2")
 			cout << "pret";
 		else
 			cout << "nume + tip";
-		
+
 		cout << " sunt:\n";
-		
+
 		typeProducts(products);
 	}
 	catch (const RepoException& re) {
@@ -529,7 +529,7 @@ void UI::tiparireCos() const
 		auto cont{ 0 };
 
 		cout << "Cele " << srv.cantitateCos() << " produse din cosul de cumparaturi sunt:\n\n";
-		
+
 		/*
 		for (const auto& prod : lista_cumparaturi)
 			cout << ++cont          << ": " <<
@@ -546,13 +546,13 @@ void UI::tiparireCos() const
 
 			cout.width(20);
 			cout << prod.getName() << " | ";
-			
+
 			cout.width(20);
 			cout << prod.getType() << " | ";
-			
+
 			cout.width(20);
 			cout << prod.getPrice() << " | ";
-			
+
 			cout.width(20);
 			cout << prod.getProducer() << " |\n";
 		}
@@ -580,7 +580,7 @@ void UI::exportCosUI() const
 		srv.exportCos(filename, filetype);
 		cout << "[*]Exportul in fisier s-a realizat cu succes!\n";
 	}
-	catch(const CosException& ce) {
+	catch (const CosException& ce) {
 		cerr << ce.getMessage();
 	}
 	catch (const ServiceException& se) {
@@ -594,7 +594,7 @@ void UI::cosCumparaturiUI() const
 
 	const vector<string> commands{ "golire", "adaugare", "generare",
 								   "tiparire", "export", "clear",
-								   "back"};
+								   "back" };
 	string cmd;
 
 	while (true)
@@ -681,32 +681,32 @@ void UI::debugUI() const
 		cerr << re.getMessage() << endl;
 		return;
 	}
-	
+
 	cout << "Cele 10 produse au fost adaugate cu succes in stoc!\n\n";
 	*/
 
 	unsigned cont{ 0 };
-	
-	addDebug("iaurt"         , "produse lactate"    , 4.63   , "Danone"        , cont);
-	addDebug("chipsuri"      , "snacksuri"          , 9.6    , "Lays"          , cont);
-	addDebug("rozmarin"      , "condimente"         , 1.68   , "Kamis"         , cont);
-	addDebug("ton in ulei"   , "conserve"           , 13.9841, "Tonno Rio Mare", cont);
-	addDebug("boia"          , "condimente"         , 0.999  , "Delikat"       , cont);
-	addDebug("maioneza"      , "sosuri"             , 5.891  , "Hellmann's"    , cont);
-	addDebug("suc"           , "bauturi racoritoare", 6.9    , "Pepsi"         , cont);
-	addDebug("pasta de dinti", "igiena"             , 7.12   , "Colgate"       , cont);
-	addDebug("tigari"        , "cancerigene"        , 8.4018 , "Marlboro"      , cont);
-	addDebug("iaurt"         , "produse lactate"    , 5.013  , "Milka UK"      , cont);
-	addDebug("sare"          , "condimente"         , 11     , "Maggi"         , cont);
-	addDebug("suc"           , "bauturi racoritoare", 15.5   , "Coca-Cola"     , cont);
-	addDebug("tigari"        , "cancerigene"        , 5.83   , "Kent"          , cont);
-	addDebug("tigari"        , "cancerigene"        , 17.25  , "Camel"         , cont);
-	addDebug("parmezan"      , "condimente"         , 8.301  , "Delikat"       , cont);
-	addDebug("chipsuri"      , "snacksuri"          , 1.53   , "Chio"          , cont);
-	addDebug("chipsuri"      , "snacksuri"          , 9.1    , "Pringles"      , cont);
-	addDebug("coriandru"     , "condimente"         , 0.0471 , "Knorr"         , cont);
-	addDebug("tigari"        , "cancerigene"        , 21     , "Pall Mall"     , cont);
-	addDebug("ketchup"       , "sosuri"             , 4.2810 , "Heinz"         , cont);
+
+	addDebug("iaurt", "produse lactate", 4.63, "Danone", cont);
+	addDebug("chipsuri", "snacksuri", 9.6, "Lays", cont);
+	addDebug("rozmarin", "condimente", 1.68, "Kamis", cont);
+	addDebug("ton in ulei", "conserve", 13.9841, "Tonno Rio Mare", cont);
+	addDebug("boia", "condimente", 0.999, "Delikat", cont);
+	addDebug("maioneza", "sosuri", 5.891, "Hellmann's", cont);
+	addDebug("suc", "bauturi racoritoare", 6.9, "Pepsi", cont);
+	addDebug("pasta de dinti", "igiena", 7.12, "Colgate", cont);
+	addDebug("tigari", "cancerigene", 8.4018, "Marlboro", cont);
+	addDebug("iaurt", "produse lactate", 5.013, "Milka UK", cont);
+	addDebug("sare", "condimente", 11, "Maggi", cont);
+	addDebug("suc", "bauturi racoritoare", 15.5, "Coca-Cola", cont);
+	addDebug("tigari", "cancerigene", 5.83, "Kent", cont);
+	addDebug("tigari", "cancerigene", 17.25, "Camel", cont);
+	addDebug("parmezan", "condimente", 8.301, "Delikat", cont);
+	addDebug("chipsuri", "snacksuri", 1.53, "Chio", cont);
+	addDebug("chipsuri", "snacksuri", 9.1, "Pringles", cont);
+	addDebug("coriandru", "condimente", 0.0471, "Knorr", cont);
+	addDebug("tigari", "cancerigene", 21, "Pall Mall", cont);
+	addDebug("ketchup", "sosuri", 4.2810, "Heinz", cont);
 
 	if (!cont)
 		cout << "[X]Nu au fost adaugate produse noi in stoc!\n\n";
@@ -722,17 +722,17 @@ void UI::runApp() const
 	const vector<string> commands{ "adaugare", "stergere", "modificare",
 								   "cautare", "afisare", "info tipuri",
 								   "undo", "filtrare", "sortare",
-		                           "cumparaturi", "clear", "exit",
-		                           "debug" };
+								   "cumparaturi", "clear", "exit",
+								   "debug" };
 	string cmd;
-	
+
 	while (run)
 	{
 		showMenu();
-		
+
 		cout << "\n>>>";
 		getline(cin, cmd);
-		
+
 		try {
 			if (srv.cmpStrings(cmd, commands.at(0)))
 				addUI();

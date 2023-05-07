@@ -2,9 +2,9 @@
 #include "FileRepository.h"
 
 #include <cassert> // #include <assert.h>
-                   // pentru assert
+// pentru assert
 #include <cmath>   // #include <math.h>
-                   // pentru fabs (float absolute)
+				   // pentru fabs (float absolute)
 #include <fstream> // pentru std::ifstream si std::ofstream
 
 using std::ifstream;
@@ -44,7 +44,7 @@ void TestingFileRepo::runTestsLoadFromFile() const
 	testFunction(repo_1.getAll().at(1), "x", "y", 8.4014, "z");
 	testFunction(repo_1.getAll().at(2), "d", "e", 5, "f");
 	testFunction(repo_1.getAll().at(3), "k", "l", 0.6, "m");
-	
+
 	out.open(full_filename);
 	out << "pasta de dinti|igiena orala|6.321|Colgate\n";
 	out << "chipsuri|snacksuri|4.5|Lays\n";
@@ -82,7 +82,7 @@ void TestingFileRepo::runTestsFileRepoAddProduct() const
 
 	assert(repo.len() == 0);
 
-	repo.addProduct(Product{"a", "b", 5.73, "c"});
+	repo.addProduct(Product{ "a", "b", 5.73, "c" });
 	assert(repo.len() == 1);
 
 	repo.addProduct(Product{ "g", "h", 9.146, "i" });
@@ -96,7 +96,7 @@ void TestingFileRepo::runTestsFileRepoAddProduct() const
 
 	repo.addProduct(Product{ "k", "l", 7.08503, "m" });
 	assert(repo.len() == 5);
-	
+
 	const string path{ ".\\Fisiere text - repo\\" };
 	const string extension{ ".txt" };
 	const string full_filename{ path + "testare" + extension };
@@ -113,10 +113,10 @@ void TestingFileRepo::runTestsFileRepoAddProduct() const
 
 	getline(in, line);
 	assert(line == "d|e|0.41|f");
-	
+
 	getline(in, line);
 	assert(line == "x|y|5|z");
-	
+
 	getline(in, line);
 	assert(line == "k|l|7.08503|m");
 
@@ -173,7 +173,7 @@ void TestingFileRepo::runTestsFileRepoDeleteProduct() const
 
 	in.close();
 
-	repo.deleteProduct("g", "i" );
+	repo.deleteProduct("g", "i");
 
 	assert(repo.len() == 4);
 

@@ -67,4 +67,3 @@ public:
 	*/
 	void validateProduct(const Product& bad_product) const;
 };
-

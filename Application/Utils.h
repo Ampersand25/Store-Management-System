@@ -49,4 +49,3 @@ public:
 	*/
 	bool isInteger(const string& str) const;
 };
-

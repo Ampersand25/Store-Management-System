@@ -5,13 +5,13 @@
 #include <map> // pentru std::map
 
 using std::map; // TAD (Tip Abstract de Date) dictionar ordonat (sortat) din STL (Standard Template Library)
-                // acesta mapeaza o cheie la o anumita valoare (valoare de dispersie = hash value)
+// acesta mapeaza o cheie la o anumita valoare (valoare de dispersie = hash value)
 
 typedef Product TKey;           // tipul de data al unei chei din dictionar
 typedef bool TValue;            // tipul valorii asociate unei chei din dictionar
 typedef map<TKey, TValue> dict; // un dictionar ordonat/sortat in care cheile (obiecte de clasa Product) au asociate valori booleene (false sau true)
-								// d: dict => m.first : TKey (Product)
-                                //            m.second: TValue (bool)
+// d: dict => m.first : TKey (Product)
+//            m.second: TValue (bool)
 
 // daca un produs din magazin are asociata ca si cheie - false inseamna ca acesta nu este disponibil momentan in stoc
 //                                                     - true  inseamna ca acesta se afla in stocul magazinului si poate fi cumparat/achizitionat
@@ -54,13 +54,13 @@ public:
 	* Astfel, la instantierea obiectelor de clasa ExceptionRepo va trebui sa apelam un constructor custom existen (care sa primeasca parametrii)
 	*/
 	ExceptionRepo() = delete;
-	
+
 	/*
 	* Constructor custom a unui obiect de clasa ExceptionRepo
 	* Acesta primeste o referinta constanta la un double (numar real in dubla precizie) si instantiaza campul/atributul privat probability al obiectului creat cu aceasta valoare
 	*/
-	ExceptionRepo(const double& probability) noexcept : probability { probability } {
-		
+	ExceptionRepo(const double& probability) noexcept : probability{ probability } {
+
 	}
 
 	/*
@@ -71,15 +71,15 @@ public:
 
 	/*
 	ExceptionRepo(const double& probability) noexcept : AbstractRepo{}, probability { probability } {
-		
+
 	}
 	*/
-	
+
 	/*
 	* Evitam copierea de obiecte de clasa ExceptionRepo folosind calificativul delete pe constructorul de copiere
 	*/
 	ExceptionRepo(const ExceptionRepo& ot) = delete;
-	
+
 	/*
 	* Evitam copierea de obiecte de clasa ExceptionRepo folosind calificativul delete pe operatorul de assignment (operator de asignare/atribuire)
 	*/
@@ -101,7 +101,7 @@ public:
 	*           metoda arunca/ridica exceptie de tipul std::exception cu mesajul "[!]Exception!\n" cu o probabilitate egala cu campul/atributul privat probability
 	*/
 	void addProduct(const TKey& product) override;
-	
+
 	/*
 	* Operatie de tip D (Delete), care modifica repo-ul stergand o inregistrare din acesta (scade/descreste numarul de entiati/date salvate in repository/repozitoriu)
 	* Metoda mostenita din clasa de baza AbstractRepo (aceasta va fi suprascrisa in clasa derivata)
@@ -160,7 +160,7 @@ public:
 	*           metoda arunca/ridica exceptie de tipul std::exception cu mesajul "[!]Exception!\n" cu o probabilitate egala cu campul/atributul privat probability
 	*/
 	vector<TKey> getAll() const override;
-	
+
 	/*
 	* Operatie de tip R (Read), care nu modifica starea repo-ului
 	* Metoda mostenita din clasa de baza AbstractRepo (aceasta va fi suprascrisa in clasa derivata)

@@ -50,8 +50,8 @@ void Product::setPrice(const double& new_price) noexcept
 bool Product::cmpProducts(const Product& ot) const noexcept
 {
 	return name == ot.name && producer == ot.producer; // return name == ot.getName() && producer == ot.getProducer();
-													   // return this->name == ot.getName() && this->producer == ot.getProducer();
-													   // return this->name == ot.name && this->producer == ot.producer;
+	// return this->name == ot.getName() && this->producer == ot.getProducer();
+	// return this->name == ot.name && this->producer == ot.producer;
 }
 
 // Metoda de a obtine forma text/scrisa a unei entitati (obiect de clasa Product)

@@ -88,7 +88,7 @@ void TestingExceptionRepo::runTestsRepoAddProduct() const
 	catch (const RepoException& re) {
 		assert(re.getMessage() == "[!]Produs deja existent!\n");
 	}
-	
+
 	const Product product_2{ "pasta de dinti", "produse de igiena personala", 0.57, "Sensodyne" };
 
 	repo.addProduct(product_2);
@@ -497,7 +497,7 @@ void TestingExceptionRepo::runTestsRepoDeleteProduct() const
 	repo.deleteProduct(prod_3.getName(), prod_3.getProducer());
 
 	assert(repo.len() == 0);
-	
+
 	try {
 		repo.getAll();
 		assert(false);
@@ -603,7 +603,7 @@ void TestingExceptionRepo::runTestsRepoSearchProduct() const
 		const char* msg = "[!]Exception!\n";
 		assert(!strcmp(ex.what(), msg));
 	}
-	
+
 	ExceptionRepo repo{ 0 };
 
 	const Product prod_1{ "crema de maini", "ingrijire", 5.843, "Nivea" };

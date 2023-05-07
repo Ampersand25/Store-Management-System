@@ -16,7 +16,7 @@ public:
 	ListModelCosCRUDGUI() = delete;
 
 	ListModelCosCRUDGUI(CosCumparaturi& cos) : cos{ cos }, last_selected_item{ -1 } {
-		
+
 	}
 
 	ListModelCosCRUDGUI(ListModelCosCRUDGUI& ot) = delete;
@@ -35,7 +35,7 @@ public:
 		if (role == Qt::FontRole)
 		{
 			QFont font;
-			
+
 			if (!index.row())
 			{
 				font.setItalic(true);

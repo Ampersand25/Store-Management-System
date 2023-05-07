@@ -178,7 +178,7 @@ void TestingCosCumparaturi::runTestsGolesteCos() const
 {
 	assert(cos_cumparaturi.nrProduseCos() == 8);
 	cmpDouble(cos_cumparaturi.getTotal(), 13.561 * 2 + 5.7 * 2 + 9.0 * 3 + 21.47 * 1);
-	
+
 	try {
 		cos_cumparaturi.golesteCos();
 		assert(true);

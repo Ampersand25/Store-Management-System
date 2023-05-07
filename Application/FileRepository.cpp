@@ -61,7 +61,7 @@ void FileRepoProducts::loadFromFile()
 		try {
 			const Product product{ record.at(0), record.at(1), stod(record.at(2)), record.at(3) };
 			const ProductValidator valid;
-			
+
 			try {
 				valid.validateProduct(product);
 				RepoProducts::addProduct(product);
@@ -86,12 +86,12 @@ void FileRepoProducts::writeToFile()
 {
 	const string path{ ".\\Fisiere text - repo\\" };
 	//const string path{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Fisiere text - repo" };
-	const string extension{".txt"};
+	const string extension{ ".txt" };
 	const string full_filename{ path + this->filename + extension }; // const string full_filename{ path + filename + extension };
 
 	ofstream out;
 	out.open(full_filename);
-	
+
 	try {
 		for (const auto& prod : RepoProducts::getAll())
 		{
@@ -102,7 +102,7 @@ void FileRepoProducts::writeToFile()
 		}
 	}
 	catch (const RepoException&) {
-		
+
 	}
 
 	out.close();
@@ -112,19 +112,19 @@ void FileRepoProducts::addProduct(const Product& product)
 {
 	RepoProducts::addProduct(product); // apelam metoda addProduct mostenita din clasa de baza RepoProducts
 	this->writeToFile(); // writeToFile();
-						 // scriem in fisier (actualizam continutul fisierului text)
+	// scriem in fisier (actualizam continutul fisierului text)
 }
 
 void FileRepoProducts::deleteProduct(const string& name, const string& producer)
 {
 	RepoProducts::deleteProduct(name, producer); // apelam metoda deleteProduct mostenita din clasa de baza RepoProducts
 	this->writeToFile(); // writeToFile();
-	                     // scriem in fisier (actualizam continutul fisierului text)
+	// scriem in fisier (actualizam continutul fisierului text)
 }
 
 void FileRepoProducts::modifyProduct(const Product& product)
 {
 	RepoProducts::modifyProduct(product); // apelam metoda modifyProduct mostenita din clasa de baza RepoProducts
 	this->writeToFile(); // writeToFile();
-						 // scriem in fisier (actualizam continutul fisierului text)
+	// scriem in fisier (actualizam continutul fisierului text)
 }

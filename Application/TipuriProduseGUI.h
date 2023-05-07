@@ -11,8 +11,7 @@
 
 class TipuriProduseWidget : public QWidget, public Observer {
 private:
-	//const QIcon types_icon{ "./Logo-uri aplicatie/shop" };
-	const QIcon types_icon{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Logo-uri aplicatie\\shop" };
+	const QIcon types_icon{ "./Logo-uri aplicatie/typesIcon" };
 
 	const QString types_title{ "Tipuri produse" };
 
@@ -33,7 +32,7 @@ public:
 
 		this->setWindowTitle(types_title);
 		this->setWindowIcon(types_icon);
-		
+
 		QVBoxLayout* ly = new QVBoxLayout;
 
 		this->setLayout(ly);

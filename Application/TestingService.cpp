@@ -7,9 +7,9 @@
 #include "CosException.h"
 
 #include <cmath>     // #include <math.h>
-                     // for fabs (float absolute value)
+					 // for fabs (float absolute value)
 #include <cassert>   // #include <assert.h>
-                     // for assert
+					 // for assert
 #include <algorithm> // for std::count_if
 
 using std::count_if;
@@ -612,7 +612,7 @@ void TestingService::runTestsServiceSearch() const
 	catch (const ProductException&) {
 		assert(false);
 	}
-	
+
 	srv.add("a", "b", 0.56, "c");
 
 	try {
@@ -658,7 +658,7 @@ void TestingService::runTestsServiceSearch() const
 	}
 
 	try {
-		const auto& p =  srv.search("a", "c");
+		const auto& p = srv.search("a", "c");
 
 		assert(p.getName() == "a");
 		assert(p.getType() == "b");
@@ -1083,7 +1083,7 @@ void TestingService::runTestsUndo() const
 	testFunction(srv.getAll().at(0), "g", "h", 4.1, "i");
 	testFunction(srv.getAll().at(1), "j", "k", 9, "l");
 	testFunction(srv.getAll().at(2), "a", "b", 6.37, "c");
-	
+
 	assert(srv.undo() == "[+]Undo stergere realizat cu succes!\n");
 	assert(srv.getAll().size() == 4);
 	testFunction(srv.getAll().at(0), "g", "h", 4.1, "i");
@@ -1136,7 +1136,7 @@ void TestingService::runTestsServiceFilterProducts() const
 {
 	RepoProducts repo;
 	Service srv{ repo, valid };
-	
+
 	vector<Product> products;
 
 	try {
@@ -1225,7 +1225,7 @@ void TestingService::runTestsServiceFilterProducts() const
 
 	products = srv.filterProducts("1", "23", ">");
 	assert(products.size() == 0);
-	
+
 	products = srv.filterProducts("2", "chipsuri", "");
 	assert(products.size() == 2);
 	testFunction(products.at(0), "chipsuri", "snacksuri", 9.6, "Lays");
@@ -1241,7 +1241,7 @@ void TestingService::runTestsServiceFilterProducts() const
 
 	products = srv.filterProducts("2", "branza", "*");
 	assert(products.size() == 0);
-	
+
 	products = srv.filterProducts("3", "Delikat", "-");
 	assert(products.size() == 2);
 	testFunction(products.at(0), "boia", "condimente", 0.999, "Delikat");
@@ -1784,7 +1784,7 @@ void TestingService::runTestsGenerareCos() const
 		srv.generareCos("abc");
 		assert(false);
 	}
-	catch(const ServiceException& se){
+	catch (const ServiceException& se) {
 		assert(se.getMessage() == "[!]Informatia introdusa nu este un numar intreg!\n");
 	}
 
