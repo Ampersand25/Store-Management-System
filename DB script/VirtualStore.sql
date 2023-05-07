@@ -22,6 +22,8 @@ INSERT INTO `products` (`name`, `type`, `price`, `producer`) VALUES
 ('parmezan', 'condimente', 8.301, 'Delikat'),
 ('chipsuri', 'snacksuri', 1.53, 'Chio'),
 ('coriandru', 'condimente', 0.0471, 'Knorr'),
-('iaurt', 'produse lactate', 5.013, 'Milka UK');
+('iaurt', 'produse lactate', 5.013, 'Milka UK'),
+('chipsuri', 'snacksuri', 9.6, 'Lays'),
+('iaurt', 'produse lactate', 4.63, 'Danone');
 
 SELECT * FROM `products`;
