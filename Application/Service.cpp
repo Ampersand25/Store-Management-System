@@ -336,6 +336,28 @@ void Service::sortCrtNamePlusType(vector<Product>& products, bool reversed) cons
 		});
 }
 
+void Service::sortCrtType(vector<Product>& products, bool reversed) const
+{
+	sort(products.begin(),
+		products.end(),
+		[reversed](const Product& p1, const Product& p2) noexcept {
+			if (!reversed)
+				return p1.getType() < p2.getType();
+			return p1.getType() > p2.getType();
+		});
+}
+
+void Service::sortCrtProducer(vector<Product>& products, bool reversed) const
+{
+	sort(products.begin(),
+		products.end(),
+		[reversed](const Product& p1, const Product& p2) noexcept {
+			if (!reversed)
+				return p1.getProducer() < p2.getProducer();
+			return p1.getProducer() > p2.getProducer();
+		});
+}
+
 vector<Product> Service::sortProducts(const string& crt, const string& ord) const
 {
 	/*
@@ -370,6 +392,10 @@ vector<Product> Service::sortProducts(const string& crt, const string& ord) cons
 		sortCrtPrice(products, reversed);
 	else if (crt == "3") // criteriu sortare: nume + tip
 		sortCrtNamePlusType(products, reversed);
+	else if (crt == "4") // criteriu sortare: tip
+		sortCrtType(products, reversed);
+	else if (crt == "5") // criteriu sortare: producator
+		sortCrtProducer(products, reversed);
 	else                 // criteriu de sortare invalid
 		throw ServiceException("[!]Criteriu de sortare invalid!\n");
 

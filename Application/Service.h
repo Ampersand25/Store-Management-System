@@ -126,6 +126,30 @@ private:
 	void sortCrtNamePlusType(vector<Product>& products, bool reversed) const;
 
 	/*
+	* Metoda privata care sorteaza/ordoneaza in-place o lista de obiecte de clasa Product dupa atributul/campul type (tip de produs) in ordine crescatoare sau descrescatoare
+	* Date de intrare: products - referinta la o lista (vector din STL) de obiecte de clasa Product
+	*				   reversed - variabila de tip bool (tip de data logic), care poate lua doar valorile true (1) si false (0)
+	* Preconditii: reversed = true  => sortare crescatoare
+	*              reversed = false => sortare descrescatoare
+	* Date de iesire (rezultate):
+	* Postconditii: in urma apelului, lista products va contine produse sortate crescator (reversed = 0) sau descrescator (reversed = 1) dupa tip (atributul privat type)
+	* Exceptii aruncate/ridicate: -
+	*/
+	void sortCrtType(vector<Product>& products, bool reversed) const;
+
+	/*
+	* Metoda privata care sorteaza/ordoneaza in-place o lista de obiecte de clasa Product dupa atributul/campul producer (producatorul produsului) in ordine crescatoare sau descrescatoare
+	* Date de intrare: products - referinta la o lista (vector din STL) de obiecte de clasa Product
+	*				   reversed - variabila de tip bool (tip de data logic), care poate lua doar valorile true (1) si false (0)
+	* Preconditii: reversed = true  => sortare crescatoare
+	*              reversed = false => sortare descrescatoare
+	* Date de iesire (rezultate):
+	* Postconditii: in urma apelului, lista products va contine produse sortate crescator (reversed = 0) sau descrescator (reversed = 1) dupa producator (atributul privat producer)
+	* Exceptii aruncate/ridicate: -
+	*/
+	void sortCrtProducer(vector<Product>& products, bool reversed) const;
+
+	/*
 	* Procedura care filtreaza o lista de produse (obiecte de clasa Product) dupa criteriul pret (in functie de atributul price) si in raport cu o relatie sign (simbol/semn de egalitate sau inegalitate)
 	* Date de intrare: products      - referinta constanta la o lista de obiecte de clasa Product (lista care se filtreaza)
 	*                  filtered_list - referinta constanta la o lista de obiecte de clasa Product (lista in care are loc filtrarea)

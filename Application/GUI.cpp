@@ -1006,7 +1006,9 @@ void GUI::initGuiCmp()
 	QHBoxLayout* btns_sort_ly = new QHBoxLayout;
 
 	sort_options_combo_box->addItem("Nume");
+	sort_options_combo_box->addItem("Tip");
 	sort_options_combo_box->addItem("Pret");
+	sort_options_combo_box->addItem("Producator");
 	sort_options_combo_box->addItem("Nume + tip");
 
 	btns_sort_ly->addWidget(sort_options_combo_box);
@@ -2355,6 +2357,10 @@ void GUI::connectSignals()
 			sortProductsGUI("2");
 		else if (option == "Nume + tip") // else
 			sortProductsGUI("3");
+		else if (option == "Tip")
+			sortProductsGUI("4");
+		else if (option == "Producator")
+			sortProductsGUI("5");
 		});
 
 	QObject::connect(btn_sort_name, &QPushButton::clicked, this, [&]() {
