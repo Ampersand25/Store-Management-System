@@ -8,6 +8,7 @@
 
 <strong>Below you can see some screenshots taken while running the application</strong>:
 <hr>
+
 ![First Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%201.png)
 <p align="center"><strong>Image 1</strong> - main window of the application</p>
 <hr>
