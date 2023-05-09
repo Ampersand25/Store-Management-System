@@ -1,12 +1,13 @@
 # Store-Management-System
-<strong><u>Description</u></strong>:
+<strong>Description</strong>:
 - Qt Widgets Application for Windows (desktop app) that manages the items (products) of a virtual store
 - the app was developed in Visual Sudio 2022 Community IDE using C++ and QT Framework (version 6.5.0)
 - the application contains the following Qt modules: Qt Core, Qt GUI and Qt Widgets
 - configuration was set to debug when creating the app
 - platform is x64
 
-<strong><u>Below you can see some screenshots taken while running the application</u></strong>:
+<strong>Below you can see some screenshots taken while running the application</strong>:
+<hr>
 ![First Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%201.png)
 <p align="center"><strong>Image 1</strong> - main window of the application</p>
 <hr>
