@@ -1,12 +1,28 @@
 # Store-Management-System
-<strong>__Description__</strong>:
-- Qt Widgets Application for Windows (desktop app) that manages the items (products) of a virtual store
-- the app was developed in Visual Sudio 2022 Community IDE using C++ and QT Framework (version 6.5.0)
-- the application contains the following Qt modules: Qt Core, Qt GUI and Qt Widgets
-- configuration was set to debug when creating the app
-- platform is x64
+<strong>Description</strong>:
+◉ Qt Widgets Application for Windows (desktop app) that manages the items (products) of a virtual store
+◉ the app was developed in Visual Sudio 2022 Community IDE using C++ and QT Framework (version 6.5.0)
+◉ the application contains the following Qt modules: Qt Core, Qt GUI and Qt Widgets
+◉ configuration was set to debug when creating the app
+◉ platform is x64
 
-<strong>__Below you can see some screenshots taken while running the application__</strong>:
+<strong>Below you can see some screenshots taken while running the application</strong>:
+<strong>The design patterns used in developing the application are</strong>:
+◉ Observer (also known as publish-subscribe). For example the windows that displays the content of the shopping cart are all observers/subscribers and the shopping cart is the observable/publisher, which means that the a new item is added or removed from the shopping cart, all the windows that are related to the shopping cart will display the new content of the shopping cart that the user has created (each modification/update of the shopping cart will result in the windows being notified about the changes)
+◉ Model View (Qt version of MVC (Model View Controller)). The application uses models for all the lists and tables (each list is a QListView and each table is a QTableView and both have a model)
+
+<strong>The application has the following features</strong>:
+◉ CRUD operations on the products/items from the store: an user can add a new product/item, can update the type and/or price of an existing product/item, can delete an existing product/item and can search for a specific product/item
+◉ undo operation: the user can undo the last operation that was executed (for example if the last operation was delete/remove, if the user chooses to undo it, then the deleted/removed product/item will be added back in the store)
+◉ sorting products: the user can sort the existing products after name, type, name + type (if two products have the same name then they will be sorted according to their type), price and producer. The sorting can be both ascending and descending
+◉ filtering the existing items from the virtual store: the user can filter all the items that have a specific name, specific type, specific price, or specific producer. When filtering by price, there is the possibility to filter all the items that have a price less than a value, equal to a value, or greater than a value. The list will display items that match the applied filter in green, while items that don't match will be displayed in red. The table will only show the items that have been filtered
+◉ selecting an item from the list: if the user selects an item from the list then a message box, containing the details about the selected product (name, type, price and producer), will be displayed
+◉ adding a new product to the shopping cart: the user can add an existing product from the store to the shopping cart
+◉ generating items/products for the shopping cart: the user can randomly generate a number (between 1 and 100) of products for its shopping cart
+◉ emptying the shopping cart: the user can empty the shopping cart by removing all the products from it
+◉ exporting the shopping cart: the user can export the content of the shopping cart to a CSV (Comma-Separated Values) or/and an HTML (HyperText Markup Language) file. The name of the file(s) must be given by the user. The exporting file(s) will be created inside the project directory in the folder named "Export cos cumparaturi". For opening CSV files, it is recommended to use Excel, and for opening HTML files, it is recommended to use a web browser such as Google Chrome. However, both types of files can also be opened using a text editor such as Notepad or Notepad++
+◉ selecting an item from the shopping cart list: if the user selects an item from the shopping cart then a message box, containing the details about the selected product (name, type, price and producer), will be displayed
+
 ![First Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%201.png)
 <p align="center"><strong>Image 1</strong> - main window of the application</p>
 <hr>
