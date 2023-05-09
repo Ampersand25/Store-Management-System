@@ -25,6 +25,7 @@
 - selecting an item from the shopping cart list: if the user selects an item from the shopping cart then a message box, containing the details about the selected product (name, type, price and producer), will be displayed
 
 <strong>Below you can see some screenshots taken while running the application</strong>:
+
 ![First Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%201.png)
 <p align="center"><strong>Image 1</strong> - main window of the application</p>
 <hr>
