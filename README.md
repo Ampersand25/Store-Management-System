@@ -30,15 +30,15 @@
 <hr>
 
 ![Second Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%202.png)
-<p align="center"><strong>Image 2</strong> - selecting a cell from the table</p>
+<p align="center"><strong>Image 2</strong> - selecting a cell from the table (the details of the selected item will be displayed in the inputs (line edits controls))</p>
 <hr>
 
 ![Third Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%203.png)
-<p align="center"><strong>Image 3</strong> - selecting an item from the list (a new window containing the product's details is opened)</p>
+<p align="center"><strong>Image 3</strong> - selecting an item from the list (a new window containing the product's details is opened and also, the details will be displayed in the line edits (inputs))</p>
 <hr>
 
 ![Fourth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%204.png)
-<p align="center"><strong>Image 4</strong> - filtering products from the list after the type (green items have the type "produse lactate")</p>
+<p align="center"><strong>Image 4</strong> - filtering products from the list after the type (green items are the filtered products that have the type "produse lactate" introduced by the user)</p>
 <hr>
 
 ![Fifth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%205.png)
@@ -50,11 +50,11 @@
 <hr>
 
 ![Seventh Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%207.png)
-<p align="center"><strong>Image 7</strong> - generating products for the shopping cart (by clicking the "Genereaza cos" button)</p>
+<p align="center"><strong>Image 7</strong> - generating 50 products for the shopping cart (by clicking the "Genereaza cos" button)</p>
 <hr>
 
 ![Eigth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%208.png)
-<p align="center"><strong>Image 8</strong> - window containing random vertical and horizontal rectangles with random colors (one rectangle for each item/product from the shopping cart)</p>
+<p align="center"><strong>Image 8</strong> - window containing 50 random vertical and horizontal rectangles with random colors (one rectangle for each item/product from the shopping cart)</p>
 <hr>
 
 ![Nineth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%209.png)
@@ -82,13 +82,13 @@
 <hr>
 
 ![Fiftheenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2015.png)
-<p align="center"><strong>Image 15</strong> - content of the "cumparaturi.csv" export file opened using Excel (you can see all the products/items from the shopping cart and the quantity of each product)</p>
+<p align="center"><strong>Image 15</strong> - content of the "cumparaturi.csv" export file opened using Excel program (you can see all the products/items from the shopping cart and the quantity of each product)</p>
 <hr>
 
 ![Sixteenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2016.png)
-<p align="center"><strong>Image 16</strong> - content of the "cumparaturi.html" export file opened using Google Chrome (you can see all the products/items from the shopping cart and the quantity of each product)</p>
+<p align="center"><strong>Image 16</strong> - content of the "cumparaturi.html" export file opened using Google Chrome browser (you can see all the products/items from the shopping cart and the quantity of each product)</p>
 <hr>
 
 ![Seventeenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2017.png)
-<p align="center"><strong>Image 17</strong> - overview of the application (all windows available)</p>
+<p align="center"><strong>Image 17</strong> - overview of the application (all existing windows)</p>
 <hr>
