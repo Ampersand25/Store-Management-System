@@ -88,3 +88,7 @@
 ![Sixteenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2016.png)
 <p align="center"><strong>Image 16</strong> - content of the "cumparaturi.html" export file opened using Google Chrome (you can see all the products/items from the shopping cart and the quantity of each product)</p>
 <hr>
+
+![Seventeenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2017.png)
+<p align="center"><strong>Image 17</strong> - overview of the application (all windows available)</p>
+<hr>
