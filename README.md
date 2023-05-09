@@ -8,11 +8,9 @@
 - configuration was set to debug when creating the app
 - platform is x64
 
-
 <strong>The design patterns used in developing the application are</strong>:
 - Observer (also known as publish-subscribe). For example the windows that displays the content of the shopping cart are all observers/subscribers and the shopping cart is the observable/publisher, which means that the a new item is added or removed from the shopping cart, all the windows that are related to the shopping cart will display the new content of the shopping cart that the user has created (each modification/update of the shopping cart will result in the windows being notified about the changes)
 - Model View (Qt version of MVC (Model View Controller)). The application uses models for all the lists and tables (each list is a QListView and each table is a QTableView and both have a model)
-
 
 <strong>The application has the following features</strong>:
 - CRUD operations on the products/items from the store: an user can add a new product/item, can update the type and/or price of an existing product/item, can delete an existing product/item and can search for a specific product/item
@@ -25,7 +23,6 @@
 - emptying the shopping cart: the user can empty the shopping cart by removing all the products from it
 - exporting the shopping cart: the user can export the content of the shopping cart to a CSV (Comma-Separated Values) or/and an HTML (HyperText Markup Language) file. The name of the file(s) must be given by the user. The exporting file(s) will be created inside the project directory in the folder named "Export cos cumparaturi". For opening CSV files, it is recommended to use Excel, and for opening HTML files, it is recommended to use a web browser such as Google Chrome. However, both types of files can also be opened using a text editor such as Notepad or Notepad++
 - selecting an item from the shopping cart list: if the user selects an item from the shopping cart then a message box, containing the details about the selected product (name, type, price and producer), will be displayed
-
 
 <strong>Below you can see some screenshots taken while running the application</strong>:
 
