@@ -24,7 +24,10 @@
 - exporting the shopping cart: the user can export the content of the shopping cart to a CSV (Comma-Separated Values) or/and an HTML (HyperText Markup Language) file. The name of the file(s) must be given by the user. The exporting file(s) will be created inside the project directory in the folder named "Export cos cumparaturi". For opening CSV files, it is recommended to use Excel, and for opening HTML files, it is recommended to use a web browser such as Google Chrome. However, both types of files can also be opened using a text editor such as Notepad or Notepad++
 - selecting an item from the shopping cart list: if the user selects an item from the shopping cart then a message box, containing the details about the selected product (name, type, price and producer), will be displayed
 
-<strong>While developing the app I also worked with tools such as memory leak detector (for detecting memory leaks), debugger (for fixing bugs) and profiler (CPU profiler which measures the performance of the application (the app is recommended to be set to Release mode and not Debug, so that it can benefit from all possible optimizations)).</strong>
+<strong>While developing the app I also worked with tools such as</strong>:
+- memory leak detector (for detecting memory leaks)
+- debugger (for fixing bugs)
+- profiler (CPU profiler which measures the performance of the application (the app is recommended to be set to Release mode and not Debug, so that it can benefit from all possible optimizations))
 
 <strong>Below you can see some screenshots taken while running the application</strong>:
 
