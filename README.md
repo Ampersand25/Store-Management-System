@@ -100,7 +100,7 @@
 <p align="center"><strong>Image 17</strong> - overview of the application (all existing windows)</p>
 <hr>
 
-TODO:
+<strong>TODO</strong>:
 - remove item from shopping cart
 - save the shopping cart content in a text file (data persistence for the shopping cart)
 - create database repository (add data persistence in a SQL database like MySQL or PostgreSQL)
