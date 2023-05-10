@@ -1,7 +1,7 @@
 # Store-Management-System
 <strong>Description</strong>:
 - Qt Widgets Application for Windows (desktop app) that manages the items (products) of a virtual store
-- the app has a layered architecture and saved data in text files (for items/products)
+- the app has a layered architecture (presentation layer (UI and GUI), business layer (service), infrastructure layer (repositories), validation layer (validators for the entities) and domain layer (entities from the domain of the problem)) and saved data in text files (for items/products)
 - shopping cart is not persistent (is only saved in memory)
 - the app was developed in Visual Sudio 2022 Community IDE using C++ and QT Framework (version 6.5.0)
 - the app contains the following Qt modules: Qt Core, Qt GUI and Qt Widgets
