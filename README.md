@@ -27,7 +27,8 @@
 <strong>While developing the app I also worked with tools such as</strong>:
 - memory leak detector (for detecting memory leaks)
 - debugger (for fixing bugs)
-- profiler (CPU profiler which measures the performance of the application (the app is recommended to be set to Release mode and not Debug, so that it can benefit from all possible optimizations))
+- CPU profiler from Diagnostic Tools (which measures the performance of the application (the app is recommended to be set to Release mode and not Debug, so that it can benefit from all possible optimizations))
+- OpenCppCoverage (for seeing how much of the code is covered by tests)
 
 <strong>Below you can see some screenshots taken while running the application</strong>:
 
