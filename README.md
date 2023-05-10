@@ -99,3 +99,8 @@
 ![Seventeenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2017.png)
 <p align="center"><strong>Image 17</strong> - overview of the application (all existing windows)</p>
 <hr>
+
+TODO:
+- remove item from shopping cart
+- save the shopping cart content in a text file (data persistence for the shopping cart)
+- create database repository (add data persistence in a SQL database like MySQL or PostgreSQL)
