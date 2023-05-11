@@ -6,12 +6,12 @@ SET NAMES utf8;
 SET character_set_client = utf8mb4;
 
 CREATE TABLE `products` (
-	`id` INT PRIMARY KEY AUTO_INCREMENT,
-	`name` VARCHAR(100) NOT NULL DEFAULT 'iaurt',
-    `type` VARCHAR(100) NOT NULL DEFAULT 'produse lactate',
-    `price` DOUBLE NOT NULL CHECK (`price` > 0.0) DEFAULT 4.63,
-    `producer` VARCHAR(100) NOT NULL DEFAULT 'Danone',
-    UNIQUE (`name`, `producer`)
+`id` INT PRIMARY KEY AUTO_INCREMENT,
+`name` VARCHAR(100) NOT NULL DEFAULT 'iaurt',
+`type` VARCHAR(100) NOT NULL DEFAULT 'produse lactate',
+`price` DOUBLE NOT NULL CHECK (`price` > 0.0) DEFAULT 4.63,
+`producer` VARCHAR(100) NOT NULL DEFAULT 'Danone',
+UNIQUE (`name`, `producer`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO `products` (`name`, `type`, `price`, `producer`) VALUES
