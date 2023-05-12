@@ -104,3 +104,4 @@
 - remove item from shopping cart option
 - save the shopping cart content in a text file (data persistence for the shopping cart)
 - create database repository (add data persistence in a SQL database like MySQL or PostgreSQL)
+- redo operation (for operations on the products/items (for example redo add new item or redo delete/remove existing item))
