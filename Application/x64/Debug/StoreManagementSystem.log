@@ -1,2 +1,26 @@
-﻿  main.cpp
-  StoreManagementSystem.vcxproj -> C:\Users\crist\source\repos\StoreManagementSystem\x64\Debug\StoreManagementSystem.exe
+﻿  GUI.cpp
+  main.cpp
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(56,29): error C2061: syntax error: identifier 'GUI'
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(56,32): error C2143: syntax error: missing ';' before '{'
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(56,23): error C2119: 'gui': the type for 'const auto' cannot be deduced from an empty initializer
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(57,9): error C2065: 'gui': undeclared identifier
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(58,9): error C2065: 'gui': undeclared identifier
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(58,35): error C2065: 'info_tipuri_enabled': undeclared identifier
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(60,21): error C2065: 'a': undeclared identifier
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(63,5): error C2059: syntax error: 'return'
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(64,1): error C2059: syntax error: '}'
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(64,1): error C2143: syntax error: missing ';' before '}'
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(56,29): error C2061: syntax error: identifier 'GUI' (compiling source file GUI.cpp)
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(56,32): error C2143: syntax error: missing ';' before '{' (compiling source file GUI.cpp)
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(56,23): error C2119: 'gui': the type for 'const auto' cannot be deduced from an empty initializer (compiling source file GUI.cpp)
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(57,9): error C2065: 'gui': undeclared identifier (compiling source file GUI.cpp)
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(58,9): error C2065: 'gui': undeclared identifier (compiling source file GUI.cpp)
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(58,35): error C2065: 'info_tipuri_enabled': undeclared identifier (compiling source file GUI.cpp)
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(60,21): error C2065: 'a': undeclared identifier (compiling source file GUI.cpp)
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(63,5): error C2059: syntax error: 'return' (compiling source file GUI.cpp)
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(64,1): error C2059: syntax error: '}' (compiling source file GUI.cpp)
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(64,1): error C2143: syntax error: missing ';' before '}' (compiling source file GUI.cpp)
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(14,6): error C2084: function 'void testApp(void)' already has a body
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(14,6): message : see previous definition of 'testApp'
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(22,5): error C2084: function 'int main(int,char *[])' already has a body
+C:\Users\crist\source\repos\StoreManagementSystem\main.cpp(22,5): message : see previous definition of 'main'

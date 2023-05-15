@@ -29,14 +29,18 @@ int main(int argc, char* argv[])
     // Asamblarea si rularea aplicatiei
     {
         QApplication a(argc, argv);
-        
+
+        bool info_tipuri_disable;
+
         // IN MEMORY REPOSITORY
         //RepoProducts repo{};
+        //info_tipuri_disable = false;
 
         // FILE REPOSITORY
         //const string filename{ "produse" };
         //FileRepoProducts repo{ filename };
-        
+        //info_tipuri_disable = false;
+
         // DATABASE REPOSITORY
         const auto server{ DBConstants::server };
         const auto username{ DBConstants::username };
@@ -44,12 +48,14 @@ int main(int argc, char* argv[])
         const auto database{ DBConstants::database };
         const auto table{ DBConstants::table };
         DatabaseRepository repo{ server, username, password, database, table };
+        info_tipuri_disable = true;
         
         ProductValidator valid;
         CosCumparaturi cos{ repo };
         Service srv{ repo, valid, cos };
         const auto gui{ new GUI{ srv } };
         gui->show();
+        gui->disableInfoTipuri(true);
 
         exit_code = a.exec();
     }

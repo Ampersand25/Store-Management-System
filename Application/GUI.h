@@ -226,4 +226,11 @@ public:
 		connectSignals();
 		setInitialState();
 	}
+
+	// method that disables the btn_info_types button if the input parameter disable is true
+	// if disable parameter is false then the button will not be disabled (will remain enabled)
+	void disableInfoTipuri(bool disable)
+	{
+		btn_info_types->setDisabled(disable);
+	}
 };
