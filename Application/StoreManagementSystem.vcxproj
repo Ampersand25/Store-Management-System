@@ -58,6 +58,26 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
   </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Program Files\MySQL\Connector C++ 8.0\include;C:\Program Files\MySQL\MySQL Server 8.0\include;C:\Program Files\MySQL\Connector C++ 8.0\include\jdbc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>STATIC_CONCPP;NDEBUG;$(Qt_DEFINES_);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\Program Files\MySQL\Connector C++ 8.0\lib64\vs14;C:\Program Files\MySQL\MySQL Server 8.0\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libmysql.lib;mysqlcppconn-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Program Files\MySQL\Connector C++ 8.0\include;C:\Program Files\MySQL\MySQL Server 8.0\include;C:\Program Files\MySQL\Connector C++ 8.0\include\jdbc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>STATIC_CONCPP;NDEBUG;$(Qt_DEFINES_);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\Program Files\MySQL\Connector C++ 8.0\lib64\vs14;C:\Program Files\MySQL\MySQL Server 8.0\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libmysql.lib;mysqlcppconn-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
@@ -86,6 +106,7 @@
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="CosCRUDGUI.cpp" />
     <ClCompile Include="CosCumparaturi.cpp" />
+    <ClCompile Include="DatabaseRepository.cpp" />
     <ClCompile Include="Exception.cpp" />
     <ClCompile Include="ExceptionRepo.cpp" />
     <ClCompile Include="FileRepository.cpp" />
@@ -114,10 +135,13 @@
   <ItemGroup>
     <ClInclude Include="AbstractRepo.h" />
     <ClInclude Include="Console.h" />
+    <ClInclude Include="Constants.h" />
     <ClInclude Include="CosCRUDGUI.h" />
     <ClInclude Include="CosCumparaturi.h" />
     <ClInclude Include="CosException.h" />
     <ClInclude Include="CosReadOnlyGUI.h" />
+    <ClInclude Include="DatabaseException.h" />
+    <ClInclude Include="DatabaseRepository.h" />
     <ClInclude Include="Exception.h" />
     <ClInclude Include="ExceptionRepo.h" />
     <ClInclude Include="FileRepository.h" />

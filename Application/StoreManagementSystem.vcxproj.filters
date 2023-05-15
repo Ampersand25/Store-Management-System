@@ -180,6 +180,12 @@
     <Filter Include="Source Files\Models\TableModelProducts">
       <UniqueIdentifier>{39f40ad9-0184-4409-b854-7711e2928fcd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Infrastructure\Repository\DBRepo">
+      <UniqueIdentifier>{c4ffa680-f5a3-42bc-a7e2-d57fa2f7e57c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Constants">
+      <UniqueIdentifier>{2e1c0f3f-50a1-441d-9cce-892615aee3db}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="StoreManagementSystem.qrc">
@@ -264,6 +270,9 @@
     </ClCompile>
     <ClCompile Include="TestingRepo.cpp">
       <Filter>Source Files\Testing\TestingInfrastructure\TestingInMemoryRepo</Filter>
+    </ClCompile>
+    <ClCompile Include="DatabaseRepository.cpp">
+      <Filter>Source Files\Infrastructure\Repository\DBRepo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -383,6 +392,15 @@
     </ClInclude>
     <ClInclude Include="TableModelProducts.h">
       <Filter>Source Files\Models\TableModelProducts</Filter>
+    </ClInclude>
+    <ClInclude Include="DatabaseRepository.h">
+      <Filter>Source Files\Infrastructure\Repository\DBRepo</Filter>
+    </ClInclude>
+    <ClInclude Include="DatabaseException.h">
+      <Filter>Source Files\Infrastructure\RepoException</Filter>
+    </ClInclude>
+    <ClInclude Include="Constants.h">
+      <Filter>Source Files\Constants</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
