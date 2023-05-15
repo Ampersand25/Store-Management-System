@@ -34,16 +34,16 @@ int main(int argc, char* argv[])
         //RepoProducts repo{};
 
         // FILE REPOSITORY
-        const string filename{ "produse" };
-        FileRepoProducts repo{ filename };
+        //const string filename{ "produse" };
+        //FileRepoProducts repo{ filename };
         
         // DATABASE REPOSITORY
-        //const auto server{ DBConstants::server };
-        //const auto username{ DBConstants::username };
-        //const auto password{ DBConstants::password };
-        //const auto database{ DBConstants::database };
-        //const auto table{ DBConstants::table };
-        //DatabaseRepository repo{ server, username, password, database, table };
+        const auto server{ DBConstants::server };
+        const auto username{ DBConstants::username };
+        const auto password{ DBConstants::password };
+        const auto database{ DBConstants::database };
+        const auto table{ DBConstants::table };
+        DatabaseRepository repo{ server, username, password, database, table };
         
         ProductValidator valid;
         CosCumparaturi cos{ repo };
