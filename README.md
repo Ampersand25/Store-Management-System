@@ -1,7 +1,9 @@
 # Store-Management-System
 <strong>Description</strong>:
 - Qt Widgets Application for Windows (desktop app) that manages the items (products) of a virtual store
-- the app has a layered architecture (presentation layer (UI and GUI), business layer (service), infrastructure layer (repositories), validation layer (validators for the entities) and domain layer (entities from the domain of the problem)) and saved data in text files (for items/products)
+- the app has a layered architecture: presentation layer (UI and GUI), business layer (service), infrastructure layer (repositories), validation layer (validators for the entities) and domain layer (entities from the domain of the problem)
+- data (products/items from the store) can be stored/saved in memory, in a text file or in a MySQL database
+- saving data in a database works for both debug and release configurations
 - shopping cart is not persistent (is only saved in memory)
 - the app was developed in Visual Sudio 2022 Community IDE using C++ and QT Framework (version 6.5.0)
 - the app contains the following Qt modules: Qt Core, Qt GUI and Qt Widgets
@@ -103,5 +105,5 @@
 <strong>TODO</strong>:
 - remove item from shopping cart option
 - save the shopping cart content in a text file (data persistence for the shopping cart)
-- create database repository (add data persistence in a SQL database like MySQL or PostgreSQL)
+- create database repository (add data persistence in a SQL database like MySQL or PostgreSQL) ✅
 - redo operation (for operations on the products/items (for example redo add new item or redo delete/remove existing item))
