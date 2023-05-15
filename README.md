@@ -9,6 +9,7 @@
 - the app contains the following Qt modules: Qt Core, Qt GUI and Qt Widgets
 - configuration was set to debug when creating the app
 - platform is x64
+- "Info tipuri" button is not enabled (is disabled) when saving the products/items in a database, which means that both "Tipuri produse" and "Histograma tipuri produse" windows will be unavailable
 
 <strong>The design patterns used in developing the application are</strong>:
 - Observer (also known as publish-subscribe). For example the windows that displays the content of the shopping cart are all observers/subscribers and the shopping cart is the observable/publisher, which means that the a new item is added or removed from the shopping cart, all the windows that are related to the shopping cart will display the new content of the shopping cart that the user has created (each modification/update of the shopping cart will result in the windows being notified about the changes)
@@ -51,11 +52,11 @@
 <hr>
 
 ![Fifth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%205.png)
-<p align="center"><strong>Image 5</strong> - window that contains all the types existing in the virtual store and the number of products from each type</p>
+<p align="center"><strong>Image 5</strong> - window that contains all the types existing in the virtual store and the number of products from each type (window will not be available if the data is stored in the MySQL database)</p>
 <hr>
 
 ![Sixth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%206.png)
-<p align="center"><strong>Image 6</strong> - histogram that displays the distribution of the types</p>
+<p align="center"><strong>Image 6</strong> - histogram that displays the distribution of the types (window will not be available if the data is stored in the MySQL database)</p>
 <hr>
 
 ![Seventh Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%207.png)
