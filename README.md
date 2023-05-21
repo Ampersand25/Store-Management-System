@@ -104,7 +104,7 @@
 <hr>
 
 <strong>TODO</strong>:
-- remove item from shopping cart option
-- save the shopping cart content in a text file (data persistence for the shopping cart)
-- create database repository (add data persistence in a SQL database like MySQL or PostgreSQL) ✅
-- redo operation (for operations on the products/items (for example redo add new item or redo delete/remove existing item))
+- remove/delete option for an item from the shopping cart
+- save the shopping cart content/list in a text file (data persistence for the shopping cart)
+- create database repository (add data persistence in a SQL (Structured Query Language) database like MySQL or PostgreSQL) ✅
+- redo operation (for undo operation))
