@@ -186,6 +186,12 @@
     <Filter Include="Source Files\Constants">
       <UniqueIdentifier>{2e1c0f3f-50a1-441d-9cce-892615aee3db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Redo">
+      <UniqueIdentifier>{1e2f393d-87a0-4d4f-8517-e254d0873ae2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Redo\AbstractRedo">
+      <UniqueIdentifier>{6b253a4a-4117-42e8-bead-3ffeb87770db}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="StoreManagementSystem.qrc">
@@ -273,6 +279,9 @@
     </ClCompile>
     <ClCompile Include="DatabaseRepository.cpp">
       <Filter>Source Files\Infrastructure\Repository\DBRepo</Filter>
+    </ClCompile>
+    <ClCompile Include="Redo.cpp">
+      <Filter>Source Files\Redo\AbstractRedo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -401,6 +410,9 @@
     </ClInclude>
     <ClInclude Include="Constants.h">
       <Filter>Source Files\Constants</Filter>
+    </ClInclude>
+    <ClInclude Include="Redo.h">
+      <Filter>Source Files\Redo\AbstractRedo</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

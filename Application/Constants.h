@@ -20,8 +20,8 @@ public:
 	static string table;
 };
 
-string DBConstants::server = "localhost";
+string DBConstants::server   = "localhost";
 string DBConstants::username = "root";
 string DBConstants::password = "BacktrackingGOD314#";
 string DBConstants::database = "sql_virtual_store";
-string DBConstants::table = "products";
+string DBConstants::table    = "products";

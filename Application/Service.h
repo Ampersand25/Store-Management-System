@@ -4,6 +4,7 @@
 #include "ProductValidator.h"
 #include "CosCumparaturi.h"
 #include "Undo.h"
+#include "Redo.h"
 #include "Observer.h"
 
 #include <map>     // pentru std::map
@@ -25,6 +26,7 @@ private:
 	CosCumparaturi cosCumparaturi;             // atribut de tip obiect de clasa cosCumparaturi
 	CosCumparaturi& cos;                       // atribut de tip referinta la un obiect cos de clasa cosCumparaturi
 	vector<unique_ptr<ActiuneUndo>> undo_list; // atribut de tip vector din STL (Standard Template Library) cu elemente avand tipul pointer la obiecte de clasa ActiuneUndo
+	vector<unique_ptr<ActiuneRedo>> redo_list; // atribut de tip vector din STL (Standard Template Library) cu elemente avand tipul pointer la obiecte de clasa ActiuneRedo
 
 	/*
 	* Functie booleana care verifica daca un produs (obiect de clasa Product) p respecta filtrul de pret price in raport cu semnul (simbolul) de inegalitate sign
@@ -366,16 +368,32 @@ public:
 	* Date de intrare: -
 	* Preconditii: -
 	* Date de iesire (rezultate): un string (structura de date din STL)
-	* Postconditii: - dupa apelul functiei se va reface ultima adunare (se va sterge ultimul produs adaugat in magazin), daca ultima operatie efectuata a fost o adunare
-	*                                                        stergere (se va re-adauga ultimul produs sters din magazin), daca ultima operatie efectuata a fost o stergere
-	*                                                        modificare (se va modifica ultimul produs modificat din magazin, acesta va reveni la configuratia de dinainte de modificare), daca ultima operatie efectuata a fost o modificare
-	*				- stringul intors/returnat de functie este: "[+]Undo stergere realizat cu succes!\n"  , daca s-a facut undo la stergere (ultima operatie pe repo a fost una de stergere)
-	*                                                           "[+]Undo adaugare realizat cu succes!\n"  , daca s-a facut undo la adaugare (ultima operatie pe repo a fost una de adaugare)
+	* Postconditii: - dupa apelul functiei se va reface ultima adaugare (se va sterge ultimul produs adaugat in magazin), daca ultima operatie efectuata a fost o adaugare
+	*                                                          stergere (se va re-adauga ultimul produs sters din magazin), daca ultima operatie efectuata a fost o stergere
+	*                                                          modificare (se va modifica ultimul produs modificat din magazin, acesta va reveni la configuratia de dinainte de modificare), daca ultima operatie efectuata a fost o modificare
+	*				- stringul intors/returnat de functie este: "[+]Undo adaugare realizat cu succes!\n"  , daca s-a facut undo la adaugare (ultima operatie pe repo a fost una de adaugare)
+	*															"[+]Undo stergere realizat cu succes!\n"  , daca s-a facut undo la stergere (ultima operatie pe repo a fost una de stergere)
 	*															"[+]Undo modificare realizat cu succes!\n", daca s-a facut undo la modificare (ultima operatie pe repo a fost una de modificare)
 	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii:
-	* [!]ServiceException cu mesajul "[!]Nu se mai poate realiza operatia de undo\n", daca nu se mai poate face undo la lista de produse din repository
+	* [!]ServiceException cu mesajul "[!]Nu se mai poate realiza operatia de undo!\n", daca nu se mai poate face undo la lista de produse din repository
 	*/
 	string undo();
+
+	/*
+	* Procedura care face redo la operatiile de undo adaugare, undo modificare si undo stergere
+	* Date de intrare: -
+	* Preconditii: -
+	* Date de iesire (rezultate): un string (structura de date din STL)
+	* Postconditii: - dupa apelul functiei se va reface ultima operatie de undo adaugare (se va re-adauga produsul in magazin), daca ultima operatie undo efectuata a fost pentru o adaugare de produs
+	*                                                                           stergere (se va sterge produsul din magazin), daca ultima operatie undo efectuata a fost pentru o stergere de produs
+	*                                                                           modificare (se va modifica produsul din magazin, acesta va reveni la configuratia de dinainte de undo), daca ultima operatie undo efectuata a fost pentru o modificare de produs
+	*				- stringul intors/returnat de functie este: "[+]Redo opeatie undo adaugare realizat cu succes!\n"  , daca s-a facut redo la undo adaugare (ultima operatie pe repo a fost una de undo adaugare)
+	*															"[+]Redo opeatie undo stergere realizat cu succes!\n"  , daca s-a facut redo la undo stergere (ultima operatie pe repo a fost una de undo stergere)
+	*															"[+]Redo opeatie undo modificare realizat cu succes!\n", daca s-a facut redo la undo modificare (ultima operatie pe repo a fost una de undo modificare)
+	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii:
+	* [!]ServiceException cu mesajul "[!]Nu se mai poate realiza operatia de redo!\n", daca nu se mai poate face redo la undo
+	*/
+	string redo();
 
 	/*
 	* Functie care filtreaza produsele din magazin dupa un anumit criteriu (pret, nume, producator), filtru (valoarea pretului, numelui sau producatorului) si un semn (<, = sau >) in cazul in care criteriul de filtrare este pretul

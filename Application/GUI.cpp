@@ -1173,6 +1173,9 @@ void GUI::initGuiCmp()
 
 	left_cos_ly->addLayout(btns_cos_ly_extra);
 
+	left_cos_ly->addWidget(btn_cos);
+	//left_cos_ly->addStretch();
+
 	cos_ly->addLayout(left_cos_ly);
 
 	sld_cumparaturi_main->setMinimum(0);
@@ -1206,7 +1209,7 @@ void GUI::initGuiCmp()
 	QHBoxLayout* btns_ly_2 = new QHBoxLayout;
 
 	btns_ly_2->addWidget(btn_search);
-	//btns_ly_1->addStretch();
+	//btns_ly_2->addStretch();
 
 	btns_ly_2->addWidget(btn_type);
 	//btns_ly_2->addStretch();
@@ -1219,10 +1222,10 @@ void GUI::initGuiCmp()
 	QHBoxLayout* btns_ly_3 = new QHBoxLayout;
 
 	btns_ly_3->addWidget(btn_undo);
-	//btns_ly_2->addStretch();
+	//btns_ly_3->addStretch();
 
-	btns_ly_3->addWidget(btn_cos);
-	//btns_ly_2->addStretch();
+	btns_ly_3->addWidget(btn_redo);
+	//btns_ly_3->addStretch();
 
 	btns_ly_3->addWidget(btn_dbg);
 	//btns_ly_3->addStretch();
@@ -1232,10 +1235,10 @@ void GUI::initGuiCmp()
 	QHBoxLayout* btns_ly_4 = new QHBoxLayout;
 
 	btns_ly_4->addWidget(btn_clear);
-	//btns_ly_3->addStretch();
+	//btns_ly_4->addStretch();
 
 	btns_ly_4->addWidget(btn_exit);
-	//btns_ly_3->addStretch();
+	//btns_ly_4->addStretch();
 
 	right_ly->addLayout(btns_ly_4);
 }
@@ -2746,6 +2749,10 @@ void GUI::connectSignals()
 				msg_dbg->setText(QString::fromStdString(srv.undo()));
 				msg_dbg->setIcon(QMessageBox::Information);
 
+				++number_of_redo;
+				if (!btn_redo->isEnabled())
+					btn_redo->setDisabled(false);
+
 				--number_of_undo;
 				if (!number_of_undo)
 					btn_undo->setDisabled(true);
@@ -2765,6 +2772,70 @@ void GUI::connectSignals()
 				qDebug() << QString::fromStdString(se.getMessage());
 
 				btn_undo->setDisabled(true);
+
+				msg_dbg->setText(QString::fromStdString(se.getMessage()));
+				msg_dbg->setIcon(QMessageBox::Critical);
+			}
+
+			msg_dbg->exec();
+
+			break;
+		case QMessageBox::No:
+			// No Save was clicked
+			break;
+		case QMessageBox::Cancel:
+			// Cancel was clicked
+			break;
+		}
+		});
+
+	QObject::connect(btn_redo, &QPushButton::clicked, this, [&]() {
+		last_selected_item_list = nullptr;
+
+		QMessageBox msg_box;
+		msg_box.setWindowTitle("Confirmare operatie de redo");
+		msg_box.setIcon(QMessageBox::Question);
+		msg_box.setText("Operatia de redo in curs de procesare...");
+		msg_box.setInformativeText("Sunteti sigur ca doriti sa continuati?");
+		msg_box.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+		msg_box.setDefaultButton(QMessageBox::Yes);
+
+		const auto ret{ msg_box.exec() };
+
+		QMessageBox* msg_dbg = new QMessageBox;
+		msg_dbg->setWindowTitle("Operatie de redo");
+
+		switch (ret) {
+		case QMessageBox::Yes:
+			// Yes was clicked
+
+			try {
+				msg_dbg->setText(QString::fromStdString(srv.redo()));
+				msg_dbg->setIcon(QMessageBox::Information);
+
+				--number_of_redo;
+				if (!number_of_redo)
+					btn_redo->setDisabled(true);
+
+				++number_of_undo;
+				if (!btn_undo->isEnabled())
+					btn_undo->setDisabled(false);
+
+				lst_products_model->setFilter(false);
+
+				try {
+					lst_products_model->setVisible(srv.getAll(), true);
+					tbl_products_model->setVisible(srv.getAll(), true);
+				}
+				catch (const RepoException&) {
+					lst_products_model->setVisible(vector<Product>(), true);
+					tbl_products_model->setVisible(vector<Product>(), true);
+				}
+			}
+			catch (const ServiceException& se) {
+				qDebug() << QString::fromStdString(se.getMessage());
+
+				btn_redo->setDisabled(true);
 
 				msg_dbg->setText(QString::fromStdString(se.getMessage()));
 				msg_dbg->setIcon(QMessageBox::Critical);
@@ -3032,6 +3103,9 @@ void GUI::setInitialState()
 
 	number_of_undo = 0;
 	btn_undo->setDisabled(true);
+
+	number_of_redo = 0;
+	btn_redo->setDisabled(true);
 
 	//btn_stergere->setDisabled(true);
 

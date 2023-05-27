@@ -9,7 +9,7 @@ void UndoAdauga::doUndo()
 	repo.deleteProduct(product.getName(), product.getProducer()); // stergem produsul product din repo apeland metoda publica deleteProduct
 }
 
-string UndoAdauga::typeUndo()
+string UndoAdauga::typeUndo() const
 {
 	// s-a facut undo pentru operatia de adaugare (s-a apelat polimorfic metoda doUndo a unui obiect de clasa UndoAdauga)
 	return "[+]Undo adaugare realizat cu succes!\n"; // string (mesaj) care sa indice ca undo-ul s-a efectuat pentru adaugare
@@ -24,7 +24,7 @@ void UndoModifica::doUndo()
 	repo.modifyProduct(product); // modificam produsul product in repo apeland metoda publica modifyProduct
 }
 
-string UndoModifica::typeUndo()
+string UndoModifica::typeUndo() const
 {
 	// s-a facut undo pentru operatia de modificare (s-a apelat polimorfic metoda doUndo a unui obiect de clasa UndoModifica)
 	return "[+]Undo modificare realizat cu succes!\n"; // string (mesaj) care sa indice ca undo-ul s-a efectuat pentru modificare
@@ -39,7 +39,7 @@ void UndoSterge::doUndo()
 	repo.addProduct(product); // adaugam produsul product in repo apeland metoda publica addProduct
 }
 
-string UndoSterge::typeUndo()
+string UndoSterge::typeUndo() const
 {
 	// s-a facut undo pentru operatia de stergere (s-a apelat polimorfic metoda doUndo a unui obiect de clasa UndoSterge)
 	return "[+]Undo stergere realizat cu succes!\n"; // string (mesaj) care sa indice ca undo-ul s-a efectuat pentru stergere

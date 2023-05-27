@@ -55,6 +55,7 @@ private:
 	QPushButton* btn_type = new QPushButton{ "Afisar&e" };
 	QPushButton* btn_info_types = new QPushButton{ "&Info tipuri" };
 	QPushButton* btn_undo = new QPushButton{ "&Undo" };
+	QPushButton* btn_redo = new QPushButton{ "&Redo" };
 	QPushButton* btn_cos = new QPushButton{ "Cum&paraturi" };
 
 	QPushButton* btn_dbg = new QPushButton{ "&Debug" };
@@ -161,6 +162,7 @@ private:
 	const QPixmap happy_pix_map{ "./Logo-uri aplicatie/happy" };
 
 	unsigned number_of_undo;
+	unsigned number_of_redo;
 
 	// metode private
 

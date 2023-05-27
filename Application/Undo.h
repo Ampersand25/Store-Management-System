@@ -26,10 +26,18 @@ public:
 
 	/*
 	* Metoda pur virtuala care afiseaza un mesaj custom pentru fiecare clasa derivata care sa indice utilizatorului tipul de undo care a avut loc
+	* Marcam metoda ca fiind constanta folosind calificativul const (aceasta metoda nu va altera starea obiectului pe care se va apela)
 	* Aceasta metoda va fi definita (implementata) in clasele derivate din clasa de baza ActiuneUndo
 	* Metoda este doar declarata in clasa de baza (este responsabilitatea fiecarei clase derivate din aceasta sa o suprascrie)
 	*/
-	virtual string typeUndo() = 0;
+	virtual string typeUndo() const = 0;
+
+	/*
+	* Metoda pur virtuala de tip operand/rezultat care returneaza/intoarce obiectul de clasa Product pe care s-a facut ultima operatie de adaugare, modificare sau stergere
+	* Aceasta metoda va fi definita (implementata) in clasele derivate din clasa de baza ActiuneRedo
+	* Metoda este doar declarata in clasa de baza (este responsabilitatea fiecarei clase derivate din aceasta sa o suprascrie)
+	*/
+	virtual Product getProduct() const = 0;
 
 	/*
 	* Destructorul default al unui obiect de clasa ActiuneUndo
@@ -71,10 +79,18 @@ public:
 	void doUndo() override;
 
 	/*
-	* Metoda pur virtuala typeUndo mostenita din clasa de baza si suprascrisa (folosind calificativul override)
+	* Metoda constanta pur virtuala typeUndo mostenita din clasa de baza si suprascrisa (folosind calificativul override)
 	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce stringul (sir de caractere din STL) "[+]Undo adaugare realizat cu succes!\n"
 	*/
-	string typeUndo() override;
+	string typeUndo() const override;
+
+	/*
+	* Metoda constanta pur virtuala getProduct mostenita din clasa de baza ActiuneUndo si suprascrisa (folosind calificativul override)
+	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce produsul (instanta a clasei Product) pe care s-a facut adaugare, modificare sau stergere in repozitory (repozitoriu)
+	*/
+	Product getProduct() const override {
+		return product; // return this->product;
+	}
 };
 
 class UndoModifica : public ActiuneUndo // clasa derivata din clasa de baza ActiuneUndo
@@ -110,10 +126,18 @@ public:
 	void doUndo() override;
 
 	/*
-	* Metoda pur virtuala typeUndo mostenita din clasa de baza si suprascrisa (folosind calificativul override)
+	* Metoda constanta pur virtuala typeUndo mostenita din clasa de baza si suprascrisa (folosind calificativul override)
 	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce stringul (sir de caractere din STL) "[+]Undo modificare realizat cu succes!\n"
 	*/
-	string typeUndo() override;
+	string typeUndo() const override;
+
+	/*
+	* Metoda constanta pur virtuala getProduct mostenita din clasa de baza ActiuneUndo si suprascrisa (folosind calificativul override)
+	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce produsul (instanta a clasei Product) pe care s-a facut adaugare, modificare sau stergere in repozitory (repozitoriu)
+	*/
+	Product getProduct() const override {
+		return product; // return this->product;
+	}
 };
 
 class UndoSterge : public ActiuneUndo // clasa derivata din clasa de baza ActiuneUndo
@@ -149,8 +173,16 @@ public:
 	void doUndo() override;
 
 	/*
-	* Metoda pur virtuala typeUndo mostenita din clasa de baza si suprascrisa (folosind calificativul override)
+	* Metoda constanta pur virtuala typeUndo mostenita din clasa de baza si suprascrisa (folosind calificativul override)
 	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce stringul (sir de caractere din STL) "[+]Undo stergere realizat cu succes!\n"
 	*/
-	string typeUndo() override;
+	string typeUndo() const override;
+
+	/*
+	* Metoda constanta pur virtuala getProduct mostenita din clasa de baza ActiuneUndo si suprascrisa (folosind calificativul override)
+	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce produsul (instanta a clasei Product) pe care s-a facut adaugare, modificare sau stergere in repozitory (repozitoriu)
+	*/
+	Product getProduct() const override {
+		return product; // return this->product;
+	}
 };

@@ -130,15 +130,52 @@ string Service::undo()
 		// lista de undo este vida/goala (nu se mai poate face operatia de undo)
 		throw ServiceException("[!]Nu se mai poate realiza operatia de undo!\n"); // ridicam/aruncam exceptie de clasa ServiceException
 
-	const auto& undo_class_ptr{ undo_list.back() }; // retinem in variabila undo_class_ptr ultimul element (smart pointer) din vectorul undo_list
+	const auto& undo_class_ptr{ undo_list.back() }; // retinem in constanta undo_class_ptr ultimul element (smart pointer) din vectorul undo_list
+	
+	const auto product{ undo_class_ptr->getProduct() }; // salvam in constanta product ultimul produs modificat de operatia de undo (obiect de clasa Product pe care vom face redo)
+	const auto mesaj_undo{ undo_class_ptr->typeUndo() }; // apelam metoda publica typeUndo pe obiectul referit de smart pointerul undo_class_ptr si retinem stringul intors de metoda in constanta mesaj_undo
+	
+	if (!mesaj_undo.compare("[+]Undo adaugare realizat cu succes!\n")) // s-a realizat operatia de undo pentru adaugarea unui produs (s-a sters produsul)
+		redo_list.push_back(make_unique<RedoAdauga>(repo, product)); // adaugam in lista (vectorul) redo_list un smart pointer la un obiect de clasa RedoAdauga care va retine un obiect de clasa Repository si obiectul de clasa Product pe care s-a facut undo adaugare
+	else if (!mesaj_undo.compare("[+]Undo stergere realizat cu succes!\n")) // s-a realizat operatia de undo pentru stergerea unui produs (s-a adaugat produsul)
+		redo_list.push_back(make_unique<RedoSterge>(repo, product)); // adaugam in lista (vectorul) redo_list un smart pointer la un obiect de clasa RedoSterge care va retine un obiect de clasa Repository si obiectul de clasa Product pe care s-a facut undo stergere
+	else //else if (!mesaj_undo.compare("[+]Undo modificare realizat cu succes!\n"))
+		 // s-a realizat operatia de undo pentru modificarea unui produs (s-a modificat produsul)
+		redo_list.push_back(make_unique<RedoModifica>(repo, this->search(product.getName(), product.getProducer()))); // adaugam in lista (vectorul) redo_list un smart pointer la un obiect de clasa RedoModifica care va retine un obiect de clasa Repository si obiectul de clasa Product de dinainte de undo modificare
 
 	undo_class_ptr->doUndo(); // apel polimorfic la metoda virtuala doUndo a unui obiect de clasa UndoAdauga, UndoSterge sau UndoModifica (obiecte derivate din clasa de baza ActiuneUndo)
-	auto mesaj_undo{ (*undo_class_ptr).typeUndo() }; // apelam metoda publica typeUndo pe obiectul referit de smart pointerul undo_class_ptr si retinem stringul intors de metoda in variabila mesaj_undo
 	undo_list.pop_back(); // eliminam/stergem ultimul element (pointer la un obiect de clasa ActiuneUndo) din vectorul undo_list
 
 	this->notify(); // notify();
 
 	return mesaj_undo; // returnam stringul care sa contina mesajul cu operatia la care s-a facut undo (adaugare/modificare/stergere)
+}
+
+string Service::redo()
+{
+	if (!redo_list.size()) // if (redo_list.empty())
+		// lista de redo este vida/goala (nu se mai poate face operatia de redo)
+		throw ServiceException("[!]Nu se mai poate realiza operatia de redo!\n"); // ridicam/aruncam exceptie de clasa ServiceException
+
+	const auto& redo_class_ptr{ redo_list.back() }; // retinem in constanta redo_class_ptr ultimul element (smart pointer) din vectorul redo_list
+
+	const auto product{ redo_class_ptr->getProduct() }; // salvam in constanta product ultimul produs modificat de operatia de redo (obiect de clasa Product pe care vom face undo)
+	const auto mesaj_redo{ redo_class_ptr->typeRedo() }; // apelam metoda publica typeRedo pe obiectul referit de smart pointerul redo_class_ptr si retinem stringul intors de metoda in contanta mesaj_redo
+
+	if (!mesaj_redo.compare("[+]Redo opeatie undo adaugare realizat cu succes!\n")) // s-a realizat operatia de redo pentru undo adaugare (s-a re-adaugat un produs)
+		undo_list.push_back(make_unique<UndoAdauga>(repo, product)); // adaugam in lista (vectorul) undo_list un smart pointer la un obiect de clasa UndoAdauga care va retine un obiect de clasa Repository si obiectul de clasa Product pe care s-a facut redo adauga
+	else if (!mesaj_redo.compare("[+]Redo opeatie undo stergere realizat cu succes!\n")) // s-a realizat operatia de redo pentru undo stergere (s-a sters un produs)
+		undo_list.push_back(make_unique<UndoSterge>(repo, product)); // adaugam in lista (vectorul) undo_list un smart pointer la un obiect de clasa UndoSterge care va retine un obiect de clasa Repository si obiectul de clasa Product pe care s-a facut redo sterge
+	else //else if (!mesaj_redo.compare("[+]Redo opeatie undo modificare realizat cu succes!\n"))
+		 // s-a realizat operatia de redo pentru undo modificare (s-a modificat un produsul)
+		undo_list.push_back(make_unique<UndoModifica>(repo, this->search(product.getName(), product.getProducer()))); // adaugam in lista (vectorul) undo_list un smart pointer la un obiect de clasa UndoModifica care va retine un obiect de clasa Repository si obiectul de clasa Product de dinainte de redo modificare
+
+	redo_class_ptr->doRedo(); // apel polimorfic la metoda virtuala doRedo a unui obiect de clasa RedoAdauga, RedoSterge sau RedoModifica (obiecte derivate din clasa de baza ActiuneRedo)
+	redo_list.pop_back(); // eliminam/stergem ultimul element (pointer la un obiect de clasa ActiuneRedo) din vectorul redo_list
+
+	this->notify(); // notify();
+
+	return mesaj_redo; // returnam stringul care sa contina mesajul cu operatia la care s-a facut redo (undo adaugare/modificare/stergere)
 }
 
 /*

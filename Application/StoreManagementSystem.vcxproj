@@ -113,6 +113,7 @@
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="Product.cpp" />
     <ClCompile Include="ProductValidator.cpp" />
+    <ClCompile Include="Redo.cpp" />
     <ClCompile Include="Repository.cpp" />
     <ClCompile Include="Service.cpp" />
     <ClCompile Include="TestingApp.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="Product.h" />
     <ClInclude Include="ProductException.h" />
     <ClInclude Include="ProductValidator.h" />
+    <ClInclude Include="Redo.h" />
     <ClInclude Include="RepoException.h" />
     <ClInclude Include="Repository.h" />
     <ClInclude Include="Service.h" />
