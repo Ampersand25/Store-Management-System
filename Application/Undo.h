@@ -34,7 +34,7 @@ public:
 
 	/*
 	* Metoda pur virtuala de tip operand/rezultat care returneaza/intoarce obiectul de clasa Product pe care s-a facut ultima operatie de adaugare, modificare sau stergere
-	* Aceasta metoda va fi definita (implementata) in clasele derivate din clasa de baza ActiuneRedo
+	* Aceasta metoda va fi definita (implementata) in clasele derivate din clasa de baza ActiuneUndo
 	* Metoda este doar declarata in clasa de baza (este responsabilitatea fiecarei clase derivate din aceasta sa o suprascrie)
 	*/
 	virtual Product getProduct() const = 0;
@@ -88,9 +88,7 @@ public:
 	* Metoda constanta pur virtuala getProduct mostenita din clasa de baza ActiuneUndo si suprascrisa (folosind calificativul override)
 	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce produsul (instanta a clasei Product) pe care s-a facut adaugare, modificare sau stergere in repozitory (repozitoriu)
 	*/
-	Product getProduct() const override {
-		return product; // return this->product;
-	}
+	Product getProduct() const override;
 };
 
 class UndoModifica : public ActiuneUndo // clasa derivata din clasa de baza ActiuneUndo
@@ -135,9 +133,7 @@ public:
 	* Metoda constanta pur virtuala getProduct mostenita din clasa de baza ActiuneUndo si suprascrisa (folosind calificativul override)
 	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce produsul (instanta a clasei Product) pe care s-a facut adaugare, modificare sau stergere in repozitory (repozitoriu)
 	*/
-	Product getProduct() const override {
-		return product; // return this->product;
-	}
+	Product getProduct() const override;
 };
 
 class UndoSterge : public ActiuneUndo // clasa derivata din clasa de baza ActiuneUndo
@@ -182,7 +178,5 @@ public:
 	* Metoda constanta pur virtuala getProduct mostenita din clasa de baza ActiuneUndo si suprascrisa (folosind calificativul override)
 	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce produsul (instanta a clasei Product) pe care s-a facut adaugare, modificare sau stergere in repozitory (repozitoriu)
 	*/
-	Product getProduct() const override {
-		return product; // return this->product;
-	}
+	Product getProduct() const override;
 };

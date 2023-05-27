@@ -1,7 +1,6 @@
 #include "Redo.h"
 
-// Clasa RedoAdauga - INCEPUT
-
+// RedoAdauga
 void RedoAdauga::doRedo()
 {
 	// operatia inversa undo adauga este adaugarea
@@ -15,10 +14,13 @@ string RedoAdauga::typeRedo() const
 	return "[+]Redo opeatie undo adaugare realizat cu succes!\n"; // string (mesaj) care sa indice ca operatia de redo s-a efectuat cu succes pentru undo adaugare
 }
 
-// Clasa RedoAdauga - SFARSIT
+Product RedoAdauga::getProduct() const
+{
+	return product; // return this->product;
+}
+// ~RedoAdauga
 
-// Clasa RedoModifica - INCEPUT
-
+// RedoModifica
 void RedoModifica::doRedo()
 {
 	// operatia inversa undo modifica este tot modificarea
@@ -32,10 +34,13 @@ string RedoModifica::typeRedo() const
 	return "[+]Redo opeatie undo modificare realizat cu succes!\n"; // string (mesaj) care sa indice ca operatia de redo s-a efectuat cu succes pentru undo modificare
 }
 
-// Clasa RedoModifica - SFARSIT
+Product RedoModifica::getProduct() const
+{
+	return product; // return this->product;
+}
+// ~RedoModifica
 
-// Clasa RedoSterge - INCEPUT
-
+// RedoSterge
 void RedoSterge::doRedo()
 {
 	// operatia inversa undo sterge este stergerea
@@ -49,4 +54,8 @@ string RedoSterge::typeRedo() const
 	return "[+]Redo opeatie undo stergere realizat cu succes!\n"; // string (mesaj) care sa indice ca operatia de redo s-a efectuat cu succes pentru undo stergere
 }
 
-// Clasa RedoSterge - SFARSIT
+Product RedoSterge::getProduct() const
+{
+	return product; // return this->product;
+}
+// ~RedoSterge

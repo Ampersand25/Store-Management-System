@@ -89,9 +89,7 @@ public:
 	* Metoda constanta pur virtuala getProduct mostenita din clasa de baza ActiuneRedo si suprascrisa (folosind calificativul override)
 	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce produsul (instanta a clasei Product) pe care s-a facut undo
 	*/
-	Product getProduct() const override {
-		return product; // return this->product;
-	}
+	Product getProduct() const override;
 };
 
 class RedoModifica : public ActiuneRedo // clasa derivata din clasa de baza ActiuneRedo
@@ -136,9 +134,7 @@ public:
 	* Metoda constanta pur virtuala getProduct mostenita din clasa de baza ActiuneRedo si suprascrisa (folosind calificativul override)
 	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce produsul (instanta a clasei Product) pe care s-a facut undo
 	*/
-	Product getProduct() const override {
-		return product; // return this->product;
-	}
+	Product getProduct() const override;
 };
 
 class RedoSterge : public ActiuneRedo // clasa derivata din clasa de baza ActiuneRedo
@@ -183,7 +179,5 @@ public:
 	* Metoda constanta pur virtuala getProduct mostenita din clasa de baza ActiuneRedo si suprascrisa (folosind calificativul override)
 	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce produsul (instanta a clasei Product) pe care s-a facut undo
 	*/
-	Product getProduct() const override {
-		return product; // return this->product;
-	}
+	Product getProduct() const override;
 };
