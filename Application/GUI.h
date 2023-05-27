@@ -44,6 +44,8 @@ private:
 	QPushButton* btn_CosCRUDGUI = new QPushButton{ "CosCRUDGUI" };
 	QPushButton* btn_CosReadOnlyGUI = new QPushButton{ "CosReadOnlyGUI" };
 
+	QPushButton* btn_cos = new QPushButton{ "Cumparaturi" };
+
 	QSlider* sld_cumparaturi_main = new QSlider;
 	QSpinBox* sld_value_cumparaturi_main = new QSpinBox;
 
@@ -56,7 +58,6 @@ private:
 	QPushButton* btn_info_types = new QPushButton{ "&Info tipuri" };
 	QPushButton* btn_undo = new QPushButton{ "&Undo" };
 	QPushButton* btn_redo = new QPushButton{ "&Redo" };
-	QPushButton* btn_cos = new QPushButton{ "Cum&paraturi" };
 
 	QPushButton* btn_dbg = new QPushButton{ "&Debug" };
 	QPushButton* btn_clear = new QPushButton{ "C&lear" };
@@ -214,6 +215,8 @@ private:
 	QTableWidget* tbl_cos_crud;
 
 	QTabWidget* tab_cos_crud;
+
+	void addShortcuts();
 
 public:
 	// metode publice

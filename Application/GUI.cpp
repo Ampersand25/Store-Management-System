@@ -3088,6 +3088,45 @@ void GUI::addProductsToTable(const vector<Product>& prods)
 	}
 }
 
+void GUI::addShortcuts()
+{
+	QAction* action_btn_adaugare_cumparaturi_main = new QAction(this);
+	action_btn_adaugare_cumparaturi_main->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_A));
+	connect(action_btn_adaugare_cumparaturi_main, &QAction::triggered, btn_adaugare_cumparaturi_main, &QPushButton::click);
+
+	this->addAction(action_btn_adaugare_cumparaturi_main);
+
+	QAction* action_btn_stergere_cumparaturi_main = new QAction(this);
+	action_btn_stergere_cumparaturi_main->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_S));
+	connect(action_btn_stergere_cumparaturi_main, &QAction::triggered, btn_stergere_cumparaturi_main, &QPushButton::click);
+
+	this->addAction(action_btn_stergere_cumparaturi_main);
+
+	QAction* action_btn_generare_cumparaturi_main = new QAction(this);
+	action_btn_generare_cumparaturi_main->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_G));
+	connect(action_btn_generare_cumparaturi_main, &QAction::triggered, btn_generare_cumparaturi_main, &QPushButton::click);
+
+	this->addAction(action_btn_generare_cumparaturi_main);
+
+	QAction* action_btn_CosCRUDGUI = new QAction(this);
+	action_btn_CosCRUDGUI->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_C));
+	connect(action_btn_CosCRUDGUI, &QAction::triggered, btn_CosCRUDGUI, &QPushButton::click);
+
+	this->addAction(action_btn_CosCRUDGUI);
+
+	QAction* action_btn_CosReadOnlyGUI = new QAction(this);
+	action_btn_CosReadOnlyGUI->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_R));
+	connect(action_btn_CosReadOnlyGUI, &QAction::triggered, btn_CosReadOnlyGUI, &QPushButton::click);
+
+	this->addAction(action_btn_CosReadOnlyGUI);
+
+	QAction* action_btn_cos = new QAction(this);
+	action_btn_cos->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_M));
+	connect(action_btn_cos, &QAction::triggered, btn_cos, &QPushButton::click);
+
+	this->addAction(action_btn_cos);
+}
+
 void GUI::setInitialState()
 {
 	try {
