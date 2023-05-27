@@ -18,6 +18,11 @@ Product RedoAdauga::getProduct() const
 {
 	return product; // return this->product;
 }
+
+REDO_TYPE RedoAdauga::whatRedo() const
+{
+	return ADD_TYPE_REDO;
+}
 // ~RedoAdauga
 
 // RedoModifica
@@ -38,6 +43,11 @@ Product RedoModifica::getProduct() const
 {
 	return product; // return this->product;
 }
+
+REDO_TYPE RedoModifica::whatRedo() const
+{
+	return UPDATE_TYPE_REDO;
+}
 // ~RedoModifica
 
 // RedoSterge
@@ -57,5 +67,10 @@ string RedoSterge::typeRedo() const
 Product RedoSterge::getProduct() const
 {
 	return product; // return this->product;
+}
+
+REDO_TYPE RedoSterge::whatRedo() const
+{
+	return REMOVE_TYPE_REDO;
 }
 // ~RedoSterge

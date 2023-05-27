@@ -1,11 +1,2 @@
-﻿  ApplicationCoordinator.cpp
-  Console.cpp
-  GUI.cpp
-  Redo.cpp
-  Service.cpp
-  TestingApp.cpp
-  TestingService.cpp
-  TestingUndo.cpp
-  Undo.cpp
-  main.cpp
+﻿  Service.cpp
   StoreManagementSystem.vcxproj -> C:\Users\crist\source\repos\StoreManagementSystem\x64\Release\StoreManagementSystem.exe

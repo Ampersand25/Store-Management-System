@@ -18,6 +18,11 @@ Product UndoAdauga::getProduct() const
 {
 	return product; // return this->product;
 }
+
+UNDO_TYPE UndoAdauga::whatUndo() const
+{
+	return ADD_TYPE_UNDO;
+}
 // ~UndoAdauga
 
 // UndoModifica
@@ -38,6 +43,11 @@ Product UndoModifica::getProduct() const
 {
 	return product; // return this->product;
 }
+
+UNDO_TYPE UndoModifica::whatUndo() const
+{
+	return UPDATE_TYPE_UNDO;
+}
 // ~UndoModifica
 
 // UndoSterge
@@ -57,5 +67,10 @@ string UndoSterge::typeUndo() const
 Product UndoSterge::getProduct() const
 {
 	return product; // return this->product;
+}
+
+UNDO_TYPE UndoSterge::whatUndo() const
+{
+	return REMOVE_TYPE_UNDO;
 }
 // ~UndoSterge

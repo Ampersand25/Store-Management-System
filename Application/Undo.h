@@ -7,6 +7,12 @@
 
 using std::string;
 
+enum UNDO_TYPE {
+	ADD_TYPE_UNDO,
+	UPDATE_TYPE_UNDO,
+	REMOVE_TYPE_UNDO
+};
+
 class ActiuneUndo // clasa de baza
 {
 public:
@@ -38,6 +44,14 @@ public:
 	* Metoda este doar declarata in clasa de baza (este responsabilitatea fiecarei clase derivate din aceasta sa o suprascrie)
 	*/
 	virtual Product getProduct() const = 0;
+
+	/*
+	* Metoda pur virtuala de tip operand/rezultat care returneaza/intoarce o variabila avand tip de data enumerat ce va reprezenta tipul actual (de la runtime) al obiectului care apeleaza metoda (obiect care poate sa apartina uneia din clasele: UndoAdauga, UndoModifica si UndoSterge (toate fiind clase derivate din clasa de baza ActiuneUndo))
+	* Rezultatul metodei va fi una din constantele: ADD_TYPE_UNDO (avand valoarea numerica 0), UPDATE_TYPE_UNDO (avand valoarea numerica 1) sau REMOVE_TYPE_UNDO (avand valoarea numerica 2)
+	* Aceasta metoda va fi definita (implementata) in clasele derivate din clasa de baza ActiuneUndo
+	* Metoda este doar declarata in clasa de baza (este responsabilitatea fiecarei clase derivate din aceasta sa o suprascrie)
+	*/
+	virtual UNDO_TYPE whatUndo() const = 0;
 
 	/*
 	* Destructorul default al unui obiect de clasa ActiuneUndo
@@ -89,6 +103,13 @@ public:
 	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce produsul (instanta a clasei Product) pe care s-a facut adaugare, modificare sau stergere in repozitory (repozitoriu)
 	*/
 	Product getProduct() const override;
+
+	/*
+	* Metoda constanta pur virtuala whatUndo mostenita din clasa de baza ActiuneUndo si suprascrisa (folosind calificativul override)
+	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce tipul de undo care urmeaza sa fie efectuat/executat (adaugare in cazul de fata)
+	* Metoda va intoarce constanta ADD_TYPE_UNDO pentru o instanta a clasei UndoAdauga
+	*/
+	UNDO_TYPE whatUndo() const override;
 };
 
 class UndoModifica : public ActiuneUndo // clasa derivata din clasa de baza ActiuneUndo
@@ -134,6 +155,13 @@ public:
 	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce produsul (instanta a clasei Product) pe care s-a facut adaugare, modificare sau stergere in repozitory (repozitoriu)
 	*/
 	Product getProduct() const override;
+
+	/*
+	* Metoda constanta pur virtuala whatUndo mostenita din clasa de baza ActiuneUndo si suprascrisa (folosind calificativul override)
+	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce tipul de undo care urmeaza sa fie efectuat/executat (modificare in cazul de fata)
+	* Metoda va intoarce constanta UPDATE_TYPE_UNDO pentru o instanta a clasei UndoModifica
+	*/
+	UNDO_TYPE whatUndo() const override;
 };
 
 class UndoSterge : public ActiuneUndo // clasa derivata din clasa de baza ActiuneUndo
@@ -179,4 +207,11 @@ public:
 	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce produsul (instanta a clasei Product) pe care s-a facut adaugare, modificare sau stergere in repozitory (repozitoriu)
 	*/
 	Product getProduct() const override;
+
+	/*
+	* Metoda constanta pur virtuala whatUndo mostenita din clasa de baza ActiuneUndo si suprascrisa (folosind calificativul override)
+	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce tipul de undo care urmeaza sa fie efectuat/executat (stergere in cazul de fata)
+	* Metoda va intoarce constanta REMOVE_TYPE_UNDO pentru o instanta a clasei UndoSterge
+	*/
+	UNDO_TYPE whatUndo() const override;
 };

@@ -7,6 +7,12 @@
 
 using std::string;
 
+enum REDO_TYPE {
+	ADD_TYPE_REDO,
+	UPDATE_TYPE_REDO,
+	REMOVE_TYPE_REDO
+};
+
 class ActiuneRedo // clasa de baza
 {
 public:
@@ -39,6 +45,14 @@ public:
 	* Metoda este doar declarata in clasa de baza (este responsabilitatea fiecarei clase derivate din aceasta sa o suprascrie)
 	*/
 	virtual Product getProduct() const = 0;
+
+	/*
+	* Metoda pur virtuala de tip operand/rezultat care returneaza/intoarce o variabila avand tip de data enumerat ce va reprezenta tipul actual (de la runtime) al obiectului care apeleaza metoda (obiect care poate sa apartina uneia din clasele: RedoAdauga, RedoModifica si RedoSterge (toate fiind clase derivate din clasa de baza ActiuneRedo))
+	* Rezultatul metodei va fi una din constantele: ADD_TYPE_REDO (avand valoarea numerica 0), UPDATE_TYPE_REDP (avand valoarea numerica 1) sau REMOVE_TYPE_REDO (avand valoarea numerica 2)
+	* Aceasta metoda va fi definita (implementata) in clasele derivate din clasa de baza ActiuneRedo
+	* Metoda este doar declarata in clasa de baza (este responsabilitatea fiecarei clase derivate din aceasta sa o suprascrie)
+	*/
+	virtual REDO_TYPE whatRedo() const = 0;
 
 	/*
 	* Destructorul default al unui obiect de clasa ActiuneRedo
@@ -90,6 +104,13 @@ public:
 	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce produsul (instanta a clasei Product) pe care s-a facut undo
 	*/
 	Product getProduct() const override;
+
+	/*
+	* Metoda constanta pur virtuala whatRedo mostenita din clasa de baza ActiuneRedo si suprascrisa (folosind calificativul override)
+	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce tipul de redo care urmeaza sa fie efectuat/executat (redo pentru undo adaugare in cazul de fata)
+	* Metoda va intoarce constanta ADD_TYPE_REDO pentru o instanta a clasei RedoAdauga
+	*/
+	REDO_TYPE whatRedo() const override;
 };
 
 class RedoModifica : public ActiuneRedo // clasa derivata din clasa de baza ActiuneRedo
@@ -135,6 +156,13 @@ public:
 	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce produsul (instanta a clasei Product) pe care s-a facut undo
 	*/
 	Product getProduct() const override;
+
+	/*
+	* Metoda constanta pur virtuala whatRedo mostenita din clasa de baza ActiuneRedo si suprascrisa (folosind calificativul override)
+	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce tipul de redo care urmeaza sa fie efectuat/executat (redo pentru undo modificare in cazul de fata)
+	* Metoda va intoarce constanta UPDATE_TYPE_REDO pentru o instanta a clasei RedoModifica
+	*/
+	REDO_TYPE whatRedo() const override;
 };
 
 class RedoSterge : public ActiuneRedo // clasa derivata din clasa de baza ActiuneRedo
@@ -180,4 +208,11 @@ public:
 	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce produsul (instanta a clasei Product) pe care s-a facut undo
 	*/
 	Product getProduct() const override;
+
+	/*
+	* Metoda constanta pur virtuala whatRedo mostenita din clasa de baza ActiuneRedo si suprascrisa (folosind calificativul override)
+	* Functie publica care la apelul polimorfic (dynamic dispatch) returneaza/intoarce tipul de redo care urmeaza sa fie efectuat/executat (redo pentru undo stergere in cazul de fata)
+	* Metoda va intoarce constanta REMOVE_TYPE_REDO pentru o instanta a clasei RedoSterge
+	*/
+	REDO_TYPE whatRedo() const override;
 };
