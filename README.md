@@ -105,6 +105,8 @@
 
 <strong>TODO</strong>:
 - remove/delete option for an item from the shopping cart
-- save the shopping cart content/list in a text file (data persistence for the shopping cart)
+- save the shopping cart content/list in a text file (data persistence for the shopping cart in CSV (Comma-Separated Values) file)
 - create database repository (add data persistence in a SQL (Structured Query Language) database like MySQL or PostgreSQL) ✅
 - redo operation (for undo operation))
+- sort products from the shopping cart after: name, type, price or producer
+- add the possibility to save the shopping cart in a MySQL database (data persistence for shopping cart in a database table)
