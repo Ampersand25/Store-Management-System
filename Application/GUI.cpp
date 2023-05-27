@@ -3099,6 +3099,18 @@ void GUI::setInitialState()
 		tbl_products_model->setVisible(vector<Product>(), true);
 	}
 
+	name_line_edit->setPlaceholderText("Introduceti numele produsului...");
+	type_line_edit->setPlaceholderText("Introduceti tipul produsului...");
+	price_line_edit->setPlaceholderText("Introduceti pretul produsului...");
+	producer_line_edit->setPlaceholderText("Introduceti producatorul produsului...");
+
+	name_cos_line_edit->setPlaceholderText("Introduceti numele produsului...");
+	type_cos_line_edit->setPlaceholderText("Introduceti tipul produsului...");
+	price_cos_line_edit->setPlaceholderText("Introduceti pretul produsului...");
+	producer_cos_line_edit->setPlaceholderText("Introduceti producatorul produsului...");
+
+	fisier_export_line_edit->setPlaceholderText("Introduceti numele fisierului...");
+
 	last_selected_item_list = new QListWidgetItem;
 
 	number_of_undo = 0;
