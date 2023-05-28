@@ -111,4 +111,5 @@
 - redo operation (for undo operation)) ✅
 - sort products from the shopping cart after: name, type, price or producer
 - add the possibility to save the shopping cart in a MySQL database (data persistence for shopping cart in a database table)
+- add tooltips for all buttons (QPushButton elements)
 - update the screenshots after all the new features are done (the application is in its final version)
