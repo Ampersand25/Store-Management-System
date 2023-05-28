@@ -57,7 +57,8 @@
 - "Export" (from "Cos de cumparaturi" window)  : CTRL + E
 - "Clear" (from "Cos de cumparaturi" window)   : CTRL + L
 - "Close" (from "Cos de cumparaturi" window)   : CTRL + X
-<br><strong>Observation: all buttons have different shortcuts!</strong>
+
+<strong>Observation: all buttons have different shortcuts!</strong>
 
 <strong>While developing the app I also worked with tools such as</strong>:
 - memory leak detector (for detecting memory leaks)
