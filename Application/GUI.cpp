@@ -884,6 +884,48 @@ void GUI::addCumparaturiToTable(QTableWidget* tbl, const vector<Product>& lista_
 
 void GUI::setInitialStateCosCumparaturi()
 {
+	QAction* action_btn_golire_cos = new QAction(cos_widget);
+	action_btn_golire_cos->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_O));
+	connect(action_btn_golire_cos, &QAction::triggered, btn_golire_cos, &QPushButton::click);
+
+	cos_widget->addAction(action_btn_golire_cos);
+
+	QAction* action_btn_adaugare_cos = new QAction(cos_widget);
+	action_btn_adaugare_cos->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_D));
+	connect(action_btn_adaugare_cos, &QAction::triggered, btn_adaugare_cos, &QPushButton::click);
+
+	cos_widget->addAction(action_btn_adaugare_cos);
+
+	QAction* action_btn_tiparire_cos = new QAction(cos_widget);
+	action_btn_tiparire_cos->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_T));
+	connect(action_btn_tiparire_cos, &QAction::triggered, btn_tiparire_cos, &QPushButton::click);
+
+	cos_widget->addAction(action_btn_tiparire_cos);
+
+	QAction* action_btn_generare_cos = new QAction(cos_widget);
+	action_btn_generare_cos->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_N));
+	connect(action_btn_generare_cos, &QAction::triggered, btn_generare_cos, &QPushButton::click);
+
+	cos_widget->addAction(action_btn_generare_cos);
+
+	QAction* action_btn_export_cos = new QAction(cos_widget);
+	action_btn_export_cos->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_E));
+	connect(action_btn_export_cos, &QAction::triggered, btn_export_cos, &QPushButton::click);
+
+	cos_widget->addAction(action_btn_export_cos);
+
+	QAction* action_btn_clear_cos = new QAction(cos_widget);
+	action_btn_clear_cos->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_L));
+	connect(action_btn_clear_cos, &QAction::triggered, btn_clear_cos, &QPushButton::click);
+
+	cos_widget->addAction(action_btn_clear_cos);
+
+	QAction* action_btn_close_cos = new QAction(cos_widget);
+	action_btn_close_cos->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_X));
+	connect(action_btn_close_cos, &QAction::triggered, btn_close_cos, &QPushButton::click);
+
+	cos_widget->addAction(action_btn_close_cos);
+
 	btn_golire_cos->setToolTip("Golire continut cos de cumparaturi");
 	btn_adaugare_cos->setToolTip("Adaugare produs in cosul de cumparaturi");
 	btn_tiparire_cos->setToolTip("Afisarea continutului cosului de cumparaturi sub forma de lista si tabel");

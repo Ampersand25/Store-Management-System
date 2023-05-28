@@ -119,14 +119,14 @@ private:
 
 	QSpinBox* no_prods = new QSpinBox(nullptr);
 
-	QPushButton* btn_golire_cos = new QPushButton{ "G&olire" };
-	QPushButton* btn_adaugare_cos = new QPushButton{ "&Adaugare" };
-	QPushButton* btn_tiparire_cos = new QPushButton{ "&Tiparire" };
-	QPushButton* btn_export_cos = new QPushButton{ "&Export" };
-	QPushButton* btn_generare_cos = new QPushButton{ "&Generare" };
+	QPushButton* btn_golire_cos = new QPushButton{ "Golire" };
+	QPushButton* btn_adaugare_cos = new QPushButton{ "Adaugare" };
+	QPushButton* btn_tiparire_cos = new QPushButton{ "Tiparire" };
+	QPushButton* btn_export_cos = new QPushButton{ "Export" };
+	QPushButton* btn_generare_cos = new QPushButton{ "Generare" };
 
-	QPushButton* btn_clear_cos = new QPushButton{ "C&lear" };
-	QPushButton* btn_close_cos = new QPushButton{ "&Close" };
+	QPushButton* btn_clear_cos = new QPushButton{ "Clear" };
+	QPushButton* btn_close_cos = new QPushButton{ "Close" };
 
 	QLineEdit* name_cos_line_edit = new QLineEdit;
 	QLineEdit* type_cos_line_edit = new QLineEdit;
