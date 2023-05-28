@@ -313,5 +313,8 @@ void CosCRUDGUI::connectSignalsCosCRUDGUI()
 
 void CosCRUDGUI::setInitialStateCosCRUDGUI()
 {
+	btn_gen->setToolTip("Genereaza continut cos de cumparaturi");
+	btn_gol->setToolTip("Golire continut cos de cumparaturi");
+
 	setUpMasterDetail();
 }

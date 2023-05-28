@@ -195,6 +195,10 @@ private:
 	QLabel* lbl_selected_item_list{ nullptr };
 	QDialog* dialog_selected_item_list{ nullptr };
 
+	void addShortcuts();
+	void addTooltips();
+	void addPlaceholderText();
+
 	void initGuiCmp();
 	void connectSignals();
 	void setInitialState();
@@ -215,8 +219,6 @@ private:
 	QTableWidget* tbl_cos_crud;
 
 	QTabWidget* tab_cos_crud;
-
-	void addShortcuts();
 
 public:
 	// metode publice

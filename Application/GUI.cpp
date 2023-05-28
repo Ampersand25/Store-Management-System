@@ -884,6 +884,20 @@ void GUI::addCumparaturiToTable(QTableWidget* tbl, const vector<Product>& lista_
 
 void GUI::setInitialStateCosCumparaturi()
 {
+	btn_golire_cos->setToolTip("Golire continut cos de cumparaturi");
+	btn_adaugare_cos->setToolTip("Adaugare produs in cosul de cumparaturi");
+	btn_tiparire_cos->setToolTip("Afisarea continutului cosului de cumparaturi sub forma de lista si tabel");
+	
+	btn_export_cos->setToolTip("Export continut cos de cumparaturi intr-un fisier (CSV sau/si HTML)");
+	
+	btn_generare_cos->setToolTip("Generare produse pentru cosul de cumparaturi");
+	
+	btn_clear_cos->setToolTip("Golire lista/tabel");
+	btn_close_cos->setToolTip("Inchidere fereastra");
+
+	checkbox_export_fisier_csv->setToolTip("Fisier Comma-Separated Values (deschidere cu Excel)");
+	checkbox_export_fisier_html->setToolTip("Fisier HyperText Markup Language (deschidere in browser)");
+
 	last_selected_item_list_cos = new QListWidgetItem;
 
 	try {
@@ -918,32 +932,6 @@ void GUI::initGuiCmp()
 	catch (const RepoException&) {
 		lst_products_model = new ListModelProducts(vector<Product>());
 		tbl_products_model = new TableModelProducts(vector<Product>());
-	}
-
-	if (theme)
-	{
-		QPalette* newPalette = new QPalette;
-		newPalette->setColor(QPalette::Window, QColor(37, 37, 37));
-		newPalette->setColor(QPalette::WindowText, QColor(255, 255, 255));
-		newPalette->setColor(QPalette::Base, QColor(60, 60, 60));
-		newPalette->setColor(QPalette::AlternateBase, QColor(45, 45, 45));
-		newPalette->setColor(QPalette::PlaceholderText, QColor(127, 127, 127));
-		newPalette->setColor(QPalette::Text, QColor(0, 0, 0));
-		newPalette->setColor(QPalette::Button, QColor(0, 0, 0));
-		newPalette->setColor(QPalette::ButtonText, QColor(0, 0, 0));
-		newPalette->setColor(QPalette::BrightText, QColor(240, 240, 240));
-		newPalette->setColor(QPalette::Highlight, QColor(38, 79, 120));
-		newPalette->setColor(QPalette::HighlightedText, QColor(240, 240, 240));
-
-		newPalette->setColor(QPalette::Light, QColor(60, 60, 60));
-		newPalette->setColor(QPalette::Midlight, QColor(52, 52, 52));
-		newPalette->setColor(QPalette::Dark, QColor(30, 30, 30));
-		newPalette->setColor(QPalette::Mid, QColor(37, 37, 37));
-		newPalette->setColor(QPalette::Shadow, QColor(0, 0, 0));
-
-		newPalette->setColor(QPalette::Disabled, QPalette::Text, QColor(127, 127, 127));
-
-		this->setPalette(*newPalette);
 	}
 
 	this->setWindowTitle("Magazin Virtual");
@@ -1017,10 +1005,10 @@ void GUI::initGuiCmp()
 	//btns_sort_ly->addWidget(btn_sort_name);
 	//btns_sort_ly->addStretch();
 
-	//btns_sort_ly->addWidget(btn_sort_price);
+	//btns_sort_ly->addWidget(btn_sort_name_plus_type);
 	//btns_sort_ly->addStretch();
 
-	//btns_sort_ly->addWidget(btn_sort_name_plus_type);
+	//btns_sort_ly->addWidget(btn_sort_price);
 	//btns_sort_ly->addStretch();
 
 	left_ly->addLayout(btns_sort_ly);
@@ -1070,13 +1058,13 @@ void GUI::initGuiCmp()
 	btns_filter_ly->addWidget(filter_options_combo_box);
 	btns_filter_ly->addWidget(btn_filter);
 
-	//btns_filter_ly->addWidget(btn_filter_price);
-	//btns_filter_ly->addStretch();
-
 	//btns_filter_ly->addWidget(btn_filter_name);
 	//btns_filter_ly->addStretch();
 
 	//btns_filter_ly->addWidget(btn_filter_type);
+	//btns_filter_ly->addStretch();
+
+	//btns_filter_ly->addWidget(btn_filter_price);
 	//btns_filter_ly->addStretch();
 
 	left_ly->addLayout(btns_filter_ly);
@@ -3127,17 +3115,50 @@ void GUI::addShortcuts()
 	this->addAction(action_btn_cos);
 }
 
-void GUI::setInitialState()
+void GUI::addTooltips()
 {
-	try {
-		lst_products_model->setVisible(srv.getAll(), true);
-		tbl_products_model->setVisible(srv.getAll(), true);
-	}
-	catch (const RepoException&) {
-		lst_products_model->setVisible(vector<Product>(), true);
-		tbl_products_model->setVisible(vector<Product>(), true);
-	}
+	btn_adaugare_cumparaturi_main->setToolTip("Adaugare produs in cosul de cumparaturi");
+	btn_stergere_cumparaturi_main->setToolTip("Golire continut cos de cumparaturi");
+	btn_generare_cumparaturi_main->setToolTip("Generare continut cos de cumparaturi");
+	
+	btn_CosCRUDGUI->setToolTip("Deschidere fereastra CosCRUDGUI");
+	btn_CosReadOnlyGUI->setToolTip("Deschidere fereastra CosReadOnlyGUI");
+	
+	btn_cos->setToolTip("Deschidere fereastra pentru gestiunea cosului de cumparaturi");
+	
+	btn_add->setToolTip("Adaugare produs nou in stocul magazinului");
+	btn_modify->setToolTip("Modificare produs existent din stocul magazinului");
+	btn_delete->setToolTip("Stergere/Eliminare produs existent din stocul magazinului");
+	
+	btn_search->setToolTip("Cautare produs in stocul magazinului");
+	btn_type->setToolTip("Afisare stoc magazin");
+	btn_info_types->setToolTip("Deschidere ferestre care contin statistici privind distributia produselor in stoc");
+	
+	btn_undo->setToolTip("Anularea ultimei operatii de adaugare/modificare/stergere");
+	btn_redo->setToolTip("Refacerea ultimei operatii anulate folosind undo");
+	btn_dbg->setToolTip("Adaugare produse de test in stocul magazinului");
+	
+	btn_clear->setToolTip("Stergere continut lista/tabel");
+	btn_exit->setToolTip("Inchidere aplicatie");
+	
+	btn_sort->setToolTip("Sortare produse din stocul magazinului");
+	
+	btn_filter->setToolTip("Filtrare produse din stocul magazinului");
 
+	radio_btn_cresc->setToolTip("Sortare in ordine crescatoare");
+	radio_btn_descresc->setToolTip("Sortare in ordine descrescatoare");
+
+	sort_options_combo_box->setToolTip("Alegere optiune de sortare");
+
+	radio_btn_less->setToolTip("Filtrare dupa pret mai mic strict");
+	radio_btn_equal->setToolTip("Filtrare dupa pret egal");
+	radio_btn_greater->setToolTip("Filtrare dupa pret mai mare strict");
+
+	filter_options_combo_box->setToolTip("Alegere optiune de filtrare");
+}
+
+void GUI::addPlaceholderText()
+{
 	name_line_edit->setPlaceholderText("Introduceti numele produsului...");
 	type_line_edit->setPlaceholderText("Introduceti tipul produsului...");
 	price_line_edit->setPlaceholderText("Introduceti pretul produsului...");
@@ -3149,6 +3170,24 @@ void GUI::setInitialState()
 	producer_cos_line_edit->setPlaceholderText("Introduceti producatorul produsului...");
 
 	fisier_export_line_edit->setPlaceholderText("Introduceti numele fisierului...");
+
+	filter_crt_line_edit->setPlaceholderText("Introduceti filtru...");
+}
+
+void GUI::setInitialState()
+{
+	try {
+		lst_products_model->setVisible(srv.getAll(), true);
+		tbl_products_model->setVisible(srv.getAll(), true);
+	}
+	catch (const RepoException&) {
+		lst_products_model->setVisible(vector<Product>(), true);
+		tbl_products_model->setVisible(vector<Product>(), true);
+	}
+	
+	addShortcuts();
+	addTooltips();
+	addPlaceholderText();
 
 	last_selected_item_list = new QListWidgetItem;
 
