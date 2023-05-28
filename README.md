@@ -58,7 +58,7 @@
 - "Clear" (from "Cos de cumparaturi" window)   : CTRL + L
 - "Close" (from "Cos de cumparaturi" window)   : CTRL + X
 
-<strong>Observation: all buttons have different shortcuts!</strong>
+<em>Observation: all buttons have different shortcuts!</em>
 
 <strong>While developing the app I also worked with tools such as</strong>:
 - memory leak detector (for detecting memory leaks)
