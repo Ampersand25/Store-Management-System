@@ -28,6 +28,37 @@
 - exporting the shopping cart: the user can export the content of the shopping cart to a CSV (Comma-Separated Values) or/and an HTML (HyperText Markup Language) file. The name of the file(s) must be given by the user. The exporting file(s) will be created inside the project directory in the folder named "Export cos cumparaturi". For opening CSV files, it is recommended to use Excel, and for opening HTML files, it is recommended to use a web browser such as Google Chrome. However, both types of files can also be opened using a text editor such as Notepad or Notepad++
 - selecting an item from the shopping cart list: if the user selects an item from the shopping cart then a message box, containing the details about the selected product (name, type, price and producer), will be displayed
 
+<strong>Shortcuts available for buttons (QPushButton elements)</strong>:
+- "Adauga produs in cos" (from main window): CTRL + A
+- "Sterge continut cos" (from main window) : CTRL + S
+- "Genereaza cos" (from main window)       : CTRL + G
+- "CosCRUDGUI" (from main window)          : CTRL + C
+- "CosReadOnlyGUI" (from main window)      : CTRL + R
+- "Cumparaturi" (from main window)         : CTRL + M
+- "Sortare" (from main window)             : ALT + S
+- "Filtrare" (from main window)            : ALT + F
+- "Adaugare" (from main window)            : ALT + A
+- "Modificare" (from main window)          : ALT + M
+- "Stergere" (from main window)            : ALT + T
+- "Cautare" (from main window)             : ALT + C
+- "Afisare" (from main window)             : ALT + E
+- "Info tipuri" (from main window)         : ALT + I
+- "Undo" (from main window)                : ALT + U
+- "Redo" (from main window)                : ALT + R
+- "Debug" (from main window)               : ALT + D
+- "Clear" (from main window)               : ALT + L
+- "Exit" (from main window)                : ALT + X
+- "Generare cos de cumparaturi" (from "Fereastra CosCRUDGUI" window): ALT + N
+- "Golire cos de cumparaturi" (from "Fereastra CosCRUDGUI" window)  : ALT + P
+- "Golire" (from "Cos de cumparaturi" window)  : CTRL + O
+- "Adaugare" (from "Cos de cumparaturi" window): CTRL + D
+- "Tiparire" (from "Cos de cumparaturi" window): CTRL + T
+- "Generare" (from "Cos de cumparaturi" window): CTRL + N
+- "Export" (from "Cos de cumparaturi" window)  : CTRL + E
+- "Clear" (from "Cos de cumparaturi" window)   : CTRL + L
+- "Close" (from "Cos de cumparaturi" window)   : CTRL + X
+<strong>Observation: all buttons have different shortcuts!</strong>
+
 <strong>While developing the app I also worked with tools such as</strong>:
 - memory leak detector (for detecting memory leaks)
 - debugger (for fixing bugs)
