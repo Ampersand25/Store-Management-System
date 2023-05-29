@@ -40,6 +40,9 @@ public:
 		QLabel* lbl = new QLabel;
 
 		lbl->setText("Tipuri de produse existente in magazinul virtual");
+		QFont font_lbl = lbl->font();
+		font_lbl.setWeight(QFont::Bold);
+		lbl->setFont(font_lbl);
 		lbl->setAlignment(Qt::AlignHCenter);
 
 		ly->addWidget(lbl);

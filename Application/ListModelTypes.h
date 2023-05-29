@@ -69,6 +69,9 @@ public:
 
 					if (value.second == 1)
 						return QString("Exista un singur produs cu tipul \"" + QString::fromStdString(key) + "\" in magazin!\n");
+					
+					if (value.second == 2)
+						return QString("Exista doar doua produse cu tipul \"" + QString::fromStdString(key) + "\" in magazin!\n");
 
 					return QString("Exista " + QString::number(value.second) + " produse cu tipul \"" + QString::fromStdString(key) + "\" in magazin!\n");
 				}

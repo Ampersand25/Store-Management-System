@@ -80,6 +80,9 @@ void GUI::initMeniuCosCumparaturi()
 
 	QLabel* title_lbl = new QLabel;
 	title_lbl->setText("Meniu cos cumparaturi");
+	QFont font_title_lbl = title_lbl->font();
+	font_title_lbl.setWeight(QFont::Bold);
+	title_lbl->setFont(font_title_lbl);
 	title_lbl->setAlignment(Qt::AlignHCenter);
 
 	upper_ly->addWidget(title_lbl);
@@ -92,6 +95,9 @@ void GUI::initMeniuCosCumparaturi()
 
 	QLabel* cos_lst_lbl = new QLabel;
 	cos_lst_lbl->setText("Lista cu produsele din cosul de cumparaturi");
+	QFont font_cos_lst_lbl = cos_lst_lbl->font();
+	font_cos_lst_lbl.setWeight(QFont::Bold);
+	cos_lst_lbl->setFont(font_cos_lst_lbl);
 	cos_lst_lbl->setAlignment(Qt::AlignHCenter);
 
 	left_ly->addWidget(cos_lst_lbl);
@@ -99,6 +105,9 @@ void GUI::initMeniuCosCumparaturi()
 
 	QLabel* cos_tbl_lbl = new QLabel;
 	cos_tbl_lbl->setText("Tabel cu produsele din cosul de cumparaturi");
+	QFont font_cos_tbl_lbl = cos_tbl_lbl->font();
+	font_cos_tbl_lbl.setWeight(QFont::Bold);
+	cos_tbl_lbl->setFont(font_cos_tbl_lbl);
 	cos_tbl_lbl->setAlignment(Qt::AlignHCenter);
 
 	left_ly->addWidget(cos_tbl_lbl);
@@ -118,6 +127,9 @@ void GUI::initMeniuCosCumparaturi()
 
 	QLabel* produs_cos_lbl = new QLabel;
 	produs_cos_lbl->setText("Informatii produs - cos de cumparaturi");
+	QFont font_produs_cos_lbl = produs_cos_lbl->font();
+	font_produs_cos_lbl.setWeight(QFont::Bold);
+	produs_cos_lbl->setFont(font_produs_cos_lbl);
 	produs_cos_lbl->setAlignment(Qt::AlignHCenter);
 
 	right_ly->addWidget(produs_cos_lbl);
@@ -141,7 +153,10 @@ void GUI::initMeniuCosCumparaturi()
 	right_ly->addStretch();
 
 	QLabel* lbl_info_cos = new QLabel;
-	lbl_info_cos->setText("Informatii cos de cumparaturi");
+	lbl_info_cos->setText("Detalii cos de cumparaturi");
+	QFont font_lbl_info_cos = lbl_info_cos->font();
+	font_lbl_info_cos.setWeight(QFont::Bold);
+	lbl_info_cos->setFont(font_lbl_info_cos);
 	lbl_info_cos->setAlignment(Qt::AlignHCenter);
 
 	right_ly->addWidget(lbl_info_cos);
@@ -153,6 +168,9 @@ void GUI::initMeniuCosCumparaturi()
 
 	total_price_cos_line_edit->setReadOnly(true);
 	total_products_cos_line_edit->setReadOnly(true);
+
+	total_price_cos_line_edit->setAlignment(Qt::AlignCenter);
+	total_products_cos_line_edit->setAlignment(Qt::AlignCenter);
 
 	form_ly_2->addRow(total_price_label, total_price_cos_line_edit);
 	form_ly_2->addRow(total_products_label, total_products_cos_line_edit);
@@ -178,6 +196,9 @@ void GUI::initMeniuCosCumparaturi()
 
 	QLabel* options_lbl = new QLabel;
 	options_lbl->setText("Optiuni gestionare cos de cumparaturi");
+	QFont font_options_lbl = options_lbl->font();
+	font_options_lbl.setWeight(QFont::Bold);
+	options_lbl->setFont(font_options_lbl);
 	options_lbl->setAlignment(Qt::AlignHCenter);
 
 	right_ly->addWidget(options_lbl);
@@ -192,6 +213,9 @@ void GUI::initMeniuCosCumparaturi()
 
 	QLabel* options_generare_lbl = new QLabel;
 	options_generare_lbl->setText("Optiuni generare cos de cumparaturi");
+	QFont font_options_generare_lbl = options_generare_lbl->font();
+	font_options_generare_lbl.setWeight(QFont::Bold);
+	options_generare_lbl->setFont(font_options_generare_lbl);
 	options_generare_lbl->setAlignment(Qt::AlignHCenter);
 
 	right_ly->addWidget(options_generare_lbl);
@@ -214,6 +238,9 @@ void GUI::initMeniuCosCumparaturi()
 
 	QLabel* options_export_lbl = new QLabel;
 	options_export_lbl->setText("Optiuni export cos de cumparaturi");
+	QFont font_options_export_lbl = options_export_lbl->font();
+	font_options_export_lbl.setWeight(QFont::Bold);
+	options_export_lbl->setFont(font_options_export_lbl);
 	options_export_lbl->setAlignment(Qt::AlignHCenter);
 
 	right_ly->addWidget(options_export_lbl);
@@ -994,6 +1021,9 @@ void GUI::initGuiCmp()
 	QVBoxLayout* left_ly = new QVBoxLayout;
 
 	QLabel* lbl_products = new QLabel{ "Produse disponibile in stoc" };
+	QFont font_lbl_products = lbl_products->font();
+	font_lbl_products.setWeight(QFont::Bold);
+	lbl_products->setFont(font_lbl_products);
 	lbl_products->setAlignment(Qt::AlignHCenter);
 
 	left_ly->addWidget(lbl_products);
@@ -1021,6 +1051,9 @@ void GUI::initGuiCmp()
 	//left_ly->addStretch();
 
 	QLabel* sort = new QLabel{ "Optiuni sortare" };
+	QFont font_sort = sort->font();
+	font_sort.setWeight(QFont::Bold);
+	sort->setFont(font_sort);
 	sort->setAlignment(Qt::AlignHCenter);
 
 	left_ly->addWidget(sort);
@@ -1067,6 +1100,9 @@ void GUI::initGuiCmp()
 	//left_ly->addStretch();
 
 	QLabel* filter = new QLabel{ "Optiuni filtrare" };
+	QFont font_filter = filter->font();
+	font_filter.setWeight(QFont::Bold);
+	filter->setFont(font_filter);
 	filter->setAlignment(Qt::AlignHCenter);
 	left_ly->addWidget(filter);
 
@@ -1129,6 +1165,9 @@ void GUI::initGuiCmp()
 	main_ly->addLayout(right_ly);
 
 	QLabel* products_label = new QLabel{ "Informatii produs - stoc magazin" };
+	QFont font_products_label = products_label->font();
+	font_products_label.setWeight(QFont::Bold);
+	products_label->setFont(font_products_label);
 	products_label->setAlignment(Qt::AlignHCenter);
 
 	right_ly->addWidget(products_label);
@@ -1171,6 +1210,9 @@ void GUI::initGuiCmp()
 	*/
 
 	QLabel* cumparaturi = new QLabel{ "Optiuni gestionare cos de cumparaturi" };
+	QFont font_cumparaturi = cumparaturi->font();
+	font_cumparaturi.setWeight(QFont::Bold);
+	cumparaturi->setFont(font_cumparaturi);
 	cumparaturi->setAlignment(Qt::AlignHCenter);
 	right_ly->addWidget(cumparaturi);
 
@@ -1229,6 +1271,9 @@ void GUI::initGuiCmp()
 	right_ly->addStretch();
 
 	QLabel* general = new QLabel{ "Optiuni gestionare stoc magazin" };
+	QFont font_general = general->font();
+	font_general.setWeight(QFont::Bold);
+	general->setFont(font_general);
 	general->setAlignment(Qt::AlignHCenter);
 	right_ly->addWidget(general);
 
