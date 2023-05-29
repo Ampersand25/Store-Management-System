@@ -87,9 +87,8 @@ int main(int argc, char* argv[])
         ProductValidator valid;
         CosCumparaturi cos{ *repo };
         Service srv{ *repo, valid, cos };
-        const auto gui{ new GUI{ srv } };
+        const auto gui{ new GUI{ srv, repo_type == REPO_TYPE::DATABASE_REPO } };
         gui->show();
-        gui->disableInfoTipuri(repo_type == REPO_TYPE::DATABASE_REPO);
 
         exit_code = a.exec();
     }

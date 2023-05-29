@@ -60,7 +60,7 @@ public:
 			rect.setX(0);
 			rect.setY(cont);
 
-			auto width{ 100 * elem.second.second };
+			auto width{ 120 * elem.second.second };
 
 			rect.setHeight(fixed_height);
 			rect.setWidth(width);

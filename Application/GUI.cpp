@@ -2517,9 +2517,12 @@ void GUI::connectSignals()
 
 			hist_widget = new Histogram{ srv };
 			hist_widget->show();
-
-			tipuri_produse_widget = new TipuriProduseWidget{ srv };
-			tipuri_produse_widget->show();
+			
+			if (!database_repo)
+			{
+				tipuri_produse_widget = new TipuriProduseWidget{ srv };
+				tipuri_produse_widget->show();
+			}
 		}
 		catch (const RepoException& re) {
 			qDebug() << QString::fromStdString(re.getMessage());

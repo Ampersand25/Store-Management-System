@@ -32,6 +32,8 @@ private:
 
 	// atribute/campuri private
 
+	bool database_repo;
+
 	Service& srv; // referinta la un obiect de clasa Service
 
 	QPushButton* btn_adaugare_cumparaturi_main = new QPushButton{ "Adauga produs in cos" };
@@ -222,7 +224,7 @@ public:
 	GUI() = delete;
 
 	// constructor custom al unui obiect de clasa GUI
-	GUI(Service& srv) : srv{ srv } {
+	GUI(Service& srv, bool database_repo) : srv{ srv }, database_repo{ database_repo } {
 		initGuiCmp();
 		connectSignals();
 		setInitialState();
@@ -230,8 +232,8 @@ public:
 
 	// method that disables the btn_info_types button if the input parameter disable is true
 	// if disable parameter is false then the button will not be disabled (will remain enabled)
-	void disableInfoTipuri(bool disable)
-	{
-		btn_info_types->setDisabled(disable);
-	}
+	//void disableInfoTipuri(bool disable)
+	//{
+	//	btn_info_types->setDisabled(disable);
+	//}
 };
