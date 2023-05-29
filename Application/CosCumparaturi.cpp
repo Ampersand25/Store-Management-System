@@ -314,7 +314,7 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 	out << "\n";
 	out << "		table thead tr {\n";
 	out << "			background-color: #ffa8B6;\n";
-	out << "			color: #8458B3;\n";
+	out << "			color: white;\n";
 	out << "			text-align: center;\n";
 	out << "			font-weight: bold;\n";
 	out << "		}\n";
@@ -349,6 +349,12 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 	out << "		label{\n";
 	out << "			font-size: 30px;\n";
 	out << "			color: #ffa8B6;\n";
+	out << "        }\n";
+	out << "\n";
+	out << "		span{\n";
+	out << "			font-size: 30px;\n";
+	out << "			font-weight: bold;\n";
+	out << "			color: white;\n";
 	out << "        }\n";
 	out << "	</style>\n";
 	out << "</head>\n";
@@ -409,9 +415,9 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 	out << "			<legend>Detalii cos de cumparaturi</legend>\n";
 	out << "\n";
 	out << "			<div class=\"shopping-cart-details-container\">\n";
-	out << "				<label>[=]Numar total produse cos: " << this->nrProduseCos() << "</label>\n";
+	out << "				<label>[=]Numar total produse cos: <span>" << this->nrProduseCos() << "</span></label>\n";
 	out << "				<br>\n";
-	out << "				<label>[$]Pret total produse: " << this->getTotal() << "</label>\n";
+	out << "				<label>[$]Pret total produse: <span>" << this->getTotal() << "</span></label>\n";
 	out << "			</div>\n";
 	out << "		</fieldset>\n";
 	out << "	</div>\n";
