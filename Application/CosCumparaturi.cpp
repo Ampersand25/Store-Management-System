@@ -282,11 +282,13 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 	out << "        }\n";
 	out << "\n";
 	out << "		h1 {\n";
-	out << "			color: #8458B3;\n";
+	out << "			color: white;\n";
 	out << "        }\n";
 	out << "\n";
 	out << "		fieldset {\n";
+	out << "			color: white;\n";
 	out << "			background-color: #8458B3;\n";
+	out << "			font-weight: bold;\n";
 	out << "        }\n";
 	out << "\n";
 	out << "        .title-container {\n";
@@ -295,11 +297,6 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 	out << "\n";
 	out << "		legend, span{\n";
 	out << "			font-size: 20px;\n";
-	out << "        }\n";
-	out << "\n";
-	out << "		label{\n";
-	out << "			font-size: 30px;\n";
-	out << "			color: #ffa8B6;\n";
 	out << "        }\n";
 	out << "\n";
 	out << "		table {\n";
@@ -348,6 +345,11 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 	out << "		th, td{\n";
 	out << "			border: 5px solid #ffa8B6;\n";
 	out << "		}\n";
+	out << "\n";
+	out << "		label{\n";
+	out << "			font-size: 30px;\n";
+	out << "			color: #ffa8B6;\n";
+	out << "        }\n";
 	out << "	</style>\n";
 	out << "</head>\n";
 
@@ -365,7 +367,7 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 	out << "			<div class=\"products-table-container\">\n";
 
 	if (cosGol()) // if (this->cosGol())
-		out << "Momentan nu exista produse in cosul de cumparaturi!\n";
+		out << "				<label>Momentan nu exista produse in cosul de cumparaturi!</label>\n";
 	else {
 		out << "				<table class=\"shopping-cart\">\n";
 		out << "					<thead>\n";
