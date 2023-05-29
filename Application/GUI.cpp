@@ -882,7 +882,7 @@ void GUI::addCumparaturiToTable(QTableWidget* tbl, const vector<Product>& lista_
 	}
 }
 
-void GUI::setInitialStateCosCumparaturi()
+void GUI::setShortcutsCosCumparaturi()
 {
 	QAction* action_btn_golire_cos = new QAction(cos_widget);
 	action_btn_golire_cos->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_O));
@@ -925,20 +925,29 @@ void GUI::setInitialStateCosCumparaturi()
 	connect(action_btn_close_cos, &QAction::triggered, btn_close_cos, &QPushButton::click);
 
 	cos_widget->addAction(action_btn_close_cos);
+}
 
+void GUI::setToolTipsCosCumparaturi()
+{
 	btn_golire_cos->setToolTip("Golire continut cos de cumparaturi");
 	btn_adaugare_cos->setToolTip("Adaugare produs in cosul de cumparaturi");
 	btn_tiparire_cos->setToolTip("Afisarea continutului cosului de cumparaturi sub forma de lista si tabel");
-	
+
 	btn_export_cos->setToolTip("Export continut cos de cumparaturi intr-un fisier (CSV sau/si HTML)");
-	
+
 	btn_generare_cos->setToolTip("Generare produse pentru cosul de cumparaturi");
-	
+
 	btn_clear_cos->setToolTip("Golire lista/tabel");
 	btn_close_cos->setToolTip("Inchidere fereastra");
-
+	
 	checkbox_export_fisier_csv->setToolTip("Fisier Comma-Separated Values (deschidere cu Excel)");
 	checkbox_export_fisier_html->setToolTip("Fisier HyperText Markup Language (deschidere in browser)");
+}
+
+void GUI::setInitialStateCosCumparaturi()
+{
+	setShortcutsCosCumparaturi();
+	setToolTipsCosCumparaturi();
 
 	last_selected_item_list_cos = new QListWidgetItem;
 
@@ -2397,129 +2406,6 @@ void GUI::connectSignals()
 			sortProductsGUI("5");
 		});
 
-	QObject::connect(btn_sort_name, &QPushButton::clicked, this, [&]() {
-		last_selected_item_list = nullptr;
-
-		/*
-		try {
-			const auto cresc{ checbox_cresc->isChecked() };
-			const auto descresc{ checkbox_descresc->isChecked() };
-
-			if (!(cresc ^ descresc))
-			{
-				QMessageBox* msg{ new QMessageBox };
-
-				if (!(cresc & descresc))
-					msg->setText("Nu a fost selectata ordinea de sortare!");
-				else
-					msg->setText("Au fost selectate ambele ordini de sortare!");
-
-				msg->show();
-
-				return;
-			}
-
-			const auto crt{ "1" };
-			const auto ord{ ((cresc) ? ("c") : ("d")) };
-
-			const auto& sorted_products{ srv.sortProducts(crt, ord) };
-
-			addProductsToList(sorted_products);
-			addProductsToTable(sorted_products);
-		}
-		catch (const RepoException& re) {
-			qDebug() << QString::fromStdString(re.getMessage());
-
-			addProductsToList(vector<Product>());
-			addProductsToTable(vector<Product>());
-		}
-		*/
-
-		sortProductsGUI("1");
-		});
-
-	QObject::connect(btn_sort_price, &QPushButton::clicked, this, [&]() {
-		last_selected_item_list = nullptr;
-
-		/*
-		try {
-			const auto cresc{ checbox_cresc->isChecked() };
-			const auto descresc{ checkbox_descresc->isChecked() };
-
-			if (!(cresc ^ descresc))
-			{
-				QMessageBox* msg{ new QMessageBox };
-
-				if (!(cresc & descresc))
-					msg->setText("Nu a fost selectata ordinea de sortare!");
-				else
-					msg->setText("Au fost selectate ambele ordini de sortare!");
-
-				msg->show();
-
-				return;
-			}
-
-			const auto crt{ "2" };
-			const auto ord{ ((cresc) ? ("c") : ("d")) };
-
-			const auto& sorted_products{ srv.sortProducts(crt, ord) };
-
-			addProductsToList(sorted_products);
-			addProductsToTable(sorted_products);
-		}
-		catch (const RepoException& re) {
-			qDebug() << QString::fromStdString(re.getMessage());
-
-			addProductsToList(vector<Product>());
-			addProductsToTable(vector<Product>());
-		}
-		*/
-
-		sortProductsGUI("2");
-		});
-
-	QObject::connect(btn_sort_name_plus_type, &QPushButton::clicked, this, [&]() {
-		last_selected_item_list = nullptr;
-
-		/*
-		try {
-			const auto cresc{ checbox_cresc->isChecked() };
-			const auto descresc{ checkbox_descresc->isChecked() };
-
-			if (!(cresc ^ descresc))
-			{
-				QMessageBox* msg{ new QMessageBox };
-
-				if (!(cresc & descresc))
-					msg->setText("Nu a fost selectata ordinea de sortare!");
-				else
-					msg->setText("Au fost selectate ambele ordini de sortare!");
-
-				msg->show();
-
-				return;
-			}
-
-			const auto crt{ "3" };
-			const auto ord{ ((cresc) ? ("c") : ("d")) };
-
-			const auto& sorted_products{ srv.sortProducts(crt, ord) };
-
-			addProductsToList(sorted_products);
-			addProductsToTable(sorted_products);
-		}
-		catch (const RepoException& re) {
-			qDebug() << QString::fromStdString(re.getMessage());
-
-			addProductsToList(vector<Product>());
-			addProductsToTable(vector<Product>());
-		}
-		*/
-
-		sortProductsGUI("3");
-		});
-
 	QObject::connect(btn_filter, &QPushButton::clicked, this, [&]() {
 		last_selected_item_list = nullptr;
 
@@ -2579,126 +2465,6 @@ void GUI::connectSignals()
 			filterProductsGUI("3", "");
 		else if (option == "Tip")
 			filterProductsGUI("4", "");
-		});
-
-	QObject::connect(btn_filter_price, &QPushButton::clicked, this, [&]() {
-		last_selected_item_list = nullptr;
-
-		string sgn;
-
-		//const auto less{ checbox_less->isChecked() };
-		//const auto equal{ checkbox_equal->isChecked() };
-		//const auto greater{ checkbox_greater->isChecked() };
-
-		const auto less{ radio_btn_less->isChecked() };
-		const auto equal{ radio_btn_equal->isChecked() };
-		const auto greater{ radio_btn_greater->isChecked() };
-
-		const auto sum{ less + equal + greater };
-
-		if (sum != 1)
-		{
-			QMessageBox* msg = new QMessageBox;
-			msg->setWindowTitle("Filtrare pret invalida");
-
-			if (!sum)
-			{
-				msg->setText("Nu a fost selectat niciun simbol de inegalitate!\nBifati o casuta la alegere!");
-				msg->setIcon(QMessageBox::Warning);
-			}
-			//else
-			//	msg->setText("Au fost selectate prea multe simboluri de inegalitate!\nBifati o singura casuta!");
-
-			msg->show(); // msg->exec();
-
-			return;
-		}
-
-		//if (checbox_less->isChecked())
-		//	sgn = "<";
-		//else if (checkbox_equal->isChecked())
-		//	sgn = "=";
-		//else
-		//	sgn = ">";
-
-		if (radio_btn_less->isChecked())
-			sgn = "<";
-		else if (radio_btn_equal->isChecked())
-			sgn = "=";
-		else if (radio_btn_greater->isChecked())
-			sgn = ">";
-
-		/*
-		const auto crt{ "1" };
-		const auto filter{ filter_crt_line_edit->text() };
-		const auto sign{ sgn };
-
-		try {
-			const auto& filtered_list{ srv.filterProducts(crt, filter.toLocal8Bit().constData(), sign) };
-		}
-		catch (const ServiceException& se) {
-			qDebug() << QString::fromStdString(se.getMessage());
-
-			QMessageBox* msg = new QMessageBox;
-			msg->setText(QString::fromStdString(se.getMessage())); // msg->setText("Pretul de filtrare nu este un numar!");
-			msg->show();
-		}
-		catch (const RepoException& re) {
-			qDebug() << QString::fromStdString(re.getMessage());
-
-			QMessageBox* msg = new QMessageBox;
-			msg->setText(QString::fromStdString(re.getMessage()));
-			msg->show();
-		}
-		*/
-
-		filterProductsGUI("1", sgn);
-		});
-
-	QObject::connect(btn_filter_name, &QPushButton::clicked, this, [&]() {
-		last_selected_item_list = nullptr;
-
-		/*
-		const auto crt{ "2" };
-		const auto filter{ filter_crt_line_edit->text() };
-		const auto sign{ "" };
-
-		try {
-			const auto& filtered_list{ srv.filterProducts(crt, filter.toLocal8Bit().constData(), sign) };
-		}
-		catch (const RepoException& re) {
-			qDebug() << QString::fromStdString(re.getMessage());
-
-			QMessageBox* msg = new QMessageBox;
-			msg->setText(QString::fromStdString(re.getMessage()));
-			msg->show();
-		}
-		*/
-
-		filterProductsGUI("2", "");
-		});
-
-	QObject::connect(btn_filter_type, &QPushButton::clicked, this, [&]() {
-		last_selected_item_list = nullptr;
-
-		/*
-		const auto crt{ "3" };
-		const auto filter{ filter_crt_line_edit->text() };
-		const auto sign{ "" };
-
-		try {
-			const auto& filtered_list{ srv.filterProducts(crt, filter.toLocal8Bit().constData(), sign) };
-		}
-		catch (const RepoException& re) {
-			qDebug() << QString::fromStdString(re.getMessage());
-
-			QMessageBox* msg = new QMessageBox;
-			msg->setText(QString::fromStdString(re.getMessage()));
-			msg->show();
-		}
-		*/
-
-		filterProductsGUI("3", "");
 		});
 
 	QObject::connect(btn_type, &QPushButton::clicked, this, [&]() {
@@ -3010,13 +2776,6 @@ void GUI::addProductsToList(const vector<Product>& prods)
 		{
 			QListWidgetItem* label_item = new QListWidgetItem{ "Lista de produse existente in magazin:" };
 			lst_products->addItem(label_item);
-
-			if (theme)
-			{
-				label_item->setBackground(Qt::white);
-
-				//label_item->setForeground(Qt::black);
-			}
 		}
 
 		++idx;
@@ -3035,13 +2794,6 @@ void GUI::addProductsToList(const vector<Product>& prods)
 		const auto q_str_price{ QString::fromStdString(str_price) };
 		const auto q_str_producer{ QString::fromStdString(str_producer) };
 		item->setData(Qt::UserRole, QStringList({ q_str_name, q_str_type, q_str_price, q_str_producer }));
-
-		if (theme)
-		{
-			item->setBackground(Qt::white);
-
-			//item->setForeground(Qt::black);
-		}
 
 		lst_products->addItem(item);
 	}
@@ -3096,19 +2848,6 @@ void GUI::addProductsToTable(const vector<Product>& prods)
 		producer_item->setData(Qt::UserRole, QStringList(q_string_list));
 		producer_item->setFlags({ Qt::ItemIsEnabled, Qt::ItemIsSelectable });
 
-		if (theme)
-		{
-			name_item->setBackground(Qt::white);
-			type_item->setBackground(Qt::white);
-			price_item->setBackground(Qt::white);
-			producer_item->setBackground(Qt::white);
-
-			//name_item->setForeground(Qt::black);
-			//type_item->setForeground(Qt::black);
-			//price_item->setForeground(Qt::black);
-			//producer_item->setForeground(Qt::black);
-		}
-
 		tbl_products->setItem(row, 0, name_item);
 		tbl_products->setItem(row, 1, type_item);
 		tbl_products->setItem(row, 2, price_item);
@@ -3157,7 +2896,7 @@ void GUI::addShortcuts()
 	this->addAction(action_btn_cos);
 }
 
-void GUI::addTooltips()
+void GUI::addToolTips()
 {
 	btn_adaugare_cumparaturi_main->setToolTip("Adaugare produs in cosul de cumparaturi");
 	btn_stergere_cumparaturi_main->setToolTip("Golire continut cos de cumparaturi");
@@ -3228,7 +2967,7 @@ void GUI::setInitialState()
 	}
 	
 	addShortcuts();
-	addTooltips();
+	addToolTips();
 	addPlaceholderText();
 
 	last_selected_item_list = new QListWidgetItem;

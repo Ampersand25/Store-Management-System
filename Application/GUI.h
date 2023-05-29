@@ -32,9 +32,6 @@ private:
 
 	// atribute/campuri private
 
-	bool theme{ false }; // false - light theme
-	// true  - dark theme (beta)
-
 	Service& srv; // referinta la un obiect de clasa Service
 
 	QPushButton* btn_adaugare_cumparaturi_main = new QPushButton{ "Adauga produs in cos" };
@@ -71,9 +68,6 @@ private:
 	QRadioButton* radio_btn_cresc = new QRadioButton("crescator");
 	QRadioButton* radio_btn_descresc = new QRadioButton("descrescator");
 
-	QPushButton* btn_sort_name = new QPushButton{ "Sortare nume" };
-	QPushButton* btn_sort_price = new QPushButton{ "Sortare pret" };
-	QPushButton* btn_sort_name_plus_type = new QPushButton{ "Sortare nume + tip" };
 	QPushButton* btn_sort = new QPushButton{ "&Sortare" };
 
 	QCheckBox* checbox_less = new QCheckBox("mai mic (<)", nullptr);
@@ -86,9 +80,6 @@ private:
 	QRadioButton* radio_btn_equal = new QRadioButton("egal (=)", nullptr);
 	QRadioButton* radio_btn_greater = new QRadioButton("mai mare (>)", nullptr);
 
-	QPushButton* btn_filter_name = new QPushButton{ "Filtrare nume" };
-	QPushButton* btn_filter_price = new QPushButton{ "Filtrare pret" };
-	QPushButton* btn_filter_type = new QPushButton{ "Filtrare producator" };
 	QPushButton* btn_filter = new QPushButton{ "&Filtrare" };
 
 	QLineEdit* name_line_edit = new QLineEdit;
@@ -176,6 +167,9 @@ private:
 	QLabel* lbl_selected_item_list_cos{ nullptr };
 	QDialog* dialog_selected_item_list_cos{ nullptr };
 
+	void setShortcutsCosCumparaturi();
+	void setToolTipsCosCumparaturi();
+
 	void initMeniuCosCumparaturi();
 	void connectSignalsCosCumparaturi();
 	void setInitialStateCosCumparaturi();
@@ -196,7 +190,7 @@ private:
 	QDialog* dialog_selected_item_list{ nullptr };
 
 	void addShortcuts();
-	void addTooltips();
+	void addToolTips();
 	void addPlaceholderText();
 
 	void initGuiCmp();

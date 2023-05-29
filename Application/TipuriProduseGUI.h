@@ -39,7 +39,7 @@ public:
 
 		QLabel* lbl = new QLabel;
 
-		lbl->setText("Tipuri de produse existente in stoc:");
+		lbl->setText("Tipuri de produse existente in magazinul virtual");
 		lbl->setAlignment(Qt::AlignHCenter);
 
 		ly->addWidget(lbl);

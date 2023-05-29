@@ -39,27 +39,18 @@ void testApp()
 }
 
 unique_ptr<AbstractRepo> repoFactory(REPO_TYPE repo_type) {
+    // IN MEMORY REPOSITORY
     if (repo_type == REPO_TYPE::IN_MEMORY_REPO)
         return make_unique<RepoProducts>();
 
+    // FILE REPOSITORY
     if (repo_type == REPO_TYPE::FILE_REPO)
     {
         const string filename{ "produse" };
         return make_unique<FileRepoProducts>(filename);
     }
     
-    // VARIANTA I
-    /*if (repo_type == REPO_TYPE::DATABASE_REPO)
-    {
-        const auto server{ DBConstants::server };
-        const auto username{ DBConstants::username };
-        const auto password{ DBConstants::password };
-        const auto database{ DBConstants::database };
-        const auto table{ DBConstants::table };
-        return make_unique<DatabaseRepository>(server, username, password, database, table);
-    }*/
-
-    // VARIANTA II
+    // DATABASE REPOSITORY
     const auto server{ DBConstants::server };
     const auto username{ DBConstants::username };
     const auto password{ DBConstants::password };
