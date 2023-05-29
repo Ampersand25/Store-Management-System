@@ -344,6 +344,16 @@ public:
 	*/
 	vector<Product> getAll() const;
 
+	/*
+	* Metoda care returneaza numarul total de produse din magazin
+	* Date de intrare: -
+	* Preconditii: -
+	* Date de iesire: valoare intreaga pozitiva (unsigned = fara semn), adica un numar natural care reprezinta numarul de entitati (produse) din repo (repository = repozitoriu)
+	* Postconditii: numberOfProducts = numarul de produse existente in stocul magazinului virtual
+	* Exceptii: -
+	*/
+	unsigned numberOfProducts() const;
+
 #undef TKey
 #undef TValue
 #undef dictionary

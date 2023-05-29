@@ -2152,6 +2152,10 @@ void GUI::connectSignals()
 				msg->setText("[*]Adaugarea s-a realizat cu succes!");
 				msg->setIcon(QMessageBox::Information);
 
+				btn_modify->setEnabled(true); // btn_modify->setDisabled(false);
+				btn_delete->setEnabled(true); // btn_delete->setDisabled(false);
+				btn_search->setEnabled(true); // btn_search->setDisabled(false);
+
 				lst_products_model->setFilter(false);
 				lst_products_model->setVisible(srv.getAll(), true);
 				tbl_products_model->setVisible(srv.getAll(), true);
@@ -2310,6 +2314,13 @@ void GUI::connectSignals()
 
 				msg->setText("[*]Stergerea s-a realizat cu succes!");
 				msg->setIcon(QMessageBox::Information);
+
+				if (!srv.numberOfProducts())
+				{
+					btn_modify->setEnabled(false); // btn_modify->setDisabled(true);
+					btn_delete->setEnabled(false); // btn_delete->setDisabled(true);
+					btn_search->setEnabled(false); // btn_search->setDisabled(true);
+				}
 
 				name_line_edit->setText("");
 				type_line_edit->setText("");
@@ -2553,6 +2564,19 @@ void GUI::connectSignals()
 				if (!number_of_undo)
 					btn_undo->setDisabled(true);
 
+				if (!srv.numberOfProducts())
+				{
+					btn_modify->setEnabled(false); // btn_modify->setDisabled(true);
+					btn_delete->setEnabled(false); // btn_delete->setDisabled(true);
+					btn_search->setEnabled(false); // btn_search->setDisabled(true);
+				}
+				else
+				{
+					btn_modify->setEnabled(true); // btn_modify->setDisabled(false);
+					btn_delete->setEnabled(true); // btn_delete->setDisabled(false);
+					btn_search->setEnabled(true); // btn_search->setDisabled(false);
+				}
+
 				lst_products_model->setFilter(false);
 
 				try {
@@ -2616,6 +2640,19 @@ void GUI::connectSignals()
 				++number_of_undo;
 				if (!btn_undo->isEnabled())
 					btn_undo->setDisabled(false);
+
+				if (!srv.numberOfProducts())
+				{
+					btn_modify->setEnabled(false); // btn_modify->setDisabled(true);
+					btn_delete->setEnabled(false); // btn_delete->setDisabled(true);
+					btn_search->setEnabled(false); // btn_search->setDisabled(true);
+				}
+				else
+				{
+					btn_modify->setEnabled(true); // btn_modify->setDisabled(false);
+					btn_delete->setEnabled(true); // btn_delete->setDisabled(false);
+					btn_search->setEnabled(true); // btn_search->setDisabled(false);
+				}
 
 				lst_products_model->setFilter(false);
 
@@ -2710,6 +2747,10 @@ void GUI::connectSignals()
 
 			msg_dbg.setText("[*]Au fost adaugate " + QString::number(cont) + " produse noi in stoc!");
 			msg_dbg.setIcon(QMessageBox::Information);
+
+			btn_modify->setEnabled(true); // btn_modify->setDisabled(false);
+			btn_delete->setEnabled(true); // btn_delete->setDisabled(false);
+			btn_search->setEnabled(true); // btn_search->setDisabled(false);
 
 			lst_products_model->setFilter(false);
 			lst_products_model->setVisible(srv.getAll(), true);
@@ -2964,6 +3005,10 @@ void GUI::setInitialState()
 	catch (const RepoException&) {
 		lst_products_model->setVisible(vector<Product>(), true);
 		tbl_products_model->setVisible(vector<Product>(), true);
+
+		btn_modify->setEnabled(false); // btn_modify->setDisabled(true);
+		btn_delete->setEnabled(false); // btn_delete->setDisabled(true);
+		btn_search->setEnabled(false); // btn_search->setDisabled(true);
 	}
 	
 	addShortcuts();

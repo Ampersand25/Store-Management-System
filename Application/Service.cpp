@@ -109,6 +109,11 @@ vector<Product> Service::getAll() const
 	return repo.getAll(); // returnam o referinta constanta la lista de obiecte de clasa Product din repo
 }
 
+unsigned Service::numberOfProducts() const
+{
+	return repo.len(); // returnam numarul de elemente care se afla stocate in repository apeland metoda len() pe obiectul repo care este incapsulat in cadrul clasei
+}
+
 dictionary Service::countType() const
 {
 	dictionary types_map;
