@@ -114,6 +114,16 @@ public:
 	* Postconditii: se creeaza fisierul cu numele filename si extensia .html (fisierul este deschis la creare) in modul scriere (fisier de iesire) si se scriu toate produsele in el pe cate o linie
 	* Exceptii: -
 	*/
+	void exportCosFisierHTMLOld(const string& filename) const;
+
+	/*
+	* Procedura (functie procedurala) care da export la produsele din lista de cumparaturi intr-un fisier HTML (Hyper Text Markup Language) cu numele filename si extensia .html
+	* Date de intrare: filename - referinta constanta la un string din STL
+	* Preconditii: filename <> "" (stringul filename trebuie sa fie nevid)
+	* Date de iesire: -
+	* Postconditii: se creeaza fisierul cu numele filename si extensia .html (fisierul este deschis la creare) in modul scriere (fisier de iesire) si se scriu toate produsele in el pe cate o linie
+	* Exceptii: -
+	*/
 	void exportCosFisierHTML(const string& filename) const;
 
 	/*

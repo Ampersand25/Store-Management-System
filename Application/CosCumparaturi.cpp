@@ -139,7 +139,7 @@ void CosCumparaturi::exportCosFisierCSV(const string& filename) const
 	out.close();
 }
 
-void CosCumparaturi::exportCosFisierHTML(const string& filename) const
+void CosCumparaturi::exportCosFisierHTMLOld(const string& filename) const
 {
 	//if (cosGol()) // if (this->cosGol())
 	//	throw CosException("[!]Nu exista produse in cosul de cumparaturi!\n");
@@ -251,6 +251,168 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 	// out << "<br>";
 	out << "<h4 style=\"color:blue\">[$]Pret total produse: " << this->getTotal() << "</h4>\n";
 
+	out << "</body>\n";
+	out << "</html>\n";
+
+	out.close();
+}
+
+void CosCumparaturi::exportCosFisierHTML(const string& filename) const
+{
+	//if (cosGol()) // if (this->cosGol())
+	//	throw CosException("[!]Nu exista produse in cosul de cumparaturi!\n");
+
+	const auto path{ ".\\Export cos cumparaturi\\" };        // const string path{ ".\\Export cos cumparaturi\\" };
+	const auto extension{ ".html" };                         // const string extension{ ".html" };
+	const auto full_filename{ path + filename + extension }; // const string full_filename{ path + filename + extension };
+
+	ofstream out{ full_filename }; // ofstream out(full_filename);
+
+	out << "<!DOCTYPE html>\n";
+	out << "<html lang=\"ro\">\n";
+
+	out << "<head>\n";
+	out << "	<meta charset=\"UTF-8\">\n";
+	out << "	<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n";
+	out << "	<title>Lista de cumparaturi</title>\n";
+	out << "	<style>\n";
+	out << "		body {\n";
+	out << "			font-family: Orbitron, sans-serif;\n";
+	out << "			background-color: #ffa8B6;\n";
+	out << "        }\n";
+	out << "\n";
+	out << "		h1 {\n";
+	out << "			color: #8458B3;\n";
+	out << "        }\n";
+	out << "\n";
+	out << "		fieldset {\n";
+	out << "			background-color: #8458B3;\n";
+	out << "        }\n";
+	out << "\n";
+	out << "        .title-container {\n";
+	out << "			text-align: center;\n";
+	out << "        }\n";
+	out << "\n";
+	out << "		legend, span{\n";
+	out << "			font-size: 20px;\n";
+	out << "        }\n";
+	out << "\n";
+	out << "		label{\n";
+	out << "			font-size: 30px;\n";
+	out << "			color: #ffa8B6;\n";
+	out << "        }\n";
+	out << "\n";
+	out << "		table {\n";
+	out << "			width: 100%;\n";
+	out << "			text-align: center;\n";
+	out << "            font-family: Orbitron, sans-serif;\n";
+	out << "            font-size: 30px;\n";
+	out << "            border-collapse: collapse;\n";
+	out << "            margin: 25px 0;\n";
+	out << "            min-width: 400px;\n";
+	out << "            border-radius: 5px 5px 0 0;\n";
+	out << "            overflow: hidden;\n";
+	out << "            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);\n";
+	out << "		}\n";
+	out << "\n";
+	out << "		table thead tr {\n";
+	out << "			background-color: #ffa8B6;\n";
+	out << "			color: #8458B3;\n";
+	out << "			text-align: center;\n";
+	out << "			font-weight: bold;\n";
+	out << "		}\n";
+	out << "\n";
+	out << "		table th,\n";
+	out << "		table td{\n";
+	out << "			padding: 12px 15px;\n";
+	out << "		}\n";
+	out << "\n";
+	out << "		table tbody tr {\n";
+	out << "			border-bottom: 1px solid #ffa8B6;\n";
+	out << "		}\n";
+	out << "\n";
+	out << "		table tbody tr:nth-of-type(odd) {\n";
+	out << "			background-color: #8d6ab4;\n";
+	out << "			color: #fac7ce;\n";
+	out << "		}\n";
+	out << "\n";
+	out << "		table tbody tr:nth-of-type(even) {\n";
+	out << "			background-color: #fac7ce;\n";
+	out << "			color: #8d6ab4;\n";
+	out << "		}\n";
+	out << "\n";
+	out << "		table tbody tr:last-of-type {\n";
+	out << "			border-bottom: 5px solid #ffa8B6;\n";
+	out << "		}\n";
+	out << "\n";
+	out << "		th, td{\n";
+	out << "			border: 5px solid #ffa8B6;\n";
+	out << "		}\n";
+	out << "	</style>\n";
+	out << "</head>\n";
+
+	out << "<body>\n";
+	out << "	<div class=\"title-container\">\n";
+	out << "		<h1><u>Continut cos de cumparaturi</u></h1>\n";
+	out << "	</div>\n";
+	out << "\n";
+	out << "	<br>\n";
+	out << "\n";
+	out << "	<div class=\"main-div\">\n";
+	out << "		<fieldset>\n";
+	out << "			<legend>Vizualizare produse cos</legend>\n";
+	out << "\n";
+	out << "			<div class=\"products-table-container\">\n";
+
+	if (cosGol()) // if (this->cosGol())
+		out << "Momentan nu exista produse in cosul de cumparaturi!\n";
+	else {
+		out << "				<table class=\"shopping-cart\">\n";
+		out << "					<thead>\n";
+		out << "						<tr>\n";
+		out << "							<th>#</th>\n";
+		out << "							<th>Nume</th>\n";
+		out << "							<th>Tip</th>\n";
+		out << "							<th>Pret</th>\n";
+		out << "							<th>Producator</th>\n";
+		out << "							<th>Cantitate</th>\n";
+		out << "						</tr>\n";
+		out << "					</thead>\n";
+		out << "					<tbody>\n";
+
+		auto idx{ 0 };
+
+		for (const auto& elem : cos)
+		{
+			const auto& prod{ elem.key };
+			const auto& quantity{ elem.value };
+
+			out << "					<tr>\n"
+				<< "						<td>" << ++idx << "</td>\n"
+				<< "						<td>" << prod.getName() << "</td>\n"
+				<< "						<td>" << prod.getType() << "</td>\n"
+				<< "						<td>" << prod.getPrice() << "</td>\n"
+				<< "						<td>" << prod.getProducer() << "</td>\n"
+				<< "						<td>" << quantity << "</td>\n"
+				<< "					</tr>\n";
+		}
+
+		out << "					</tbody>\n";
+		out << "				</table>\n";
+	}
+
+	out << "			</div>\n";
+	out << "		</fieldset>\n";
+	out << "		<fieldset>\n";
+	out << "			<legend>Detalii cos de cumparaturi</legend>\n";
+	out << "\n";
+	out << "			<div class=\"shopping-cart-details-container\">\n";
+	out << "				<label>[=]Numar total produse cos: " << this->nrProduseCos() << "</label>\n";
+	out << "				<br>\n";
+	out << "				<label>[$]Pret total produse: " << this->getTotal() << "</label>\n";
+	out << "			</div>\n";
+	out << "		</fieldset>\n";
+	out << "	</div>\n";
 	out << "</body>\n";
 	out << "</html>\n";
 

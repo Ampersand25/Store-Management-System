@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lista de cumparaturi</title>
+	<style>
+		body {
+			font-family: Orbitron, sans-serif;
+			background-color: #ffa8B6;
+        }
+
+		h1 {
+			color: #8458B3;
+        }
+
+		fieldset {
+			background-color: #8458B3;
+        }
+
+        .title-container {
+			text-align: center;
+        }
+
+		legend, span{
+			font-size: 20px;
+        }
+
+		label{
+			font-size: 30px;
+			color: #ffa8B6;
+        }
+
+		table {
+			width: 100%;
+			text-align: center;
+            font-family: Orbitron, sans-serif;
+            font-size: 30px;
+            border-collapse: collapse;
+            margin: 25px 0;
+            min-width: 400px;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+		}
+
+		table thead tr {
+			background-color: #ffa8B6;
+			color: #8458B3;
+			text-align: center;
+			font-weight: bold;
+		}
+
+		table th,
+		table td{
+			padding: 12px 15px;
+		}
+
+		table tbody tr {
+			border-bottom: 1px solid #ffa8B6;
+		}
+
+		table tbody tr:nth-of-type(odd) {
+			background-color: #8d6ab4;
+			color: #fac7ce;
+		}
+
+		table tbody tr:nth-of-type(even) {
+			background-color: #fac7ce;
+			color: #8d6ab4;
+		}
+
+		table tbody tr:last-of-type {
+			border-bottom: 5px solid #ffa8B6;
+		}
+
+		th, td{
+			border: 5px solid #ffa8B6;
+		}
+	</style>
+</head>
+<body>
+	<div class="title-container">
+		<h1><u>Continut cos de cumparaturi</u></h1>
+	</div>
+
+	<br>
+
+	<div class="main-div">
+		<fieldset>
+			<legend>Vizualizare produse cos</legend>
+
+			<div class="products-table-container">
+				<table class="shopping-cart">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Nume</th>
+							<th>Tip</th>
+							<th>Pret</th>
+							<th>Producator</th>
+							<th>Cantitate</th>
+						</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>1</td>
+						<td>boia</td>
+						<td>condimente</td>
+						<td>0.999</td>
+						<td>Delikat</td>
+						<td>7</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>chipsuri</td>
+						<td>snacksuri</td>
+						<td>1.53</td>
+						<td>Chio</td>
+						<td>4</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>chipsuri</td>
+						<td>snacksuri</td>
+						<td>9.6</td>
+						<td>Lays</td>
+						<td>6</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>chipsuri</td>
+						<td>snacksuri</td>
+						<td>9.1</td>
+						<td>Pringles</td>
+						<td>5</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>coriandru</td>
+						<td>condimente</td>
+						<td>0.0471</td>
+						<td>Knorr</td>
+						<td>4</td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td>iaurt</td>
+						<td>produse lactate</td>
+						<td>4.63</td>
+						<td>Danone</td>
+						<td>8</td>
+					</tr>
+					<tr>
+						<td>7</td>
+						<td>iaurt</td>
+						<td>produse lactate</td>
+						<td>5.013</td>
+						<td>Milka UK</td>
+						<td>4</td>
+					</tr>
+					<tr>
+						<td>8</td>
+						<td>parmezan</td>
+						<td>condimente</td>
+						<td>8.301</td>
+						<td>Delikat</td>
+						<td>3</td>
+					</tr>
+					<tr>
+						<td>9</td>
+						<td>rozmarin</td>
+						<td>condimente</td>
+						<td>1.68</td>
+						<td>Kamis</td>
+						<td>5</td>
+					</tr>
+					<tr>
+						<td>10</td>
+						<td>suc</td>
+						<td>bauturi racoritoare</td>
+						<td>15.5</td>
+						<td>Coca-Cola</td>
+						<td>4</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>Detalii cos de cumparaturi</legend>
+
+			<div class="shopping-cart-details-container">
+				<label>[=]Numar total produse cos: 50</label>
+				<br>
+				<label>[$]Pret total produse: 268.796</label>
+			</div>
+		</fieldset>
+	</div>
+</body>
+</html>
