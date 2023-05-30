@@ -33,7 +33,7 @@ private:
 
 	// atribute/campuri private
 
-	bool database_repo;
+	bool database_repo_flag;
 
 	Service& srv; // referinta la un obiect de clasa Service
 
@@ -227,7 +227,7 @@ public:
 	GUI() = delete;
 
 	// constructor custom al unui obiect de clasa GUI
-	GUI(Service& srv, bool database_repo) : srv{ srv }, database_repo{ database_repo } {
+	GUI(Service& srv, bool database_repo_flag) : srv{ srv }, database_repo_flag{ database_repo_flag } {
 		initGuiCmp();
 		connectSignals();
 		setInitialState();
