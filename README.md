@@ -154,6 +154,6 @@
 - sort products from the shopping cart after: name, type, price or producer
 - add the possibility to save the shopping cart in a MySQL database (data persistence for shopping cart in a database table)
 - add tooltips for graphical elements ✅
-- create a new histogram that displays the percentage for each type that exists in the virtual store's catalog. The histogram should represent the distribution of different types of items/products in the catalog, with each type represented by a horizontal bar, and the width of each bar indicating the percentage of that type in the catalog
+- create a new histogram that displays the percentage for each type that exists in the virtual store's catalog. The histogram should represent the distribution of different types of items/products in the catalog, with each type represented by a horizontal bar, and the width of each bar indicating the percentage of that type in the catalog ✅
 - solve the dangling pointers problem: if the data (items/products) is saved/stored in a MySQL database, then search will create a dangling pointer for each call (because in search function/method from repository the address of the searched products (if found) is returned (should return a copy instead))
 - update the screenshots after all the new features are done (the application is in its final version)
