@@ -228,9 +228,9 @@ void Service::filterAfterPrice(const vector<Product>& products, vector<Product>&
 		products.end(),
 		back_inserter(filtered_list),
 		[&price_double, &sign](const Product& p) {
-			if (sign == "<")
+			if (!sign.compare("<"))
 				return p.getPrice() < price_double;
-			else if (sign == ">")
+			else if (!sign.compare(">"))
 				return p.getPrice() > price_double;
 			return fabs(p.getPrice() - price_double) < 1e-12;
 		});
@@ -299,13 +299,13 @@ vector<Product> Service::filterProducts(const string& crt, const string& filter,
 	const auto& products{ repo.getAll() };
 	vector<Product> filtered_list;
 
-	if (crt == "1")      // criteriul de filtrare: pret (fieldul price)
+	if (!crt.compare("1"))      // criteriul de filtrare: pret (fieldul price)
 		filterAfterPrice(products, filtered_list, filter, sign);
-	else if (crt == "2") // criteriu de filtrare: nume (fieldul name)
+	else if (!crt.compare("2")) // criteriu de filtrare: nume (fieldul name)
 		filterAfterName(products, filtered_list, filter);
-	else if (crt == "3") // criteriu de filtrare: producator (fieldul producer)
+	else if (!crt.compare("3")) // criteriu de filtrare: producator (fieldul producer)
 		filterAfterProducer(products, filtered_list, filter);
-	else if (crt == "4") // criteriu de filtrare: tip (fieldul type)
+	else if (!crt.compare("4")) // criteriu de filtrare: tip (fieldul type)
 		filterAfterType(products, filtered_list, filter);
 	else                 // criteriu de filtrare invalid
 		throw ServiceException("[!]Criteriu de filtrare invalid!\n");
@@ -356,9 +356,15 @@ void Service::sortCrtName(vector<Product>& products, bool reversed) const
 	sort(products.begin(),
 		products.end(),
 		[reversed](const Product& p1, const Product& p2) noexcept {
+			// VARIANTA I
+			/*
 			if (!reversed)
 				return p1.getName() < p2.getName();
 			return p1.getName() > p2.getName();
+			*/
+
+			// VARIANTA II (CU TERNARY OPERATOR)
+			return (reversed) ? (p1.getName() > p2.getName()) : (p1.getName() < p2.getName());
 		});
 }
 
@@ -367,9 +373,15 @@ void Service::sortCrtPrice(vector<Product>& products, bool reversed) const
 	sort(products.begin(),
 		products.end(),
 		[reversed](const Product& p1, const Product& p2) noexcept {
+			// VARIANTA I
+			/*
 			if (!reversed)
 				return p1.getPrice() < p2.getPrice();
 			return p1.getPrice() > p2.getPrice();
+			*/
+
+			// VARIANTA II (CU TERNARY OPERATOR)
+			return (reversed) ? (p1.getPrice() > p2.getPrice()) : (p1.getPrice() < p2.getPrice());
 		});
 }
 
@@ -380,14 +392,26 @@ void Service::sortCrtNamePlusType(vector<Product>& products, bool reversed) cons
 		[reversed](const Product& p1, const Product& p2) noexcept {
 			if (!reversed)
 			{
+				// VARIANTA I
+				/*
 				if (p1.getName() == p2.getName())
 					return p1.getType() < p2.getType();
 				return p1.getName() < p2.getName();
+				*/
+
+				// VARIANTA II (CU TERNARY OPERATOR)
+				return (!p1.getName().compare(p2.getName())) ? (p1.getType() < p2.getType()) : (p1.getName() < p2.getName());
 			}
 			else {
+				// VARIANTA I
+				/*
 				if (p1.getName() == p2.getName())
 					return p1.getType() > p2.getType();
 				return p1.getName() > p2.getName();
+				*/
+
+				// VARIANTA II (CU TERNARY OPERATOR)
+				return (!p1.getName().compare(p2.getName())) ? (p1.getType() > p2.getType()) : (p1.getName() > p2.getName());
 			}
 		});
 }
@@ -397,9 +421,15 @@ void Service::sortCrtType(vector<Product>& products, bool reversed) const
 	sort(products.begin(),
 		products.end(),
 		[reversed](const Product& p1, const Product& p2) noexcept {
+			// VARIANTA I
+			/*
 			if (!reversed)
 				return p1.getType() < p2.getType();
 			return p1.getType() > p2.getType();
+			*/
+
+			// VARIANTA II (CU TERNARY OPERATOR)
+			return (reversed) ? (p1.getType() > p2.getType()) : (p1.getType() < p2.getType());
 		});
 }
 
@@ -408,9 +438,15 @@ void Service::sortCrtProducer(vector<Product>& products, bool reversed) const
 	sort(products.begin(),
 		products.end(),
 		[reversed](const Product& p1, const Product& p2) noexcept {
+			// VARIANTA I
+			/*
 			if (!reversed)
 				return p1.getProducer() < p2.getProducer();
 			return p1.getProducer() > p2.getProducer();
+			*/
+
+			// VARIANTA II (CU TERNARY OPERATOR)
+			return (reversed) ? (p1.getProducer() > p2.getProducer()) : (p1.getProducer() < p2.getProducer());
 		});
 }
 
@@ -442,15 +478,15 @@ vector<Product> Service::sortProducts(const string& crt, const string& ord) cons
 	// reversed = 0 => sortare in ordine crescatoare
 	//            1 => sortare in ordine descrescatoare
 
-	if (crt == "1")      // criteriu sortare: nume
+	if (!crt.compare("1"))      // criteriu sortare: nume
 		sortCrtName(products, reversed);
-	else if (crt == "2") // criteriu sortare: pret
+	else if (!crt.compare("2")) // criteriu sortare: pret
 		sortCrtPrice(products, reversed);
-	else if (crt == "3") // criteriu sortare: nume + tip
+	else if (!crt.compare("3")) // criteriu sortare: nume + tip
 		sortCrtNamePlusType(products, reversed);
-	else if (crt == "4") // criteriu sortare: tip
+	else if (!crt.compare("4")) // criteriu sortare: tip
 		sortCrtType(products, reversed);
-	else if (crt == "5") // criteriu sortare: producator
+	else if (!crt.compare("5")) // criteriu sortare: producator
 		sortCrtProducer(products, reversed);
 	else                 // criteriu de sortare invalid
 		throw ServiceException("[!]Criteriu de sortare invalid!\n");
