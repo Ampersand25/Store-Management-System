@@ -192,6 +192,9 @@
     <Filter Include="Source Files\Redo\AbstractRedo">
       <UniqueIdentifier>{6b253a4a-4117-42e8-bead-3ffeb87770db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Presentation\GUI\Widgets\PercentageHistogramGUI">
+      <UniqueIdentifier>{5f034068-5f09-4cdd-8410-0db9fd0c3f8d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="StoreManagementSystem.qrc">
@@ -413,6 +416,9 @@
     </ClInclude>
     <ClInclude Include="Redo.h">
       <Filter>Source Files\Redo\AbstractRedo</Filter>
+    </ClInclude>
+    <ClInclude Include="PercentageHistogramGUI.h">
+      <Filter>Source Files\Presentation\GUI\Widgets\PercentageHistogramGUI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

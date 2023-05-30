@@ -153,6 +153,7 @@
     <ClInclude Include="ListModelProducts.h" />
     <ClInclude Include="ListModelTypes.h" />
     <ClInclude Include="Observer.h" />
+    <ClInclude Include="PercentageHistogramGUI.h" />
     <ClInclude Include="Product.h" />
     <ClInclude Include="ProductException.h" />
     <ClInclude Include="ProductValidator.h" />

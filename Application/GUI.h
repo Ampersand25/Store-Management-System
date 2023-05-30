@@ -2,6 +2,7 @@
 
 #include "Service.h"
 #include "HistogramGUI.h"
+#include "PercentageHistogramGUI.h"
 #include "ListModelTypes.h"
 #include "TipuriProduseGUI.h"
 #include "ListModelCos.h"
@@ -133,6 +134,7 @@ private:
 	TipuriProduseWidget* tipuri_produse_widget = nullptr; // QWidget* tipuri_produse_widget = nullptr;
 
 	Histogram* hist_widget = nullptr; // QWidget* hist_widget = nullptr;
+	PercentageHistogram* percentage_hist_widget = nullptr; // QWidget* percentage_hist_widget = nullptr;
 
 	//QListWidget* lst_cumparaturi = new QListWidget();
 	//QTableWidget* tbl_cumparaturi = new QTableWidget();

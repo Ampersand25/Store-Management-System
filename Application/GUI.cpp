@@ -2557,11 +2557,20 @@ void GUI::connectSignals()
 			hist_widget->close();
 		}
 
+		if (percentage_hist_widget != nullptr && percentage_hist_widget->isEnabled())
+		{
+			percentage_hist_widget->setDisabled(true); // percentage_hist_widget->setEnabled(false);
+			percentage_hist_widget->close();
+		}
+
 		try {
 			const auto& types_map{ srv.countType() };
 
 			hist_widget = new Histogram{ srv };
 			hist_widget->show();
+
+			percentage_hist_widget = new PercentageHistogram{ srv };
+			percentage_hist_widget->show();
 			
 			if (!database_repo)
 			{
