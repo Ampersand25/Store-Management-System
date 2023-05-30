@@ -56,9 +56,6 @@ public:
 		{
 			qDebug() << "row: " << index.row();
 
-			if (!index.row())
-				return QString("Exista urmatoarele tipuri de produse in stocul magazinului:");
-
 			unsigned i{ 0 };
 
 			for (const auto& elem : srv.countType())
