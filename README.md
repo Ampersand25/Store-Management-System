@@ -69,8 +69,9 @@
 - "Exit" (from main window)                : ALT + X
 - "Generare cos de cumparaturi" (from "Fereastra CosCRUDGUI" window): ALT + G
 - "Golire cos de cumparaturi" (from "Fereastra CosCRUDGUI" window)  : ALT + O
-- "Golire" (from "Cos de cumparaturi" window)  : CTRL + O
 - "Adaugare" (from "Cos de cumparaturi" window): CTRL + D
+- "Stergere" (from "Cos de cumparaturi" window): CTRL + Q
+- "Golire" (from "Cos de cumparaturi" window)  : CTRL + O
 - "Tiparire" (from "Cos de cumparaturi" window): CTRL + T
 - "Generare" (from "Cos de cumparaturi" window): CTRL + N
 - "Export" (from "Cos de cumparaturi" window)  : CTRL + E
