@@ -1,4 +1,17 @@
 # Store-Management-System
+<strong>Icons used in the application (except "happyIcon" and "sadIcon") are from Flaticon (link: https://www.flaticon.com/) and are free</strong>:
+- histogramIcon: <a href="https://www.flaticon.com/free-icons/histogram" title="histogram icons">Histogram icons created by Freepik - Flaticon</a>
+- itemShoppingCartIcon: <a href="https://www.flaticon.com/free-icons/item" title="item icons">Item icons created by berkahicon - Flaticon</a>
+- percentageHistogramIcon: <a href="https://www.flaticon.com/free-icons/interest" title="interest icons">Interest icons created by Freepik - Flaticon</a>
+- productIcon: <a href="https://www.flaticon.com/free-icons/box" title="box icons">Box icons created by Freepik - Flaticon</a>
+- shoppingCartIcon: <a href="https://www.flaticon.com/free-icons/shopping-cart" title="shopping cart icons">Shopping cart icons created by Freepik - Flaticon</a>
+- shoppingCRUDIcon: <a href="https://www.flaticon.com/free-icons/add-product" title="add product icons">Add product icons created by Smashicons - Flaticon</a>
+- shoppingReadOnlyIcon: <a href="https://www.flaticon.com/free-icons/groceries" title="groceries icons">Groceries icons created by justicon - Flaticon</a>
+- storeIcon: <a href="https://www.flaticon.com/free-icons/shop" title="shop icons">Shop icons created by Freepik - Flaticon</a>
+- typesIcon: <a href="https://www.flaticon.com/free-icons/skincare" title="skincare icons">Skincare icons created by Flat-icons-com - Flaticon</a>
+
+<hr>
+
 <strong>Description</strong>:
 - Qt Widgets Application for Windows (desktop app) that manages the items (products) of a virtual store
 - the app has a layered architecture: presentation layer (UI and GUI), business layer (service), infrastructure layer (repositories), validation layer (validators for the entities) and domain layer (entities from the domain of the problem)
