@@ -10,11 +10,11 @@ using std::to_string;
 void DatabaseRepository::addProduct(const Product& product)
 {
 	MYSQL* conn{ mysql_init(0) };
-	conn = mysql_real_connect(conn, this->server.c_str(), this->username.c_str(), this->password.c_str(), this->database.c_str(), 3306, NULL, 0);
+	conn = mysql_real_connect(conn, this->server.c_str(), this->username.c_str(), this->password.c_str(), this->database.c_str(), this->port, NULL, 0);
 
 	if (conn)
 	{
-		const string query{ "INSERT INTO " + this->table + " (name, type, price, producer) VALUES ('" + product.getName() + "', '" + product.getType() + "', '" + to_string(product.getPrice()) + "', '" + product.getProducer() + "');" };
+		const string query{ "INSERT INTO `" + this->table + "` (`name`, `type`, `price`, `producer`) VALUES ('" + product.getName() + "', '" + product.getType() + "', '" + to_string(product.getPrice()) + "', '" + product.getProducer() + "');" };
 		const char* q{ query.c_str() };
 		const auto qstate{ mysql_query(conn, q) };
 		if (qstate)
@@ -28,11 +28,11 @@ void DatabaseRepository::addProduct(const Product& product)
 void DatabaseRepository::deleteProduct(const string& name, const string& producer)
 {
 	MYSQL* conn{ mysql_init(0) };
-	conn = mysql_real_connect(conn, this->server.c_str(), this->username.c_str(), this->password.c_str(), this->database.c_str(), 3306, NULL, 0);
+	conn = mysql_real_connect(conn, this->server.c_str(), this->username.c_str(), this->password.c_str(), this->database.c_str(), this->port, NULL, 0);
 
 	if (conn)
 	{
-		const string query{ "DELETE FROM " + this->table + " WHERE name = '" + name + "' AND producer = '" + producer + "';" };
+		const string query{ "DELETE FROM `" + this->table + "` WHERE `name` = '" + name + "' AND `producer` = '" + producer + "';" };
 		const char* q{ query.c_str() };
 		const auto qstate{ mysql_query(conn, q) };
 		if (qstate)
@@ -50,11 +50,11 @@ void DatabaseRepository::deleteProduct(const string& name, const string& produce
 void DatabaseRepository::modifyProduct(const Product& product)
 {
 	MYSQL* conn{ mysql_init(0) };
-	conn = mysql_real_connect(conn, this->server.c_str(), this->username.c_str(), this->password.c_str(), this->database.c_str(), 3306, NULL, 0);
+	conn = mysql_real_connect(conn, this->server.c_str(), this->username.c_str(), this->password.c_str(), this->database.c_str(), this->port, NULL, 0);
 
 	if (conn)
 	{
-		const string query{ "UPDATE " + this->table + " SET type = '" + product.getType() + "', price = '" + to_string(product.getPrice()) + "' WHERE name = '" + product.getName() + "' AND producer = '" + product.getProducer() + "';" };
+		const string query{ "UPDATE `" + this->table + "` SET `type` = '" + product.getType() + "', `price` = '" + to_string(product.getPrice()) + "' WHERE `name` = '" + product.getName() + "' AND `producer` = '" + product.getProducer() + "';" };
 		const char* q{ query.c_str() };
 		const auto qstate{ mysql_query(conn, q) };
 		if (qstate)
@@ -69,17 +69,17 @@ void DatabaseRepository::modifyProduct(const Product& product)
 		exit(5);
 }
 
-const Product& DatabaseRepository::searchProduct(const string& name, const string& producer) const
+Product DatabaseRepository::searchProduct(const string& name, const string& producer) const
 {
 	if (!len()) // if (!this->len())
 		throw RepoException("[!]Nu exista produse in magazin!\n");
 
 	MYSQL* conn{ mysql_init(0) };
-	conn = mysql_real_connect(conn, this->server.c_str(), this->username.c_str(), this->password.c_str(), this->database.c_str(), 3306, NULL, 0);
+	conn = mysql_real_connect(conn, this->server.c_str(), this->username.c_str(), this->password.c_str(), this->database.c_str(), this->port, NULL, 0);
 
 	if (conn)
 	{
-		const string query{ "SELECT * FROM " + this->table + " WHERE name = '" + name + "' AND producer = '" + producer + "';" };
+		const string query{ "SELECT * FROM `" + this->table + "` WHERE `name` = '" + name + "' AND `producer` = '" + producer + "';" };
 		const char* q{ query.c_str() };
 		const auto qstate{ mysql_query(conn, q) };
 		if (!qstate)
@@ -119,11 +119,11 @@ vector<Product> DatabaseRepository::getAll() const
 	vector<Product> products;
 	
 	MYSQL* conn{ mysql_init(0) };
-	conn = mysql_real_connect(conn, this->server.c_str(), this->username.c_str(), this->password.c_str(), this->database.c_str(), 3306, NULL, 0);
+	conn = mysql_real_connect(conn, this->server.c_str(), this->username.c_str(), this->password.c_str(), this->database.c_str(), this->port, NULL, 0);
 
 	if (conn)
 	{
-		const string query{ "SELECT * FROM " + this->table + ";" };
+		const string query{ "SELECT * FROM `" + this->table + "`;" };
 		const char* q{ query.c_str() };
 		const auto qstate{ mysql_query(conn, q) };
 		if (!qstate)
@@ -158,11 +158,11 @@ vector<Product> DatabaseRepository::getAll() const
 unsigned DatabaseRepository::len() const noexcept
 {
 	MYSQL* conn{ mysql_init(0) };
-	conn = mysql_real_connect(conn, this->server.c_str(), this->username.c_str(), this->password.c_str(), this->database.c_str(), 3306, NULL, 0);
+	conn = mysql_real_connect(conn, this->server.c_str(), this->username.c_str(), this->password.c_str(), this->database.c_str(), this->port, NULL, 0);
 
 	if (conn)
 	{
-		const string query{ "SELECT COUNT(*) FROM " + this->table + ";" };
+		const string query{ "SELECT COUNT(*) FROM `" + this->table + "`;" };
 		const char* q{ query.c_str() };
 		const auto qstate{ mysql_query(conn, q) };
 		if (!qstate)

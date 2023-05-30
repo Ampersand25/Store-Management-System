@@ -324,14 +324,14 @@ public:
 	*                  producer - referinta constanta la un string
 	* Preconditii: name     <> "" (name trebuie sa fie o referinta constanta la un string nevid)
 	*              producer <> "" (producer trebuie sa fie o referinta constanta la un string nevid)
-	* Date de iesire: referinta constanta la un obiect de clasa Product, daca acesta exista in stocul din magazin
+	* Date de iesire: copie la un obiect de clasa Product, daca acesta exista in stocul din magazin (se returneaza obiectul in sine)
 	*                 arunca exceptie in caz contrar
 	* Postconditii: search = obiectul cautat cu numele name si producatorul producer
 	* Exceptii: metoda poate arunca urmatoarele exceptii:
 	* [!]RepoException daca nu exista obiecte de clasa Product in lista din repo sau produsul nu se afla in magazin (in repo)
 	* [!]ServiceException (daca nu sunt respectate preconditiile <=> name sau producer sunt referinte constante la stringuri vide)
 	*/
-	const Product& search(const string& name, const string& producer) const;
+	Product search(const string& name, const string& producer) const;
 
 	/*
 	* Metoda care returneaza toate produsele din magazin

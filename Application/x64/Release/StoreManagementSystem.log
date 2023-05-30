@@ -1,3 +1,18 @@
-﻿  GUI.cpp
+﻿  Console.cpp
+  CosCRUDGUI.cpp
+  CosCumparaturi.cpp
+  FileRepository.cpp
+  GUI.cpp
+  Redo.cpp
+  Repository.cpp
+  Service.cpp
+  TestingApp.cpp
+  TestingCosCumparaturi.cpp
+  TestingFileRepo.cpp
+  TestingRepo.cpp
+  TestingService.cpp
+  TestingUndo.cpp
+  Undo.cpp
+  ApplicationCoordinator.cpp
   main.cpp
   StoreManagementSystem.vcxproj -> C:\Users\crist\source\repos\StoreManagementSystem\x64\Release\StoreManagementSystem.exe

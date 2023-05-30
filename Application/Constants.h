@@ -12,12 +12,14 @@ public:
 	//const string password{ "BacktrackingGOD314#" };
 	//const string database{ "sql_virtual_store" };
 	//const string table{ "products" };
+	//const int table{ 3306 };
 
 	static string server;
 	static string username;
 	static string password;
 	static string database;
 	static string table;
+	static int port;
 };
 
 string DBConstants::server   = "localhost";
@@ -25,3 +27,4 @@ string DBConstants::username = "root";
 string DBConstants::password = "BacktrackingGOD314#";
 string DBConstants::database = "sql_virtual_store";
 string DBConstants::table    = "products";
+int DBConstants::port        = 3306;

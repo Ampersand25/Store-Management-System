@@ -138,14 +138,14 @@ public:
 	* Date de intrare: name     - referinta constanta la un string
 	*                  producer - referinta constanta la un string
 	* Preconditii: -
-	* Date de iesire (rezultate): referinta constanta la un element avand tipul de data TKey (cheie din dictionar, adica obiect de clasa Product)
-	* Postconditii: searchProduct() = referinta la obiectul (produsul) cu numele name si producatorul producer gasit (daca acesta se afla in stoc <=> este disponibil)
+	* Date de iesire (rezultate): element avand tipul de data TKey (cheie din dictionar, adica obiect de clasa Product)
+	* Postconditii: searchProduct() = copie a obiectului (produsului) cu numele name si producatorul producer gasit (daca acesta se afla in stoc <=> este disponibil)
 	*                                 -, daca produsul cautat nu se afla in repo (ridica exceptie) sau se afla dar stocul a fost epuizat (nu poate fi achizitionat)
 	* Exceptii: metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Nu exista produse in magazin!\n" daca lista de obiecte este vida/goala (nu exista inregistrari vizibile in repo)
 	*           metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Produs inexistent!\n" daca produsul cautat nu se afla in repo (magazin), adica nu exista nicio inregistrare cu numele name si producatorul producer sau exista una dar este marcata ca fiind invizibila/stearsa (adica nu se afla in stoc)
 	*           metoda arunca/ridica exceptie de tipul std::exception cu mesajul "[!]Exception!\n" cu o probabilitate egala cu campul/atributul privat probability
 	*/
-	const TKey& searchProduct(const string& name, const string& producer) const override;
+	TKey searchProduct(const string& name, const string& producer) const override;
 
 	/*
 	* Operatie de tip R (Read), care nu modifica starea repo-ului

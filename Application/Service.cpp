@@ -91,7 +91,7 @@ void Service::modify(const string& name, const string& type, const double& price
 	this->notify(); // notify();
 }
 
-const Product& Service::search(const string& name, const string& producer) const
+Product Service::search(const string& name, const string& producer) const
 {
 	// validam numele name si producatorul producer
 	if (!name.size() * !producer.size()) // if (name == "" && producer == "")

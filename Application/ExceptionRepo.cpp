@@ -133,7 +133,7 @@ void ExceptionRepo::modifyProduct(const TKey& product)
 	throw RepoException("[!]Produs inexistent!\n");
 }
 
-const TKey& ExceptionRepo::searchProduct(const string& name, const string& producer) const
+TKey ExceptionRepo::searchProduct(const string& name, const string& producer) const
 {
 	checkProbability(); // this->checkProbability();
 

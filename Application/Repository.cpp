@@ -145,7 +145,7 @@ void RepoProducts::modifyProduct(const Product& product)
 	prod.setPrice(product.getPrice());
 }
 
-const Product& RepoProducts::searchProduct(const string& name, const string& producer) const
+Product RepoProducts::searchProduct(const string& name, const string& producer) const
 {
 	if (!len()) // if (!products.size())
 		// if (!this->len())

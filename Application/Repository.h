@@ -76,13 +76,13 @@ public:
 	* Date de intrare: name     - referinta constanta la un string
 	*                  producer - referinta constanta la un string
 	* Preconditii: -
-	* Date de iesire (rezultate): referinta constanta la un obiect de clasa Product
-	* Postconditii: searchProduct() = referinta la obiectul (produsul) cu numele name si producatorul producer gasit
+	* Date de iesire (rezultate): obiect de clasa Product
+	* Postconditii: searchProduct() = copie a obiectului (produsului) cu numele name si producatorul producer gasit (daca acesta exista in stocul/catalogul magazinului)
 	*                                 -, daca produsul cautat nu se afla in repo (ridica exceptie)
 	* Exceptii: metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Nu exista produse in magazin!\n" daca lista de obiecte este vida/goala (nu exista inregistrari in repo)
 	*           metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Produs inexistent!\n" daca produsul cautat nu se afla in repo (magazin), adica nu exista nicio inregistrare cu numele name si producatorul producer
 	*/
-	const Product& searchProduct(const string& name, const string& producer) const override;
+	Product searchProduct(const string& name, const string& producer) const override;
 
 	/*
 	* Metoda mostenita din clasa de baza AbstractRepo (aceasta va fi suprascrisa in clasa derivata)

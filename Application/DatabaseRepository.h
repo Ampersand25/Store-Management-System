@@ -10,15 +10,16 @@ private:
 	const string password;
 	const string database;
 	const string table;
+	const int port;
 
 public:
 	// metode/functii publice
 
 	/*
 	* Constructorul (de instantiere a) unui obiect de clasa DatabaseRepository
-	* Cream un constructor custom care primeste 5 parametrii de intrare (parametrii formali/simbolici) ci anume: server, username, password, database si table
+	* Cream un constructor custom care primeste 5 parametrii de intrare (parametrii formali/simbolici) ci anume: server, username, password, database
 	*/
-	DatabaseRepository(const string& server, const string& username, const string& password, const string& database, const string& table) : server{ server }, username{ username }, password{ password }, database{ database }, table{ table } {
+	DatabaseRepository(const string& server, const string& username, const string& password, const string& database, const string& table, const int& port) : server{ server }, username{ username }, password{ password }, database{ database }, table{ table }, port{ port } {
 		
 	}
 
@@ -76,13 +77,13 @@ public:
 	* Date de intrare: name     - referinta constanta la un string
 	*                  producer - referinta constanta la un string
 	* Preconditii: -
-	* Date de iesire (rezultate): referinta constanta la un obiect de clasa Product
-	* Postconditii: searchProduct() = referinta la obiectul (produsul) cu numele name si producatorul producer gasit
+	* Date de iesire (rezultate): obiect de clasa Product (copie a obiectului gasit in lista din repozitoriu)
+	* Postconditii: searchProduct() = copie a obiectului (produsului) cu numele name si producatorul producer gasit (in cazul in care acesta exista in repo)
 	*                                 -, daca produsul cautat nu se afla in repo (ridica exceptie)
 	* Exceptii: metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Nu exista produse in magazin!\n" daca lista de obiecte este vida/goala (nu exista inregistrari in repo)
 	*           metoda arunca/ridica exceptie de tipul RepoException cu mesajul de eroare/exceptie "[!]Produs inexistent!\n" daca produsul cautat nu se afla in repo (magazin), adica nu exista nicio inregistrare cu numele name si producatorul producer
 	*/
-	const Product& searchProduct(const string& name, const string& producer) const override;
+	Product searchProduct(const string& name, const string& producer) const override;
 
 	/*
 	* Metoda mostenita din clasa de baza AbstractRepo (aceasta va fi suprascrisa in clasa derivata)

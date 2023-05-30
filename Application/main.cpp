@@ -51,12 +51,13 @@ unique_ptr<AbstractRepo> repoFactory(REPO_TYPE repo_type) {
     }
     
     // DATABASE REPOSITORY
-    const auto server{ DBConstants::server };
+    const auto server_name{ DBConstants::server };
     const auto username{ DBConstants::username };
     const auto password{ DBConstants::password };
-    const auto database{ DBConstants::database };
-    const auto table{ DBConstants::table };
-    return make_unique<DatabaseRepository>(server, username, password, database, table);
+    const auto database_name{ DBConstants::database };
+    const auto products_table_name{ DBConstants::table };
+    const auto port_number{ DBConstants::port };
+    return make_unique<DatabaseRepository>(server_name, username, password, database_name, products_table_name, port_number);
 }
 
 int main(int argc, char* argv[])
