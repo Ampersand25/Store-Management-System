@@ -166,7 +166,6 @@
 - save the shopping cart content/list in a text file (data persistence for the shopping cart in CSV (Comma-Separated Values) file)
 - create database repository (add data persistence in a SQL (Structured Query Language) database like MySQL or PostgreSQL) ✅
 - redo operation (for undo operation) ✅
-- sort products from the shopping cart after one of the following criteria: name, type, price or producer
 - add the possibility to save the shopping cart in a MySQL database (data persistence for shopping cart in a database table)
 - add tooltips for different graphical elements ✅
 - create a new histogram that displays the percentage for each type that exists in the virtual store's catalog. The histogram should represent the distribution of different types of items/products in the catalog, with each type represented by a horizontal bar, and the width of each bar indicating the percentage of that type in the catalog ✅
