@@ -205,8 +205,9 @@ void GUI::initMeniuCosCumparaturi()
 
 	QHBoxLayout* btns_ly_1 = new QHBoxLayout;
 
-	btns_ly_1->addWidget(btn_golire_cos);
 	btns_ly_1->addWidget(btn_adaugare_cos);
+	btns_ly_1->addWidget(btn_stergere_cos);
+	btns_ly_1->addWidget(btn_golire_cos);
 	btns_ly_1->addWidget(btn_tiparire_cos);
 
 	right_ly->addLayout(btns_ly_1);
@@ -553,6 +554,80 @@ void GUI::connectSignalsCosCumparaturi()
 		}
 
 		msg->show();
+
+		total_price_cos_line_edit->setText(QString::number(srv.totalCos()));
+
+		try {
+			total_products_cos_line_edit->setText(QString::number(srv.getCosCumparaturi().size()));
+		}
+		catch (const CosException&) {
+			total_products_cos_line_edit->setText("0");
+		}
+		});
+
+	QObject::connect(btn_stergere_cos, &QPushButton::clicked, this, [&]() {
+		const auto name{ name_cos_line_edit->text() };
+		const auto producer{ producer_cos_line_edit->text() };
+		
+		QMessageBox msg_box;
+		msg_box.setWindowTitle("Confirmare stergere produs din cosul de cumparaturi");
+		msg_box.setIcon(QMessageBox::Question);
+		msg_box.setText("Sunteti sigur ca doriti sa stergeti produsul cu numele \"" + name + "\" si producatorul \"" + producer + "\"din cos?");
+		msg_box.setStandardButtons(QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+		msg_box.setDefaultButton(QMessageBox::No);
+
+		const auto ret{ msg_box.exec() };
+
+		QMessageBox* msg = new QMessageBox;
+		msg->setWindowTitle("Stergere produs din cosul de cumparaturi");
+
+		switch (ret) {
+		case QMessageBox::Yes:
+			// Yes was clicked
+
+			try {
+				srv.eliminareProdusCos(name.toLocal8Bit().constData(), producer.toLocal8Bit().constData());
+
+				msg->setText("[*]Stergerea produsului din cos s-a realizat cu succes!\n[$]Pret total: " + QString::number(srv.totalCos()) + "\n[#]Numar total produse cos: " + QString::number(srv.cantitateCos()));
+				msg->setIcon(QMessageBox::Information);
+
+				lst_cumparaturi_model->setVisible(true);
+				tbl_cumparaturi_model->setVisible(true);
+
+				name_cos_line_edit->setText("");
+				type_cos_line_edit->setText("");
+				price_cos_line_edit->setText("");
+				producer_cos_line_edit->setText("");
+			}
+			catch (const CosException& ce) {
+				qDebug() << QString::fromStdString(ce.getMessage());
+
+				msg->setText(QString::fromStdString(ce.getMessage()));
+				msg->setIcon(QMessageBox::Critical);
+			}
+			catch (const RepoException& re) {
+				qDebug() << QString::fromStdString(re.getMessage());
+
+				msg->setText(QString::fromStdString(re.getMessage()));
+				msg->setIcon(QMessageBox::Critical);
+			}
+			catch (const ServiceException& se) {
+				qDebug() << QString::fromStdString(se.getMessage());
+
+				msg->setText(QString::fromStdString(se.getMessage()));
+				msg->setIcon(QMessageBox::Critical);
+			}
+
+			msg->show();
+
+			break;
+		case QMessageBox::No:
+			// No was clicked
+			break;
+		case QMessageBox::Cancel:
+			// Cancel was clicked
+			break;
+		}
 
 		total_price_cos_line_edit->setText(QString::number(srv.totalCos()));
 
@@ -911,17 +986,23 @@ void GUI::addCumparaturiToTable(QTableWidget* tbl, const vector<Product>& lista_
 
 void GUI::setShortcutsCosCumparaturi()
 {
-	QAction* action_btn_golire_cos = new QAction(cos_widget);
-	action_btn_golire_cos->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_O));
-	connect(action_btn_golire_cos, &QAction::triggered, btn_golire_cos, &QPushButton::click);
-
-	cos_widget->addAction(action_btn_golire_cos);
-
 	QAction* action_btn_adaugare_cos = new QAction(cos_widget);
 	action_btn_adaugare_cos->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_D));
 	connect(action_btn_adaugare_cos, &QAction::triggered, btn_adaugare_cos, &QPushButton::click);
 
 	cos_widget->addAction(action_btn_adaugare_cos);
+
+	QAction* action_btn_stergere_cos = new QAction(cos_widget);
+	action_btn_stergere_cos->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
+	connect(action_btn_stergere_cos, &QAction::triggered, btn_stergere_cos, &QPushButton::click);
+
+	cos_widget->addAction(action_btn_stergere_cos);
+
+	QAction* action_btn_golire_cos = new QAction(cos_widget);
+	action_btn_golire_cos->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_O));
+	connect(action_btn_golire_cos, &QAction::triggered, btn_golire_cos, &QPushButton::click);
+
+	cos_widget->addAction(action_btn_golire_cos);
 
 	QAction* action_btn_tiparire_cos = new QAction(cos_widget);
 	action_btn_tiparire_cos->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_T));
@@ -956,8 +1037,9 @@ void GUI::setShortcutsCosCumparaturi()
 
 void GUI::setToolTipsCosCumparaturi()
 {
-	btn_golire_cos->setToolTip("Golire continut cos de cumparaturi");
 	btn_adaugare_cos->setToolTip("Adaugare produs in cosul de cumparaturi");
+	btn_stergere_cos->setToolTip("Stergere produs din cosul de cumparaturi");
+	btn_golire_cos->setToolTip("Golire continut cos de cumparaturi");
 	btn_tiparire_cos->setToolTip("Afisarea continutului cosului de cumparaturi sub forma de lista si tabel");
 
 	btn_export_cos->setToolTip("Export continut cos de cumparaturi intr-un fisier (CSV sau/si HTML)");

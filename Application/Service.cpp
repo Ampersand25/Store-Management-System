@@ -484,6 +484,22 @@ void Service::adaugareCos(const string& name, const string& producer)
 	cos.adaugaInCos(name, producer);
 }
 
+void Service::eliminareProdusCos(const string& name, const string& producer)
+{
+	// validam numele name si producatorul producer
+	string err{ "" }; // lista de erori (string)
+
+	if (!name.size())     // if (name == "")
+		err += "[!]Nume invalid!\n";       // name invalid
+	if (!producer.size()) // if (producer == "")
+		err += "[!]Producator invalid!\n"; // producer invalid
+
+	if (err.size()) // lista de erori contine cel putin o eroare (name si/sau producer sunt stringuri vide, deci invalide)
+		throw ServiceException(err); // aruncam exceptie de clasa ServiceException cu mesajul de eroare/exceptie err
+
+	cos.eliminaProdusCos(name, producer);
+}
+
 void Service::generareCos(const string& num)
 {
 	/*

@@ -472,6 +472,24 @@ public:
 	void adaugareCos(const string& name, const string& producer);
 
 	/*
+	* Procedura care incearca sa stearga un produs cu numele name si producatorul producer din cosul de cumparaturi al utilizatorului (userului)
+	* Date de intrare: name     - referinta constanta la un string (dinamic) din STL (Standard Template Library)
+	*                  producer - referinta constanta la un string (dinamic) din STL (Standard Template Library)
+	* Preconditii: name     <> "" (sirul de caractere stocat/memorat in variabila constanta name trebuie sa fie nevid)     <=> name.length     <> 0 (name.length     != 0)
+	*              producer <> "" (sirul de caractere stocat/memorat in variabila constanta producer trebuie sa fie nevid) <=> producer.length <> 0 (producer.length != 0)
+	* Date de iesire (rezultate): -
+	* Postconditii: -
+	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii:
+	* [!]CosException cu mesajul "[!]Nu exista produse in cosul de cumparaturi!\n", in cazul in care lista care contine produsele din cosul de cumparaturi este goala/vida
+	* [!]CosException cu mesajul "[!]Produsul cautat nu exista in cosul de cumparaturi!\n", in cazul in care lista care contine produsele din cosul de cumparaturi nu contine produsul pe care dorim sa il stergem/eliminam din cos (adica nu exista niciun produs cu numele name si producatorul producer in cosul de cumparaturi)
+	* [!]ServiceException (nu sunt respectate preconditiile privind datele de intrare)
+	* cu unul din mesajele: "[!]Nume invalid!\n", daca doar numele name este invalid (stringul name este vid)
+	*                       "[!]Producator invalid!\n", daca doar producatorul producer este invalid (stringul producer este vid)
+	*                       "[!]Nume invalid!\n[!]Producator invalid!\n", daca atat numele name (parametru de intrare) cat si producatorul producer (parametru de intrare) sunt atribute invalide (stringuri vide)
+	*/
+	void eliminareProdusCos(const string& name, const string& producer);
+
+	/*
 	* Procedura care incearca sa adauge num produse random din stocul magazinului in cosul de cumparaturi
 	* Date de intrare: num - referinta constanta la un string (sir de caractere alocat dinamic din STL = Standard Template Library)
 	* Preconditii: stringul num trebuie sa contina reprezentarea scrisa/text a unui numar intreg fara semn (unsigned = numar natural)

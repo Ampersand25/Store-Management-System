@@ -178,4 +178,18 @@ public:
 	* Exceptii: -
 	*/
 	void stergeProduseCos(const string& name, const string& producer) noexcept;
+
+	/*
+	* Procedura (subrutina procedurala) care incearca sa stearga/elimine un singur produs (obiect de clasa Product) din cosul de cumparaturi care are numele name si producatorul producer
+	* Date de intrare: name     - referinta constanta la un string (sir de caractere din STL = Standard Template Library)
+	*                  producer - referinta constanta la un string (sir de caractere din STL = Standard Template Library)
+	* Preconditii: name     <> "" (unde "" - stringul vid (empty string (are lungimea egala cu 0)) si <> (echivalent cu !=) - operatorul de diferit)
+	*              producer <> "" (unde "" - stringul vid (empty string (are lungimea egala cu 0)) si <> (echivalent cu !=) - operatorul de diferit)
+	* Date de iesire: -
+	* Postconditii: apelul metodei publice eliminaProdusCos va elimina din cosul de cumparaturi primul produs gasit (daca exista) cu numele name si producatorul producer (in cazul in care nu exista niciun produs cu numele name si producatorul producer atunci cosul de cumparaturi ramane nemodificat)
+	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii:
+	* [!]CosException cu mesajul: "[!]Nu exista produse in cosul de cumparaturi!\n", in cazul in care lista care contine produsele din cosul de cumparaturi este goala/vida
+	*                             "[!]Produsul cautat nu exista in cosul de cumparaturi!\n", in cazul in care nu exista niciun produs cu numele name si producatorul producer in lista de cumparaturi
+	*/
+	void eliminaProdusCos(const string& name, const string& producer);
 };

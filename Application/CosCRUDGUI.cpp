@@ -182,8 +182,8 @@ void CosCRUDGUI::initGuiCmpCosCRUDGUI()
 	spin_box->setMaximum(MAX_SLD);
 	spin_box->setValue(CURR_SLD);
 
-	btn_gen = new QPushButton{ "Ge&nerare cos de cumparaturi" };
-	btn_gol = new QPushButton{ "Golire cos de cum&paraturi" };
+	btn_gen = new QPushButton{ "&Generare cos de cumparaturi" };
+	btn_gol = new QPushButton{ "G&olire cos de cumparaturi" };
 
 	layout->addWidget(lbl);
 	//layout->addStretch();

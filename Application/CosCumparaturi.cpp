@@ -479,7 +479,7 @@ vector<Product> CosCumparaturi::getCos() const
 	return prods;
 }
 
-void CosCumparaturi::modificaProduseCos(const Product& product)
+void CosCumparaturi::modificaProduseCos(const TKey& product)
 {
 	auto iter{ cos.begin() };
 
@@ -529,4 +529,40 @@ void CosCumparaturi::stergeProduseCos(const string& name, const string& producer
 
 		++iter;
 	}
+}
+
+void CosCumparaturi::eliminaProdusCos(const string& name, const string& producer)
+{
+	if (cosGol()) // if (this->cosGol())
+		throw CosException("[!]Nu exista produse in cosul de cumparaturi!\n");
+
+	auto iter{ cos.begin() };
+
+	while (iter != cos.end())
+	{
+		const auto& elem{ *iter };
+		const auto& prod{ elem.key };
+		const auto& quantity{ elem.value };
+
+		if (!prod.getName().compare(name) && !prod.getProducer().compare(producer))
+		{
+			total_price -= prod.getPrice();
+
+			if (total_price < 1e-5)
+				total_price = 0;
+
+			if (quantity == 1)
+				cos.erase(iter);
+			else
+				--cos[prod];
+
+			this->notify(); // notify();
+
+			return;
+		}
+
+		++iter;
+	}
+	
+	throw CosException("[!]Produsul cautat nu exista in cosul de cumparaturi!\n");
 }

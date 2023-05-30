@@ -113,8 +113,9 @@ private:
 
 	QSpinBox* no_prods = new QSpinBox(nullptr);
 
-	QPushButton* btn_golire_cos = new QPushButton{ "Golire" };
 	QPushButton* btn_adaugare_cos = new QPushButton{ "Adaugare" };
+	QPushButton* btn_stergere_cos = new QPushButton{ "Stergere" };
+	QPushButton* btn_golire_cos = new QPushButton{ "Golire" };
 	QPushButton* btn_tiparire_cos = new QPushButton{ "Tiparire" };
 	QPushButton* btn_export_cos = new QPushButton{ "Export" };
 	QPushButton* btn_generare_cos = new QPushButton{ "Generare" };
