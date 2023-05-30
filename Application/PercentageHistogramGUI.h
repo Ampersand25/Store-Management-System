@@ -53,7 +53,7 @@ public:
 		const auto fixed_increase{ 50 };
 		const auto fixed_height{ 50 };
 
-		const auto totalNumberOfProducts{ srv.numberOfProducts() };
+		const auto total_number_of_products{ srv.numberOfProducts() };
 
 		for (const auto& elem : srv.countType())
 		{
@@ -62,7 +62,7 @@ public:
 			rect.setX(0);
 			rect.setY(cont);
 
-			const double percentage = (elem.second.second * 100.0) / totalNumberOfProducts;
+			const double percentage = (elem.second.second * 100.0) / total_number_of_products;
 
 			auto width{ 5 * percentage };
 

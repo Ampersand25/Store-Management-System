@@ -477,7 +477,7 @@ void GUI::connectSignalsCosCumparaturi()
 
 			dialog_selected_item_list_cos->setLayout(main_ly);
 			dialog_selected_item_list_cos->setModal(true);
-			dialog_selected_item_list_cos->setWindowIcon(product_icon);
+			dialog_selected_item_list_cos->setWindowIcon(item_shopping_cart_icon);
 			dialog_selected_item_list_cos->setWindowTitle("Info produs selectat");
 
 			dialog_selected_item_list_cos->show();

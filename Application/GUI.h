@@ -151,6 +151,7 @@ private:
 	const QIcon shopping_cart_icon{ "./Logo-uri aplicatie/shoppingCartIcon" };
 	const QIcon store_icon{ "./Logo-uri aplicatie/storeIcon" };
 	const QIcon product_icon{ "./Logo-uri aplicatie/productIcon" };
+	const QIcon item_shopping_cart_icon{ "./Logo-uri aplicatie/itemShoppingCartIcon" };
 	const QIcon cos_read_only_icon{ "./Logo-uri aplicatie/shoppingReadOnlyIcon" };
 	const QIcon cos_crud_icon{ "./Logo-uri aplicatie/shoppingCRUDIcon" };
 
