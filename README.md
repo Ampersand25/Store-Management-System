@@ -1,5 +1,5 @@
 # Store-Management-System
-<strong>Icons used in the application (except "happyIcon" and "sadIcon") are from Flaticon (link: https://www.flaticon.com/) and are free</strong>:
+<strong>Icons used in the application (except "happyIcon" and "sadIcon") are from Flaticon (link: https://www.flaticon.com/) and are absolute free</strong>:
 - histogramIcon: <a href="https://www.flaticon.com/free-icons/histogram" title="histogram icons">Histogram icons created by Freepik - Flaticon</a>
 - itemShoppingCartIcon: <a href="https://www.flaticon.com/free-icons/item" title="item icons">Item icons created by berkahicon - Flaticon</a>
 - percentageHistogramIcon: <a href="https://www.flaticon.com/free-icons/interest" title="interest icons">Interest icons created by Freepik - Flaticon</a>
