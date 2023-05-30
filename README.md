@@ -67,8 +67,8 @@
 - "Debug" (from main window)               : ALT + D
 - "Clear" (from main window)               : ALT + L
 - "Exit" (from main window)                : ALT + X
-- "Generare cos de cumparaturi" (from "Fereastra CosCRUDGUI" window): ALT + N
-- "Golire cos de cumparaturi" (from "Fereastra CosCRUDGUI" window)  : ALT + P
+- "Generare cos de cumparaturi" (from "Fereastra CosCRUDGUI" window): ALT + G
+- "Golire cos de cumparaturi" (from "Fereastra CosCRUDGUI" window)  : ALT + O
 - "Golire" (from "Cos de cumparaturi" window)  : CTRL + O
 - "Adaugare" (from "Cos de cumparaturi" window): CTRL + D
 - "Tiparire" (from "Cos de cumparaturi" window): CTRL + T
