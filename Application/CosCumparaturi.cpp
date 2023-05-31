@@ -317,6 +317,7 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 	out << "			color: white;\n";
 	out << "			text-align: center;\n";
 	out << "			font-weight: bold;\n";
+	out << "			cursor: pointer;\n";
 	out << "		}\n";
 	out << "\n";
 	out << "		table th,\n";
@@ -375,7 +376,7 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 	if (cosGol()) // if (this->cosGol())
 		out << "				<label>Momentan nu exista produse in cosul de cumparaturi!</label>\n";
 	else {
-		out << "				<table class=\"shopping-cart\">\n";
+		out << "				<table class=\"shopping-cart horizontal-table\">\n";
 		out << "					<thead>\n";
 		out << "						<tr>\n";
 		out << "							<th>#</th>\n";
@@ -421,8 +422,10 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 	out << "			</div>\n";
 	out << "		</fieldset>\n";
 	out << "	</div>\n";
+	out << "\n";
+	out << "	<script type=\"text/javascript\" src=\"create_sortable_tables.js\"></script>\n";
 	out << "</body>\n";
-	out << "</html>\n";
+	out << "</html>";
 
 	out.close();
 }

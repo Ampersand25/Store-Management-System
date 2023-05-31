@@ -1,8 +1,3 @@
-﻿  ApplicationCoordinator.cpp
-  Console.cpp
-  GUI.cpp
+﻿  CosCumparaturi.cpp
   Service.cpp
-  TestingApp.cpp
-  TestingService.cpp
-  main.cpp
   StoreManagementSystem.vcxproj -> C:\Users\crist\source\repos\StoreManagementSystem\x64\Release\StoreManagementSystem.exe
