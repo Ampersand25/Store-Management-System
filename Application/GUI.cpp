@@ -479,10 +479,10 @@ void GUI::connectSignalsCosCumparaturi()
 			price_edt->setReadOnly(true);
 			producer_edt->setReadOnly(true);
 
-			name_edt->setText(name_cos_line_edit->text());
-			type_edt->setText(type_cos_line_edit->text());
-			price_edt->setText(price_cos_line_edit->text());
-			producer_edt->setText(producer_cos_line_edit->text());
+			name_edt->setText(name_cos_line_edit->text().trimmed());
+			type_edt->setText(type_cos_line_edit->text().trimmed());
+			price_edt->setText(price_cos_line_edit->text().trimmed());
+			producer_edt->setText(producer_cos_line_edit->text().trimmed());
 
 			form_ly->addRow(name_lbl, name_edt);
 			form_ly->addRow(type_lbl, type_edt);
@@ -540,8 +540,8 @@ void GUI::connectSignalsCosCumparaturi()
 		});
 
 	QObject::connect(btn_adaugare_cos, &QPushButton::clicked, this, [&]() {
-		const auto name{ name_cos_line_edit->text() };
-		const auto producer{ producer_cos_line_edit->text() };
+		const auto name{ name_cos_line_edit->text().trimmed() };
+		const auto producer{ producer_cos_line_edit->text().trimmed() };
 
 		QMessageBox* msg = new QMessageBox;
 		msg->setWindowTitle("Adaugare produs in cosul de cumparaturi");
@@ -589,8 +589,8 @@ void GUI::connectSignalsCosCumparaturi()
 		});
 
 	QObject::connect(btn_stergere_cos, &QPushButton::clicked, this, [&]() {
-		const auto name{ name_cos_line_edit->text() };
-		const auto producer{ producer_cos_line_edit->text() };
+		const auto name{ name_cos_line_edit->text().trimmed() };
+		const auto producer{ producer_cos_line_edit->text().trimmed() };
 		
 		QMessageBox msg_box;
 		msg_box.setWindowTitle("Confirmare stergere produs din cosul de cumparaturi");
@@ -753,7 +753,7 @@ void GUI::connectSignalsCosCumparaturi()
 	QObject::connect(btn_generare_cos, &QPushButton::clicked, this, [&]() {
 		last_selected_item_list_cos = nullptr;
 
-		const auto number{ no_prods->text() };
+		const auto number{ no_prods->text().trimmed() };
 
 		QMessageBox* msg = new QMessageBox;
 		msg->setWindowTitle("Generare cos de cumparaturi");
@@ -854,7 +854,7 @@ void GUI::connectSignalsCosCumparaturi()
 		});
 
 	QObject::connect(btn_export_cos, &QPushButton::clicked, this, [&]() {
-		const auto filename{ fisier_export_line_edit->text() };
+		const auto filename{ fisier_export_line_edit->text().trimmed() };
 
 		QMessageBox* msg = new QMessageBox;
 		msg->setWindowTitle("Export cos de cumparaturi");
@@ -1659,7 +1659,7 @@ void GUI::showFilteredList(const vector<Product>& filtered_list)
 void GUI::filterProductsGUI(const string& criterion, const string& sgn)
 {
 	const auto& crt{ criterion };
-	const auto& filter{ filter_crt_line_edit->text() };
+	const auto& filter{ filter_crt_line_edit->text().trimmed() };
 	const auto& sign{ sgn };
 
 	try {
@@ -2060,10 +2060,10 @@ void GUI::connectSignals()
 			price_edt->setReadOnly(true);
 			producer_edt->setReadOnly(true);
 
-			name_edt->setText(name_line_edit->text());
-			type_edt->setText(type_line_edit->text());
-			price_edt->setText(price_line_edit->text());
-			producer_edt->setText(producer_line_edit->text());
+			name_edt->setText(name_line_edit->text().trimmed());
+			type_edt->setText(type_line_edit->text().trimmed());
+			price_edt->setText(price_line_edit->text().trimmed());
+			producer_edt->setText(producer_line_edit->text().trimmed());
 
 			form_ly->addRow(name_lbl, name_edt);
 			form_ly->addRow(type_lbl, type_edt);
@@ -2132,8 +2132,8 @@ void GUI::connectSignals()
 	QObject::connect(btn_adaugare_cumparaturi_main, &QPushButton::clicked, this, [&]() {
 		last_selected_item_list_cos = nullptr;
 
-		const auto name{ name_line_edit->text() };
-		const auto producer{ producer_line_edit->text() };
+		const auto name{ name_line_edit->text().trimmed() };
+		const auto producer{ producer_line_edit->text().trimmed() };
 
 		QMessageBox* msg = new QMessageBox;
 		msg->setWindowTitle("Adaugare produs in cosul de cumparaturi");
@@ -2334,10 +2334,10 @@ void GUI::connectSignals()
 	QObject::connect(btn_add, &QPushButton::clicked, this, [&]() {
 		last_selected_item_list = nullptr;
 
-		const auto name{ name_line_edit->text() };
-		const auto type{ type_line_edit->text() };
-		const auto price{ price_line_edit->text() };
-		const auto producer{ producer_line_edit->text() };
+		const auto name{ name_line_edit->text().trimmed() };
+		const auto type{ type_line_edit->text().trimmed() };
+		const auto price{ price_line_edit->text().trimmed() };
+		const auto producer{ producer_line_edit->text().trimmed() };
 
 		int ret;
 
@@ -2427,10 +2427,10 @@ void GUI::connectSignals()
 	QObject::connect(btn_modify, &QPushButton::clicked, this, [&]() {
 		last_selected_item_list = nullptr;
 
-		const auto name{ name_line_edit->text() };
-		const auto type{ type_line_edit->text() };
-		const auto price{ price_line_edit->text() };
-		const auto producer{ producer_line_edit->text() };
+		const auto name{ name_line_edit->text().trimmed() };
+		const auto type{ type_line_edit->text().trimmed() };
+		const auto price{ price_line_edit->text().trimmed() };
+		const auto producer{ producer_line_edit->text().trimmed() };
 
 		int ret;
 
@@ -2516,8 +2516,8 @@ void GUI::connectSignals()
 	QObject::connect(btn_delete, &QPushButton::clicked, this, [&]() {
 		last_selected_item_list = nullptr;
 
-		const auto name{ name_line_edit->text() };
-		const auto producer{ producer_line_edit->text() };
+		const auto name{ name_line_edit->text().trimmed() };
+		const auto producer{ producer_line_edit->text().trimmed() };
 
 		int ret;
 
@@ -2603,8 +2603,8 @@ void GUI::connectSignals()
 		});
 
 	QObject::connect(btn_search, &QPushButton::clicked, this, [&]() {
-		const auto name{ name_line_edit->text() };
-		const auto producer{ producer_line_edit->text() };
+		const auto name{ name_line_edit->text().trimmed() };
+		const auto producer{ producer_line_edit->text().trimmed() };
 
 		QMessageBox* msg = new QMessageBox;
 		msg->setWindowTitle("Cautare produs in stocul magazinului");

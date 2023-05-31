@@ -118,7 +118,7 @@ private:
 	QPushButton* btn_golire_cos = new QPushButton{ "Golire" };
 	QPushButton* btn_tiparire_cos = new QPushButton{ "Tiparire" };
 	QPushButton* btn_generare_cos = new QPushButton{ "Generare" };
-	QPushButton* btn_cautare_cos = new QPushButton{ "Cautare cos" };
+	QPushButton* btn_cautare_cos = new QPushButton{ "Cautare in cos" };
 	QPushButton* btn_export_cos = new QPushButton{ "Export" };
 
 	QPushButton* btn_clear_cos = new QPushButton{ "Clear" };
