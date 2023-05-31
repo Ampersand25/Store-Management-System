@@ -275,7 +275,9 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 	out << "	<meta charset=\"UTF-8\">\n";
 	out << "	<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n";
 	out << "	<title>Lista de cumparaturi</title>\n";
-	out << "	<style>\n";
+
+	// WITH HTML + CSS
+	/*out << "	<style>\n";
 	out << "		body {\n";
 	out << "			font-family: Orbitron, sans-serif;\n";
 	out << "			background-color: #ffa8B6;\n";
@@ -357,7 +359,11 @@ void CosCumparaturi::exportCosFisierHTML(const string& filename) const
 	out << "			font-weight: bold;\n";
 	out << "			color: white;\n";
 	out << "        }\n";
-	out << "	</style>\n";
+	out << "	</style>\n";*/
+
+	// WITH SEPARATED CSS FILE
+	out << "	<link type=\"text/css\" rel=\"stylesheet\" href=\"export_html_file_style.css\">\n";
+
 	out << "</head>\n";
 
 	out << "<body>\n";
