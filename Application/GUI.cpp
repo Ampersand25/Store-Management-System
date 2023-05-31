@@ -1125,24 +1125,38 @@ void GUI::setShortcutsCosCumparaturi()
 
 void GUI::setToolTipsCosCumparaturi()
 {
+	name_cos_line_edit->setToolTip("Nume (string) produs din cosul de cumparaturi");
+	type_cos_line_edit->setToolTip("Tip (string) produs din cosul de cumparaturi");
+	price_cos_line_edit->setToolTip("Pret (double) produs din cosul de cumparaturi");
+	producer_cos_line_edit->setToolTip("Producator (string) produs din cosul de cumparaturi");
+
+	total_price_cos_line_edit->setToolTip("Pretul total al produselor din cosul de cumparaturi");
+	total_products_cos_line_edit->setToolTip("Numarul total de produse din cosul de cumparaturi");
+
 	btn_adaugare_cos->setToolTip("Adaugare produs in cosul de cumparaturi");
 	btn_stergere_cos->setToolTip("Stergere produs din cosul de cumparaturi");
 	btn_golire_cos->setToolTip("Golire continut cos de cumparaturi");
 	btn_tiparire_cos->setToolTip("Afisarea continutului cosului de cumparaturi sub forma de lista si tabel");
 
-	btn_export_cos->setToolTip("Export continut cos de cumparaturi intr-un fisier (CSV sau/si HTML)");
-
 	btn_generare_cos->setToolTip("Generare produse pentru cosul de cumparaturi");
 	
-	search_shopping_cart_combo_box->setToolTip("Selectare optiune cautare produs in cosul de cumparaturi");
-
 	btn_cautare_cos->setToolTip("Cautare produs in cosul de cumparaturi");
+
+	btn_export_cos->setToolTip("Export continut cos de cumparaturi intr-un fisier (CSV sau/si HTML)");
+
+	search_product_shopping_cart_line_edit->setToolTip("Nume/Tip/Pret/Producator dupa care sa se realizeze cautarea");
+
+	search_shopping_cart_combo_box->setToolTip("Selectare optiune cautare produs in cosul de cumparaturi");
 
 	checkbox_export_fisier_csv->setToolTip("Fisier Comma-Separated Values (deschidere cu Excel)");
 	checkbox_export_fisier_html->setToolTip("Fisier HyperText Markup Language (deschidere in browser)");
 
 	btn_clear_cos->setToolTip("Golire lista/tabel");
 	btn_close_cos->setToolTip("Inchidere fereastra");
+
+	fisier_export_line_edit->setToolTip("Numele fisierului in care sa se faca exportul cosului de cumparaturi");
+
+	no_prods->setToolTip("Spin box care controleaza cate produse sa se genereze pentru cosul de cumparaturi");
 }
 
 void GUI::setPlaceholdersCosCumparaturi()
@@ -3198,6 +3212,11 @@ void GUI::addShortcuts()
 
 void GUI::addToolTips()
 {
+	name_line_edit->setToolTip("Numele produsului (text)");
+	type_line_edit->setToolTip("Tipul produsului (text)");
+	price_line_edit->setToolTip("Pretul produsului (valoare numerica reala)");
+	producer_line_edit->setToolTip("Producatorul produsului (text)");
+
 	btn_adaugare_cumparaturi_main->setToolTip("Adaugare produs in cosul de cumparaturi");
 	btn_stergere_cumparaturi_main->setToolTip("Golire continut cos de cumparaturi");
 	btn_generare_cumparaturi_main->setToolTip("Generare continut cos de cumparaturi");
@@ -3236,6 +3255,11 @@ void GUI::addToolTips()
 	radio_btn_greater->setToolTip("Filtrare dupa pret mai mare strict");
 
 	filter_options_combo_box->setToolTip("Alegere optiune de filtrare");
+
+	filter_crt_line_edit->setToolTip("Alegeti filtrul dupa care sa se faca filtrarea produselor din magazin");
+
+	sld_cumparaturi_main->setToolTip("Slider care controleaza cate produse sa fie generate in cosul de cumparaturi");
+	sld_value_cumparaturi_main->setToolTip("Spin box care controleaza cate produse sa fie generate in cosul de cumparaturi");
 }
 
 void GUI::addPlaceholderText()

@@ -316,5 +316,7 @@ void CosCRUDGUI::setInitialStateCosCRUDGUI()
 	btn_gen->setToolTip("Genereaza continut cos de cumparaturi");
 	btn_gol->setToolTip("Golire continut cos de cumparaturi");
 
+	spin_box->setToolTip("Spin box care controleaza cate produse vor fi generate");
+
 	setUpMasterDetail();
 }
