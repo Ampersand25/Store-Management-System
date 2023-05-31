@@ -6,12 +6,15 @@
 #include <exception> // pentru std::exception
 #include <string>    // pentru stoi (string to integer build-in function)
 #include <iostream>  // pentru back_inserter
+#include <cmath>     // pentru fabs (floating point absolute value) care este folosit pentru a computa modulul (valoarea absoluta) unui numar real
 
 using std::sort;          // functie build-in de sortare (ordonare) a unei structuri de date
 using std::copy_if;       // functie de copiere dintr-o structura de date in alta (folosita la filtrare)
+using std::count_if;      // functie care contorizeaza de cate ori apare un element intr-un container de date
 using std::back_inserter; // functie care face push_back la copy_if in structura de date in care se face copierea/filtarea si da ensure capacity (daca nu mai exista spatiu in zona de memorie unde se face copierea, atunci se face resize/redimensionare astfel incat sa acomodeze toate elementele ce trebuie copiate)
 using std::make_unique;   // functie care creeaza un smart pointer
 using std::exception;     // clasa de exceptie din STL
+using std::fabs;          // functie care intoarce modulul unui numar real
 
 bool Service::cmpStrings(const string& str_1, const string& str_2) const noexcept
 {
@@ -588,4 +591,53 @@ unsigned Service::cantitateCos() noexcept
 vector<Product> Service::getCosCumparaturi() const
 {
 	return cos.getCos();
+}
+
+unsigned Service::searchProductInShoppingCart(const string& search_criteria, const string& search_text) const
+{
+	const auto shopping_cart{ getCosCumparaturi() };
+
+	if (search_criteria.compare("Nume") && search_criteria.compare("Tip") && search_criteria.compare("Pret") && search_criteria.compare("Producator"))
+		throw ServiceException("[!]Criteriu de cautare invalid!\n");
+
+	if (!search_text.length()) // if (!search_text.compare(""))
+	{
+		if (!search_criteria.compare("Nume"))
+			throw ServiceException("[!]Nume invalid!\n");
+		
+		if (!search_criteria.compare("Tip"))
+			throw ServiceException("[!]Tip invalid!\n");
+
+		if (!search_criteria.compare("Pret"))
+			throw ServiceException("[!]Pret invalid!\n");
+		
+		throw ServiceException("[!]Producator invalid!\n");
+	}
+
+	if (!search_criteria.compare("Pret"))
+	{
+		try {
+			const auto price{ stod(search_text) };
+		}
+		catch (const exception&) {
+			throw ServiceException("[!]Pretul introdus nu este un numar real in dubla precizie!\n");
+		}
+	}
+
+	return count_if(shopping_cart.begin(), shopping_cart.end(), [&](const Product& product) {
+		if (!search_criteria.compare("Nume"))
+			return cmpStrings(product.getName(), search_text); // return !product.getName().compare(search_text);
+
+		if (!search_criteria.compare("Tip"))
+			return cmpStrings(product.getType(), search_text); // return !product.getType().compare(search_text);
+
+		if (!search_criteria.compare("Pret"))
+		{
+			auto search_text_double{ stod(search_text) };
+			return fabs(product.getPrice() - search_text_double) < 1e-5;
+		}
+
+		// if (!search_criteria.compare("Producator"))
+		return cmpStrings(product.getProducer(), search_text); // return !product.getProducer().compare(search_text);
+		});
 }

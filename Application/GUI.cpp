@@ -237,6 +237,29 @@ void GUI::initMeniuCosCumparaturi()
 
 	right_ly->addWidget(btn_generare_cos);
 
+	QLabel* options_search_product_shopping_cart_lbl = new QLabel;
+	options_search_product_shopping_cart_lbl->setText("Optiuni cautare produs in cosul de cumparaturi");
+	QFont font_options_search_product_shopping_cart_lbl = options_search_product_shopping_cart_lbl->font();
+	font_options_search_product_shopping_cart_lbl.setWeight(QFont::Bold);
+	options_search_product_shopping_cart_lbl->setFont(font_options_search_product_shopping_cart_lbl);
+	options_search_product_shopping_cart_lbl->setAlignment(Qt::AlignHCenter);
+
+	right_ly->addWidget(options_search_product_shopping_cart_lbl);
+
+	QVBoxLayout* search_shopping_cart_ly = new QVBoxLayout;
+
+	QHBoxLayout* search_shopping_cart_options_ly = new QHBoxLayout;
+	search_shopping_cart_options_ly->addWidget(search_shopping_cart_combo_box);
+	search_shopping_cart_options_ly->addWidget(search_product_shopping_cart_line_edit);
+
+	QHBoxLayout* search_shopping_cart_button_ly = new QHBoxLayout;
+	search_shopping_cart_button_ly->addWidget(btn_cautare_cos);
+
+	search_shopping_cart_ly->addLayout(search_shopping_cart_options_ly);
+	search_shopping_cart_ly->addLayout(search_shopping_cart_button_ly);
+
+	right_ly->addLayout(search_shopping_cart_ly);
+
 	QLabel* options_export_lbl = new QLabel;
 	options_export_lbl->setText("Optiuni export cos de cumparaturi");
 	QFont font_options_export_lbl = options_export_lbl->font();
@@ -771,6 +794,65 @@ void GUI::connectSignalsCosCumparaturi()
 		}
 		});
 
+	QObject::connect(search_shopping_cart_combo_box, &QComboBox::currentIndexChanged, this, [&]() {
+		if (!search_shopping_cart_combo_box->currentIndex())
+			search_product_shopping_cart_line_edit->setPlaceholderText("Introduceti nume produs...");
+		else if (search_shopping_cart_combo_box->currentIndex() == 1)
+			search_product_shopping_cart_line_edit->setPlaceholderText("Introduceti tip produs...");
+		else if (search_shopping_cart_combo_box->currentIndex() == 2)
+			search_product_shopping_cart_line_edit->setPlaceholderText("Introduceti pret produs...");
+		else // else if (search_shopping_cart_combo_box->currentIndex() == 3)
+			search_product_shopping_cart_line_edit->setPlaceholderText("Introduceti producator produs...");
+		});
+
+	QObject::connect(btn_cautare_cos, &QPushButton::clicked, this, [&]() {
+		const auto search_criteria{ search_shopping_cart_combo_box->currentText() };
+		const auto search_text{ search_product_shopping_cart_line_edit->text().trimmed() };
+
+		QString search_filter_qstring{ "" };
+		
+		if (!search_criteria.compare("Nume"))
+			search_filter_qstring = "numele";
+		else if (!search_criteria.compare("Tip"))
+			search_filter_qstring = "tipul";
+		else if (!search_criteria.compare("Pret"))
+			search_filter_qstring = "pretul";
+		else // else if (!search_criteria.compare("Producator"))
+			search_filter_qstring = "producatorul";
+
+		QMessageBox* msg = new QMessageBox;
+		msg->setWindowTitle("Cautare produs in cosul de cumparaturi");
+
+		try {
+			auto cont{ srv.searchProductInShoppingCart(search_criteria.toStdString(), search_text.toStdString()) };
+			
+			if (cont)
+			{
+				msg->setText("[*]Exista #" + QString::number(cont) + " produse cu " + search_filter_qstring + " \"" + search_text + "\" in cosul de cumparaturi!");
+				msg->setIcon(QMessageBox::Information);
+			}
+			else
+			{
+				msg->setText("[*]Nu exista niciun produs cu " + search_filter_qstring + " \"" + search_text + "\" in cosul de cumparaturi!");
+				msg->setIcon(QMessageBox::Warning);
+			}
+		}
+		catch (const CosException& ce) {
+			qDebug() << QString::fromStdString(ce.getMessage());
+
+			msg->setText(QString::fromStdString(ce.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
+		}
+		catch (const ServiceException& se) {
+			qDebug() << QString::fromStdString(se.getMessage());
+
+			msg->setText(QString::fromStdString(se.getMessage()));
+			msg->setIcon(QMessageBox::Critical);
+		}
+
+		msg->show();
+		});
+
 	QObject::connect(btn_export_cos, &QPushButton::clicked, this, [&]() {
 		const auto filename{ fisier_export_line_edit->text() };
 
@@ -1016,6 +1098,12 @@ void GUI::setShortcutsCosCumparaturi()
 
 	cos_widget->addAction(action_btn_generare_cos);
 
+	QAction* action_btn_cautare_cos = new QAction(cos_widget);
+	action_btn_cautare_cos->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_U));
+	connect(action_btn_cautare_cos, &QAction::triggered, btn_cautare_cos, &QPushButton::click);
+
+	cos_widget->addAction(action_btn_cautare_cos);
+
 	QAction* action_btn_export_cos = new QAction(cos_widget);
 	action_btn_export_cos->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_E));
 	connect(action_btn_export_cos, &QAction::triggered, btn_export_cos, &QPushButton::click);
@@ -1045,18 +1133,35 @@ void GUI::setToolTipsCosCumparaturi()
 	btn_export_cos->setToolTip("Export continut cos de cumparaturi intr-un fisier (CSV sau/si HTML)");
 
 	btn_generare_cos->setToolTip("Generare produse pentru cosul de cumparaturi");
+	
+	search_shopping_cart_combo_box->setToolTip("Selectare optiune cautare produs in cosul de cumparaturi");
+
+	btn_cautare_cos->setToolTip("Cautare produs in cosul de cumparaturi");
+
+	checkbox_export_fisier_csv->setToolTip("Fisier Comma-Separated Values (deschidere cu Excel)");
+	checkbox_export_fisier_html->setToolTip("Fisier HyperText Markup Language (deschidere in browser)");
 
 	btn_clear_cos->setToolTip("Golire lista/tabel");
 	btn_close_cos->setToolTip("Inchidere fereastra");
-	
-	checkbox_export_fisier_csv->setToolTip("Fisier Comma-Separated Values (deschidere cu Excel)");
-	checkbox_export_fisier_html->setToolTip("Fisier HyperText Markup Language (deschidere in browser)");
+}
+
+void GUI::setPlaceholdersCosCumparaturi()
+{
+	name_cos_line_edit->setPlaceholderText("Introduceti numele produsului...");
+	type_cos_line_edit->setPlaceholderText("Introduceti tipul produsului...");
+	price_cos_line_edit->setPlaceholderText("Introduceti pretul produsului...");
+	producer_cos_line_edit->setPlaceholderText("Introduceti producatorul produsului...");
+
+	search_product_shopping_cart_line_edit->setPlaceholderText("Introduceti nume produs...");
+
+	fisier_export_line_edit->setPlaceholderText("Introduceti numele fisierului...");
 }
 
 void GUI::setInitialStateCosCumparaturi()
 {
 	setShortcutsCosCumparaturi();
 	setToolTipsCosCumparaturi();
+	setPlaceholdersCosCumparaturi();
 
 	last_selected_item_list_cos = new QListWidgetItem;
 
@@ -1081,6 +1186,13 @@ void GUI::setInitialStateCosCumparaturi()
 		total_products_cos_line_edit->setText("0");
 		//btn_golire_cos->setDisabled(true);
 	}
+
+	search_shopping_cart_combo_box->clear();
+
+	search_shopping_cart_combo_box->addItem("Nume");
+	search_shopping_cart_combo_box->addItem("Tip");
+	search_shopping_cart_combo_box->addItem("Pret");
+	search_shopping_cart_combo_box->addItem("Producator");
 }
 
 void GUI::initGuiCmp()
@@ -3132,13 +3244,6 @@ void GUI::addPlaceholderText()
 	type_line_edit->setPlaceholderText("Introduceti tipul produsului...");
 	price_line_edit->setPlaceholderText("Introduceti pretul produsului...");
 	producer_line_edit->setPlaceholderText("Introduceti producatorul produsului...");
-
-	name_cos_line_edit->setPlaceholderText("Introduceti numele produsului...");
-	type_cos_line_edit->setPlaceholderText("Introduceti tipul produsului...");
-	price_cos_line_edit->setPlaceholderText("Introduceti pretul produsului...");
-	producer_cos_line_edit->setPlaceholderText("Introduceti producatorul produsului...");
-
-	fisier_export_line_edit->setPlaceholderText("Introduceti numele fisierului...");
 
 	filter_crt_line_edit->setPlaceholderText("Introduceti filtru...");
 }

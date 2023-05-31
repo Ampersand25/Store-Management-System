@@ -545,4 +545,23 @@ public:
 	* [!]CosException cu mesajul "[!]Nu exista produse in cosul de cumparaturi!\n", in cazul in care lista care contine produsele din cosul de cumparaturi este goala/vida
 	*/
 	vector<Product> getCosCumparaturi() const;
+	
+	/*
+	* Functie de tip operand (rezultat) care returneaza numarul de produse din cosul de cumparaturi care respecta un anumit filtru (au numele/tipul/pretul/producatorul search_text)
+	* Date de intrare: search_criteria - referinta constanta la un sir de caractere (string) dinamic din STL (Standard Template Library)
+	*				   search_text     - referinta constanta la un sir de caractere (string) dinamic din STL (Standard Template Library)
+	* Preconditii: search_criteria trebuie sa aiba una din urmatoarele valori "Nume", "Tip", "Pret" sau "Producator"
+	*              search_text trebuie sa fie un string cu lungime nenula (diferita de 0), adica sa nu fie sirul de caractere vid
+	* Date de iesire (rezultate): valoare numerica intreaga pozitiva (unsigned = fara semn), adica un numar natural (>= 0)
+	* Postconditii: valoarea intoarsa/returnata de metoda reprezinta cate produse exista in lista de cumparaturi care sa aiba numele (search_criteria = "Nume"), tipul (search_criteria = "Tip"), pretul (search_criteria = "Pret") sau producatorul (search_criteria = "Producator") egal cu search_text
+	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii:
+	* [!]ServiceException cu mesajul "[!]Criteriu de cautare invalid!\n", in cazul in care criteriul (sirul de caractere search_criteria) nu respecta preconditiile impuse (search_criteria <> "Nume" si search_criteria <> "Tip" si search_criteria <> "Pret" si search_criteria <> "Producator")
+	* [!]ServiceException cu mesajul "[!]Nume invalid!\n", in cazul in care search_criteria = "Nume" si search_text este sirul de caractere (stringul) vid (de lungime 0)
+	* [!]ServiceException cu mesajul "[!]Tip invalid!\n", in cazul in care search_criteria = "Tip" si search_text este sirul de caractere (stringul) vid (de lungime 0)
+	* [!]ServiceException cu mesajul "[!]Pret invalid!\n", in cazul in care search_criteria = "Pret" si search_text este sirul de caractere (stringul) vid (de lungime 0)
+	* [!]ServiceException cu mesajul "[!]Producator invalid!\n", in cazul in care search_criteria = "Producator" si search_text este sirul de caractere (stringul) vid (de lungime 0)
+	* [!]ServiceException cu mesajul "[!]Pretul introdus nu este un numar real in dubla precizie!\n", in cazul in care search_text nu este o valoare numerica reala (doar pentru cazul in care search_criteria = "Pret")
+	* [!]CosException cu mesajul "[!]Nu exista produse in cosul de cumparaturi!\n", in cazul in care lista care contine produsele din cosul de cumparaturi este goala/vida
+	*/
+	unsigned searchProductInShoppingCart(const string& search_criteria, const string& search_text) const;
 };

@@ -117,8 +117,9 @@ private:
 	QPushButton* btn_stergere_cos = new QPushButton{ "Stergere" };
 	QPushButton* btn_golire_cos = new QPushButton{ "Golire" };
 	QPushButton* btn_tiparire_cos = new QPushButton{ "Tiparire" };
-	QPushButton* btn_export_cos = new QPushButton{ "Export" };
 	QPushButton* btn_generare_cos = new QPushButton{ "Generare" };
+	QPushButton* btn_cautare_cos = new QPushButton{ "Cautare cos" };
+	QPushButton* btn_export_cos = new QPushButton{ "Export" };
 
 	QPushButton* btn_clear_cos = new QPushButton{ "Clear" };
 	QPushButton* btn_close_cos = new QPushButton{ "Close" };
@@ -149,6 +150,10 @@ private:
 	QComboBox* sort_options_combo_box = new QComboBox;
 	QComboBox* filter_options_combo_box = new QComboBox;
 
+	QComboBox* search_shopping_cart_combo_box = new QComboBox;
+
+	QLineEdit* search_product_shopping_cart_line_edit = new QLineEdit;
+
 	const QIcon shopping_cart_icon{ "./Logo-uri aplicatie/shoppingCartIcon" };
 	const QIcon store_icon{ "./Logo-uri aplicatie/storeIcon" };
 	const QIcon product_icon{ "./Logo-uri aplicatie/productIcon" };
@@ -175,6 +180,7 @@ private:
 
 	void setShortcutsCosCumparaturi();
 	void setToolTipsCosCumparaturi();
+	void setPlaceholdersCosCumparaturi();
 
 	void initMeniuCosCumparaturi();
 	void connectSignalsCosCumparaturi();
