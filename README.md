@@ -165,9 +165,11 @@
 - remove/delete option for an existing item from the shopping cart ✅
 - save the shopping cart content/list in a text file (data persistence for the shopping cart in CSV (Comma-Separated Values) file)
 - create database repository (add data persistence in a SQL (Structured Query Language) database like MySQL or PostgreSQL) ✅
-- redo operation (for undo operation) ✅
+- redo operation (for undo operations) ✅
 - add the possibility to save the shopping cart in a MySQL database (data persistence for shopping cart in a database table)
 - add tooltips for different graphical elements ✅
 - create a new histogram that displays the percentage for each type that exists in the virtual store's catalog. The histogram should represent the distribution of different types of items/products in the catalog, with each type represented by a horizontal bar, and the width of each bar indicating the percentage of that type in the catalog ✅
 - solve the dangling pointers problem: if the data (items/products) is saved/stored in a MySQL database, then search will create a dangling pointer for each call (because in search function/method from repository the address of the searched products (if found) is returned (should return a copy instead)) ✅
+- make the table from HTML (HyperText Markup Language) export file (table which contains the products/items from the shopping cart (buy list)) sortable (so that the lines/rows/records can be sorted ascending/descending after the values from one of the columns (on user clicks on a header, the records from the table will be sorted ascending/descending after the values from that column (that contains the header)))
+- search a product from the shopping cart's list after name, type, price or producer (the total number of products with the provided name/type/price/producer should be displayed in a message box (QMessageBox element))
 - update the screenshots after all the new features are implemented (the application is in its final version)
