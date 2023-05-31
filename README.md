@@ -43,6 +43,7 @@
 - removing/deleting an existing item/product from the shopping cart
 - generating items/products for the shopping cart: the user can randomly generate a number (between 1 and 100) of products for its shopping cart
 - emptying the shopping cart: the user can empty the whole shopping cart by removing all the products (items) from it (the shopping cart will become empty after this operation)
+- search for an item/product in the shopping cart and finding out how many products with a specific name/type/price/producer exists in the shopping cart (the user can search after one of the following options: name, type, price and producer)
 - exporting the shopping cart: the user can export the content of the shopping cart to a CSV (Comma-Separated Values) or/and an HTML (HyperText Markup Language) file. The name of the file(s) must be given by the user. The exporting file(s) will be created inside the project directory in the folder named "Export cos cumparaturi". For opening CSV files, it is recommended to use Excel, and for opening HTML files, it is recommended to use a web browser such as Google Chrome. However, both types of files can also be opened using a text editor such as Notepad or Notepad++
 - selecting an item from the shopping cart list: if the user selects an item from the shopping cart then a message box, containing the details about the selected product (name, type, price and producer), will be displayed
 
@@ -70,14 +71,15 @@
 - "Exit" (from main window)                : ALT + X
 - "Generare cos de cumparaturi" (from "Fereastra CosCRUDGUI" window): ALT + G
 - "Golire cos de cumparaturi" (from "Fereastra CosCRUDGUI" window)  : ALT + O
-- "Adaugare" (from "Cos de cumparaturi" window): CTRL + D
-- "Stergere" (from "Cos de cumparaturi" window): CTRL + Q
-- "Golire" (from "Cos de cumparaturi" window)  : CTRL + O
-- "Tiparire" (from "Cos de cumparaturi" window): CTRL + T
-- "Generare" (from "Cos de cumparaturi" window): CTRL + N
-- "Export" (from "Cos de cumparaturi" window)  : CTRL + E
-- "Clear" (from "Cos de cumparaturi" window)   : CTRL + L
-- "Close" (from "Cos de cumparaturi" window)   : CTRL + X
+- "Adaugare" (from "Cos de cumparaturi" window)      : CTRL + D
+- "Stergere" (from "Cos de cumparaturi" window)      : CTRL + Q
+- "Golire" (from "Cos de cumparaturi" window)        : CTRL + O
+- "Tiparire" (from "Cos de cumparaturi" window)      : CTRL + T
+- "Generare" (from "Cos de cumparaturi" window)      : CTRL + N
+- "Cautare in cos" (from "Cos de cumparaturi" window): CTRL + U
+- "Export" (from "Cos de cumparaturi" window)        : CTRL + E
+- "Clear" (from "Cos de cumparaturi" window)         : CTRL + L
+- "Close" (from "Cos de cumparaturi" window)         : CTRL + X
 
 <em>Observation: all buttons have different shortcuts!</em>
 
