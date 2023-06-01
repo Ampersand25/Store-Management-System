@@ -17,7 +17,7 @@
 - the app has a layered architecture: presentation layer (UI and GUI), business layer (service), infrastructure layer (repositories), validation layer (validators for the entities) and domain layer (entities from the domain of the problem)
 - data (products/items from the store) can be stored/saved in memory, in a text file or in a MySQL database
 - saving data in a database works for both debug and release configurations (but release configuration is recommended)
-- shopping cart is not persistent (is only saved in memory)
+- shopping cart (buy list) can be persistent (can be saved in both memory (not persistent) and text file (persistent))
 - the app was developed in Visual Sudio 2022 Community IDE using C++ and QT Framework (version 6.5.0)
 - the app contains the following Qt modules: Qt Core, Qt GUI and Qt Widgets
 - configuration was set to debug when creating the app
