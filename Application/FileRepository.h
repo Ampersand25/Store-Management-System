@@ -42,7 +42,10 @@ private:
 
 public:
 	/*
-	* Constructorul unui obiect de clasa FileRepoProducts
+	* Constructorul custom al unui obiect de clasa FileRepoProducts
+	* Acest constructor primeste un singur parametru de intrare (parametru formal/simbolic), ci anume: filename
+	* filename - referinta constanta la un string (sir de caractere din STL (Standard Template Library)) reprezentand numele fisierului in care vor fi salvate produsele (obiecte de clasa Product) din cadrul aplicatiei
+	* RepoProducts() - se apeleaza constructorul default (implicit/prestabilit <=> care nu primeste niciun argument) din clasa de baza RepoProducts
 	*/
 	FileRepoProducts(const string& filename) : RepoProducts(), filename{ filename } {
 		// incarcam datele (obiecte de clasa Product) din fisier in memorie
