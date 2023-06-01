@@ -195,6 +195,12 @@
     <Filter Include="Source Files\Presentation\GUI\Widgets\PercentageHistogramGUI">
       <UniqueIdentifier>{5f034068-5f09-4cdd-8410-0db9fd0c3f8d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Cos\CosCumparaturi\InMemoryCos">
+      <UniqueIdentifier>{9a53eef3-876c-4b54-b551-6bd21ae5cca2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cos\CosCumparaturi\FileCos">
+      <UniqueIdentifier>{eda8fbda-5305-45ee-b86f-73bcadda14b8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="StoreManagementSystem.qrc">
@@ -213,9 +219,6 @@
     </ClCompile>
     <ClCompile Include="Service.cpp">
       <Filter>Source Files\Business\Service</Filter>
-    </ClCompile>
-    <ClCompile Include="CosCumparaturi.cpp">
-      <Filter>Source Files\Cos\CosCumparaturi</Filter>
     </ClCompile>
     <ClCompile Include="Product.cpp">
       <Filter>Source Files\Domain\Entities</Filter>
@@ -286,6 +289,12 @@
     <ClCompile Include="Redo.cpp">
       <Filter>Source Files\Redo\AbstractRedo</Filter>
     </ClCompile>
+    <ClCompile Include="CosCumparaturi.cpp">
+      <Filter>Source Files\Cos\CosCumparaturi\InMemoryCos</Filter>
+    </ClCompile>
+    <ClCompile Include="FileCosCumparaturi.cpp">
+      <Filter>Source Files\Cos\CosCumparaturi\FileCos</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ServiceException.h">
@@ -296,9 +305,6 @@
     </ClInclude>
     <ClInclude Include="CosException.h">
       <Filter>Source Files\Cos\CosException</Filter>
-    </ClInclude>
-    <ClInclude Include="CosCumparaturi.h">
-      <Filter>Source Files\Cos\CosCumparaturi</Filter>
     </ClInclude>
     <ClInclude Include="ProductException.h">
       <Filter>Source Files\Domain\EntityException</Filter>
@@ -419,6 +425,12 @@
     </ClInclude>
     <ClInclude Include="PercentageHistogramGUI.h">
       <Filter>Source Files\Presentation\GUI\Widgets\PercentageHistogramGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="CosCumparaturi.h">
+      <Filter>Source Files\Cos\CosCumparaturi\InMemoryCos</Filter>
+    </ClInclude>
+    <ClInclude Include="FileCosCumparaturi.h">
+      <Filter>Source Files\Cos\CosCumparaturi\FileCos</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

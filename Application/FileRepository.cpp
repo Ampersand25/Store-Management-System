@@ -20,7 +20,6 @@ using std::endl;
 void FileRepoProducts::loadFromFile()
 {
 	const string path{ ".\\Fisiere text - repo\\" };
-	//const string path{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Fisiere text - repo" };
 	const string extension{ ".txt" };
 	const string full_filename{ path + this->filename + extension }; // const string full_filename{ path + filename + extension };
 
@@ -42,7 +41,7 @@ void FileRepoProducts::loadFromFile()
 		string line;
 		getline(in, line);
 
-		if (line == "")
+		if (!line.compare(""))
 			break;
 
 		istringstream ss(line);
@@ -72,7 +71,7 @@ void FileRepoProducts::loadFromFile()
 			}
 		}
 		catch (const exception& ex) {
-			cerr << "\nProdusul #" << idx << " nu a putut fi importat din fisier!\n" << "[!]" << ex.what() << endl;
+			cerr << "\nProdusul #" << idx << " nu a putut fi importat din fisier!\n[!]" << ex.what() << endl;
 			// exit(2);
 		}
 
@@ -85,7 +84,6 @@ void FileRepoProducts::loadFromFile()
 void FileRepoProducts::writeToFile()
 {
 	const string path{ ".\\Fisiere text - repo\\" };
-	//const string path{ "C:\\Users\\Admin\\Documents\\VS Projects\\Lab10-11\\MagazinGUI\\Fisiere text - repo" };
 	const string extension{ ".txt" };
 	const string full_filename{ path + this->filename + extension }; // const string full_filename{ path + filename + extension };
 
@@ -93,12 +91,13 @@ void FileRepoProducts::writeToFile()
 	out.open(full_filename);
 
 	try {
-		for (const auto& prod : RepoProducts::getAll())
+		const auto products{ RepoProducts::getAll() };
+		for (const auto& product : products)
 		{
-			out << prod.getName() << '|'
-				<< prod.getType() << '|'
-				<< prod.getPrice() << '|'
-				<< prod.getProducer() << endl;
+			out << product.getName()     << '|'
+				<< product.getType()     << '|'
+				<< product.getPrice()    << '|'
+				<< product.getProducer() << endl;
 		}
 	}
 	catch (const RepoException&) {

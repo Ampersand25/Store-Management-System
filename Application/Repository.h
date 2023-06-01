@@ -23,11 +23,6 @@ public:
 	RepoProducts() = default;
 
 	/*
-	* Destructorul virtual al unui obiect de clasa RepoProducts (il setam ca fiind default)
-	*/
-	virtual ~RepoProducts() = default;
-
-	/*
 	* Constructorul de copiere a unui obiect de clasa RepoProducts (il setam ca fiind delete)
 	* Astfel nu se vor putea copia obiecte de clasa RepoProducts
 	*/
@@ -105,4 +100,9 @@ public:
 	* Postconditii: len() = numarul de entitati/inregistrari din repo
 	*/
 	unsigned len() const noexcept override;
+
+	/*
+	* Destructorul virtual al unui obiect de clasa RepoProducts (il setam ca fiind default)
+	*/
+	virtual ~RepoProducts() = default;
 };

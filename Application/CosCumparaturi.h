@@ -58,6 +58,7 @@ public:
 
 	/*
 	* Procedura (functie procedurala) care elimina toate produsele din cosul de cumparaturi
+	* Declaram metoda (functia) ca fiind virtuala (folosind calificativul virtual) pentru a putea sa o suprascriem in clasa derivata FileCosCumparaturi (clasa derivata din clasa de baza CosCumparaturi) folosind calificativul override (astfel facem apel polimorfic (dynamic/polymorphic dispatch) la runtime (in timpul executiei programului))
 	* Date de intrare: -
 	* Preconditii: -
 	* Date de iesire: -
@@ -66,10 +67,11 @@ public:
 	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii:
 	* [!]CosException cu mesajul "[!]Nu exista produse in cosul de cumparaturi!\n", in cazul in care nu exista produse in cos (cosul este gol)
 	*/
-	void golesteCos();
+	virtual void golesteCos();
 
 	/*
 	* Procedura (subprogram procedural) care incearca adaugarea in cosul de cumparaturi a unui produs din magazin cu numele name si producatorul producer
+	* Declaram metoda (functia) ca fiind virtuala (folosind calificativul virtual) pentru a putea sa o suprascriem in clasa derivata FileCosCumparaturi (clasa derivata din clasa de baza CosCumparaturi) folosind calificativul override (astfel facem apel polimorfic (dynamic/polymorphic dispatch) la runtime (in timpul executiei programului))
 	* Date de intrare: name     - referinta constanta (nu se poate modifica) la un string din STL
 	*                  producer - referinta constanta (nu se poate modifica) la un string din STL
 	* Preconditii: name     <> "" (string nevid)
@@ -81,10 +83,11 @@ public:
 	* [!]RepoException cu mesajul "[!]Nu exista produse in magazin!\n", in cazul in care nu exista produse in magazin (entitati in repo)
 	* [!]CosException cu mesajul "[!]Produsul cautat nu se afla in stoc!\n", in cazul in care nu exista niciun produs (obiect de clasa Product) cu numele name si producatorul producer in magazin
 	*/
-	void adaugaInCos(const string& name, const string& producer);
+	virtual void adaugaInCos(const string& name, const string& producer);
 
 	/*
 	* Procedura (subprogram procedural) care incearca adaugarea in cosul de cumparaturi a number_of_products produse (obiecte de clasa Product) random (in mod arbitrar/aleator) din magazin (produse care exista in stoc)
+	* Declaram metoda (functia) ca fiind virtuala (folosind calificativul virtual) pentru a putea sa o suprascriem in clasa derivata FileCosCumparaturi (clasa derivata din clasa de baza CosCumparaturi) folosind calificativul override (astfel facem apel polimorfic (dynamic/polymorphic dispatch) la runtime (in timpul executiei programului))
 	* Date de intrare: number_of_products - intreg (int = integer) fara semn (unsigned, adica intreg pozitiv), adica variabila care retine un numar natural (>= 0)
 	* Preconditii: -
 	* Date de iesire: -
@@ -93,7 +96,7 @@ public:
 	* Exceptii: metoda poate arunca/ridica urmatoarele exceptii:
 	* [!]CosException cu mesajul "[!]Produsul cautat nu se afla in stoc!\n", in cazul in care nu exista niciun produs (obiect de clasa Product) cu numele name si producatorul producer in magazin
 	*/
-	void genereazaCos(unsigned number_of_products);
+	virtual void genereazaCos(unsigned number_of_products);
 
 	/*
 	* Procedura (functie procedurala) care da export la produsele din lista de cumparaturi intr-un fisier CSV (Comma-separated values) cu numele filename si extensia .csv
@@ -159,16 +162,18 @@ public:
 
 	/*
 	* Procedura (subrutina procedurala) care incearca sa modifice/actualizeze toate produsele cu acelasi nume si producator ca si produsul product din cosul de cumparaturi
+	* Declaram metoda (functia) ca fiind virtuala (folosind calificativul virtual) pentru a putea sa o suprascriem in clasa derivata FileCosCumparaturi (clasa derivata din clasa de baza CosCumparaturi) folosind calificativul override (astfel facem apel polimorfic (dynamic/polymorphic dispatch) la runtime (in timpul executiei programului))
 	* Date de intrare: product - referinta constanta la un obiect de clasa Product
 	* Preconditii: -
 	* Date de iesire: -
 	* Postconditii: toate produsele cu acelasi nume si producator din cosul de cumparaturi ca si product vor fi actualizate (vor avea acelasi tip si pret ca si produsul product in urma apelului metodei)
 	* Exceptii: -
 	*/
-	void modificaProduseCos(const TKey& product);
+	virtual void modificaProduseCos(const TKey& product);
 
 	/*
 	* Procedura (subrutina procedurala) care incearca sa stearga/elimine toate produsele (obiectele de clasa Product) din cosul de cumparaturi care au numele name si producatorul producer
+	* Declaram metoda (functia) ca fiind virtuala (folosind calificativul virtual) pentru a putea sa o suprascriem in clasa derivata FileCosCumparaturi (clasa derivata din clasa de baza CosCumparaturi) folosind calificativul override (astfel facem apel polimorfic (dynamic/polymorphic dispatch) la runtime (in timpul executiei programului))
 	* Date de intrare: name     - referinta constanta la un string
 	*                  producer - referinta constanta la un string
 	* Preconditii: name     <> "" (unde "" - stringul vid si <> - operatorul de diferit)
@@ -177,10 +182,11 @@ public:
 	* Postconditii: apelul metodei publice stergeProduseCos va elimina din cosul de cumparaturi toate produsele cu numele name si producatorul producer
 	* Exceptii: -
 	*/
-	void stergeProduseCos(const string& name, const string& producer) noexcept;
+	virtual void stergeProduseCos(const string& name, const string& producer) noexcept;
 
 	/*
 	* Procedura (subrutina procedurala) care incearca sa stearga/elimine un singur produs (obiect de clasa Product) din cosul de cumparaturi care are numele name si producatorul producer
+	* Declaram metoda (functia) ca fiind virtuala (folosind calificativul virtual) pentru a putea sa o suprascriem in clasa derivata FileCosCumparaturi (clasa derivata din clasa de baza CosCumparaturi) folosind calificativul override (astfel facem apel polimorfic (dynamic/polymorphic dispatch) la runtime (in timpul executiei programului))
 	* Date de intrare: name     - referinta constanta la un string (sir de caractere din STL = Standard Template Library)
 	*                  producer - referinta constanta la un string (sir de caractere din STL = Standard Template Library)
 	* Preconditii: name     <> "" (unde "" - stringul vid (empty string (are lungimea egala cu 0)) si <> (echivalent cu !=) - operatorul de diferit)
@@ -191,5 +197,12 @@ public:
 	* [!]CosException cu mesajul: "[!]Nu exista produse in cosul de cumparaturi!\n", in cazul in care lista care contine produsele din cosul de cumparaturi este goala/vida
 	*                             "[!]Produsul cautat nu exista in cosul de cumparaturi!\n", in cazul in care nu exista niciun produs cu numele name si producatorul producer in lista de cumparaturi
 	*/
-	void eliminaProdusCos(const string& name, const string& producer);
+	virtual void eliminaProdusCos(const string& name, const string& producer);
+
+	/*
+	* Destructorul unui obiect de clasa CosCumparaturi
+	* Il setam ca fiind default folosind calificativul cu acelasi nume
+	* Metoda va fi virtuala pentru a evita fenomenul de slicing in cazul polimorfismului
+	*/
+	virtual ~CosCumparaturi() = default;
 };

@@ -1,2 +1,5 @@
-﻿  GUI.cpp
+﻿  FileCosCumparaturi.cpp
+  main.cpp
+C:\Users\crist\source\repos\StoreManagementSystem\FileCosCumparaturi.h(5,1): warning C4005: 'TKey': macro redefinition (compiling source file main.cpp)
+C:\Users\crist\source\repos\StoreManagementSystem\Service.h(361,1): message : see previous definition of 'TKey' (compiling source file main.cpp)
   StoreManagementSystem.vcxproj -> C:\Users\crist\source\repos\StoreManagementSystem\x64\Release\StoreManagementSystem.exe

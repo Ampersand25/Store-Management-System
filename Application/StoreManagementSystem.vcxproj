@@ -109,6 +109,7 @@
     <ClCompile Include="DatabaseRepository.cpp" />
     <ClCompile Include="Exception.cpp" />
     <ClCompile Include="ExceptionRepo.cpp" />
+    <ClCompile Include="FileCosCumparaturi.cpp" />
     <ClCompile Include="FileRepository.cpp" />
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="Product.cpp" />
@@ -145,6 +146,7 @@
     <ClInclude Include="DatabaseRepository.h" />
     <ClInclude Include="Exception.h" />
     <ClInclude Include="ExceptionRepo.h" />
+    <ClInclude Include="FileCosCumparaturi.h" />
     <ClInclude Include="FileRepository.h" />
     <ClInclude Include="GUI.h" />
     <ClInclude Include="HistogramGUI.h" />

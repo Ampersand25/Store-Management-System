@@ -8,6 +8,8 @@
 #include "FileRepository.h"
 #include "DatabaseRepository.h"
 #include "ProductValidator.h"
+#include "CosCumparaturi.h"
+#include "FileCosCumparaturi.h"
 #include "Service.h"
 #include "Constants.h"
 
@@ -86,7 +88,16 @@ int main(int argc, char* argv[])
         auto repo{ repoFactory(repo_type) }; // <=> unique_ptr<AbstractRepo> repo{ repoFactory(repo_type) };
 
         ProductValidator valid;
-        CosCumparaturi cos{ *repo };
+
+        // COS DE CUMPARATURI SALVAT IN MEMORIE (IN MEMORY SHOPPING CART)
+        //CosCumparaturi cos{ *repo };
+        // ~COS DE CUMPARATURI SALVAT IN MEMORIE (IN MEMORY SHOPPING CART)
+        
+        // COS DE CUMPARATURI SALVAT IN FISIER TEXT (FILE SHOPPING CART)
+        const string filename_shopping_cart{ "shopping_cart" };
+        FileCosCumparaturi cos{ *repo, filename_shopping_cart };
+        // ~COS DE CUMPARATURI SALVAT IN FISIER TEXT (FILE SHOPPING CART)
+        
         Service srv{ *repo, valid, cos };
         const auto gui{ new GUI{ srv, repo_type == REPO_TYPE::DATABASE_REPO } };
         gui->show();
