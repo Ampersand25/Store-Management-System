@@ -911,12 +911,13 @@ void GUI::connectSignalsCosCumparaturi()
 		});
 
 	QObject::connect(btn_clear_cos, &QPushButton::clicked, this, [&]() {
-		name_cos_line_edit->setText("");
-		type_cos_line_edit->setText("");
-		price_cos_line_edit->setText("");
-		producer_cos_line_edit->setText("");
-
 		last_selected_item_list_cos = nullptr;
+
+		// stergere continut din line edit-uri
+		//name_cos_line_edit->setText("");
+		//type_cos_line_edit->setText("");
+		//price_cos_line_edit->setText("");
+		//producer_cos_line_edit->setText("");
 
 		//lst_cumparaturi->clear();
 		//tbl_cumparaturi->clear();
