@@ -2673,6 +2673,19 @@ void GUI::connectSignals()
 	QObject::connect(btn_filter, &QPushButton::clicked, this, [&]() {
 		last_selected_item_list = nullptr;
 
+		if (!filter_crt_line_edit->text().trimmed().length())
+		{
+			QMessageBox* msg = new QMessageBox;
+			msg->setWindowTitle("Filtru invalid");
+			
+			msg->setText("Filtrul introdus este vid (nu este un filtru valid)!");
+			msg->setIcon(QMessageBox::Warning);
+
+			msg->show(); // msg->exec();
+
+			return;
+		}
+
 		const auto option{ filter_options_combo_box->currentText() }; // const QString option{ filter_options_combo_box->currentText() };
 
 		if (option == "Pret")
@@ -3035,6 +3048,11 @@ void GUI::connectSignals()
 
 	QObject::connect(btn_clear, &QPushButton::clicked, this, [&]() {
 		last_selected_item_list = nullptr;
+
+		name_line_edit->setText("");
+		type_line_edit->setText("");
+		price_line_edit->setText("");
+		producer_line_edit->setText("");
 
 		//lst_products->clear();
 		//tbl_products->clear();
