@@ -192,7 +192,7 @@
 <hr>
 
 ![Twenty-fifth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2025.png)
-<p align="center"><strong>Image 25</strong> - sorting the table from export HTML file ascending after price ("Pret column"). Note: the table is sortable which means that if the user clicks on a header, all the lines/rows/records from the table will be sorted ascending/descending based on the values from the column which contains the clicked header. For example, if we click on "Producator" header then all products/items from the table will be sorted in ascending order after producer attribute/field. If we click again on "Producer" header then the products/items will be sorted in descending order</p>
+<p align="center"><strong>Image 25</strong> - sorting the table from export HTML file ascending after price ("Pret" column). Note: the table is sortable which means that if the user clicks on a header, all the lines/rows/records from the table will be sorted ascending/descending based on the values from the column which contains the clicked header. For example, if we click on "Producator" header then all products/items from the table will be sorted in ascending order after producer attribute/field. If we click again on "Producer" header then the products/items will be sorted in descending order</p>
 <hr>
 
 ![Twenty-sixth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2026.png)
