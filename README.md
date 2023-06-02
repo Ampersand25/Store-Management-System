@@ -123,11 +123,11 @@
 <p align="center"><strong>Image 7</strong> - generating 50 products for the shopping cart (by clicking the "Genereaza cos" button)</p>
 <hr>
 
-![Eigth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%208.png)
+![Eighth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%208.png)
 <p align="center"><strong>Image 8</strong> - window containing 50 random vertical and horizontal rectangles with random colors (one rectangle for each item/product from the shopping cart)</p>
 <hr>
 
-![Nineth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%209.png)
+![Ninth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%209.png)
 <p align="center"><strong>Image 9</strong> - selecting an item from the list containing the products from the shopping cart</p>
 <hr>
 
@@ -139,7 +139,7 @@
 <p align="center"><strong>Image 11</strong> - window that also displays the items from the shopping cart (selecting a cell from the table)</p>
 <hr>
 
-![Twelveth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2012.png)
+![Twelfth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2012.png)
 <p align="center"><strong>Image 12</strong> - window that also displays the items from the shopping cart (selecting an item from the table)</p>
 <hr>
 
@@ -151,7 +151,7 @@
 <p align="center"><strong>Image 14</strong> - confirmation message (message box) for closing the "Cos de cumparaturi" window</p>
 <hr>
 
-![Fiftheenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2015.png)
+![Fifteenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2015.png)
 <p align="center"><strong>Image 15</strong> - content of the "cumparaturi.csv" export file opened using Excel program (you can see all the products/items from the shopping cart and the quantity of each product)</p>
 <hr>
 
@@ -161,6 +161,42 @@
 
 ![Seventeenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2017.png)
 <p align="center"><strong>Image 17</strong> - overview of the application (all existing windows)</p>
+<hr>
+
+![Eighteenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2018.png)
+<p align="center"><strong>Image 18</strong> - </p>
+<hr>
+
+![Nineteenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2019.png)
+<p align="center"><strong>Image 19</strong> - </p>
+<hr>
+
+![Twentieth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2020.png)
+<p align="center"><strong>Image 20</strong> - </p>
+<hr>
+
+![Twenty-first Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2021.png)
+<p align="center"><strong>Image 21</strong> - </p>
+<hr>
+
+![Twenty-second Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2022.png)
+<p align="center"><strong>Image 22</strong> - </p>
+<hr>
+
+![Twenty-third Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2023.png)
+<p align="center"><strong>Image 23</strong> - </p>
+<hr>
+
+![Twenty-fourth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2024.png)
+<p align="center"><strong>Image 24</strong> - </p>
+<hr>
+
+![Twenty-fifth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2025.png)
+<p align="center"><strong>Image 25</strong> - </p>
+<hr>
+
+![Twenty-sixth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2026.png)
+<p align="center"><strong>Image 26</strong> - </p>
 <hr>
 
 <strong>TODO</strong>:
