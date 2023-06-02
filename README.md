@@ -128,71 +128,71 @@
 <hr>
 
 ![Ninth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%209.png)
-<p align="center"><strong>Image 9</strong> - generating 50 products/items for the shopping cart (buy list) by clicking on the "Genereaza cos" button</p>
+<p align="center"><strong>Image 9</strong> - generating 50 products/items for the shopping cart (buy list) by clicking on the "Genereaza cos" button (a confirmation message box, which will print the total price of the generated products and the number of generated items, will be opened and displayed on the screen)</p>
 <hr>
 
 ![Tenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2010.png)
-<p align="center"><strong>Image 10</strong> - </p>
+<p align="center"><strong>Image 10</strong> - window that contains all the types existing in the virtual store's catalog and the number of products from each type (side note: window will not be available if the data is stored in the MySQL database)</p>
 <hr>
 
 ![Eleventh Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2011.png)
-<p align="center"><strong>Image 11</strong> - </p>
+<p align="center"><strong>Image 11</strong> - histogram that displays the distribution of the types with number of products for each type</p>
 <hr>
 
 ![Twelfth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2012.png)
-<p align="center"><strong>Image 12</strong> - </p>
+<p align="center"><strong>Image 12</strong> - histogram that displays the distribution of the types with percentage for each type</p>
 <hr>
 
 ![Thirteenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2013.png)
-<p align="center"><strong>Image 13</strong> - </p>
+<p align="center"><strong>Image 13</strong> - window containing 50 random vertical and horizontal rectangles with random colors (one rectangle for each item/product from the shopping cart (buy list))</p>
 <hr>
 
 ![Fourteenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2014.png)
-<p align="center"><strong>Image 14</strong> - </p>
+<p align="center"><strong>Image 14</strong> - selecting an item from the list (which contains the products/items from the shopping cart) from "Fereastra CosCRUDGUI" window (window that allow us (the users) to generate products/items from the virtual store's catalogue to the shopping cart, to empty the shopping cart and to view the items from the shopping cart in a list and table)</p>
 <hr>
 
 ![Fifteenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2015.png)
-<p align="center"><strong>Image 15</strong> - </p>
+<p align="center"><strong>Image 15</strong> - selecting a cell from the table containing the products from the shopping cart ("Fereastra CosCRUDGUI" window)</p>
 <hr>
 
 ![Sixteenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2016.png)
-<p align="center"><strong>Image 16</strong> - </p>
+<p align="center"><strong>Image 16</strong> - "Cos de cumparaturi" window (window in which the user can edit his shopping cart by adding a new item, removing an existing one and more)</p>
 <hr>
 
 ![Seventeenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2017.png)
-<p align="center"><strong>Image 17</strong> - </p>
+<p align="center"><strong>Image 17</strong> - selecting an item from the list, that displays the items from the shopping cart (buy list), from "Cos de cumparaturi" window</p>
 <hr>
 
 ![Eighteenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2018.png)
-<p align="center"><strong>Image 18</strong> - </p>
+<p align="center"><strong>Image 18</strong> - selecting a cell from the table, that displays the items from the shopping cart (buy list), from "Cos de cumparaturi" window</p>
 <hr>
 
 ![Nineteenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2019.png)
-<p align="center"><strong>Image 19</strong> - </p>
+<p align="center"><strong>Image 19</strong> - searching for a product/item in the shopping cart (the total number of products with the searched name/type/price/producer will be displayed inside a message box)</p>
 <hr>
 
 ![Twentieth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2020.png)
-<p align="center"><strong>Image 20</strong> - </p>
+<p align="center"><strong>Image 20</strong> - exporting the shopping cart's content to a CSV (Comma-Separated Values) and an HTML (HyperText Markup Language) files (the name of the file will be "shopping" + the extension of the file (.csv for CSV file and .html for the HTML file)). CSV file can be opened with Notepad, Notepad++ or Excel (recommended). Meanwhile, HTML file can be opened with one of the following: Notepad, Notepad++ or a web browser (recommended) like Google Chrome, Mozilla Firefox or Internet Edge</p>
 <hr>
 
 ![Twenty-first Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2021.png)
-<p align="center"><strong>Image 21</strong> - </p>
+<p align="center"><strong>Image 21</strong> - confirmation message (message box) for closing the "Cos de cumparaturi" window (the window will be closed only if the "Yes" option will be clicked by the user)</p>
 <hr>
 
 ![Twenty-second Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2022.png)
-<p align="center"><strong>Image 22</strong> - </p>
+<p align="center"><strong>Image 22</strong> - content of "shopping.csv" export file opened using Excel program (you can see all the products/items from the shopping cart and the quantity of each product)</p>
 <hr>
 
 ![Twenty-third Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2023.png)
-<p align="center"><strong>Image 23</strong> - </p>
+<p align="center"><strong>Image 23</strong> - content of "shopping.html" export file opened using Google Chrome web browser (you can see all the products/items from the shopping cart and the quantity of each product). Note: this export file is an old version of the export file into a HTML file feature</p>
 <hr>
 
 ![Twenty-fourth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2024.png)
-<p align="center"><strong>Image 24</strong> - </p>
+<p align="center"><strong>Image 24</strong> - content of "shopping.html" export file opened using Google Chrome web browser (you can see all the products/items from the shopping cart and the quantity of each product). In the bottom of the page we can see the total number of products from the shopping list with the total price. Note: this export file is the new version of the export file into a HTML file feature</p>
 <hr>
 
 ![Twenty-fifth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2025.png)
-<p align="center"><strong>Image 25</strong> - </p>
+<p align="center"><strong>Image 25</strong> - sorting the table from export HTML file ascending after price ("Pret column"). Note: the table is sortable which means that if the user clicks on a header, all the lines/rows/records from the table will be sorted ascending/descending based on the values from the column which contains the clicked header. For example, if we click on "Producator" header then all products/items from the table will be sorted in ascending order after producer attribute/field. If we click again on "Producer" header then the products/items will be sorted in descending order</p>
 <hr>
 
 ![Twenty-sixth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2026.png)
