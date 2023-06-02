@@ -22,7 +22,6 @@
 - the app contains the following Qt modules: Qt Core, Qt GUI and Qt Widgets
 - configuration was set to debug when creating the app
 - platform is x64
-- "Info tipuri" button is not enabled (is disabled) when saving the products/items in a database, which means that both "Tipuri produse" and "Histograma tipuri produse" windows will be unavailable
 
 <hr>
 
@@ -132,7 +131,7 @@
 <hr>
 
 ![Tenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2010.png)
-<p align="center"><strong>Image 10</strong> - window that contains all the types existing in the virtual store's catalog and the number of products from each type (side note: window will not be available if the products/items are stored in a MySQL database)</p>
+<p align="center"><strong>Image 10</strong> - window that contains all the types existing in the virtual store's catalog and the number of products from each type</p>
 <hr>
 
 ![Eleventh Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2011.png)
