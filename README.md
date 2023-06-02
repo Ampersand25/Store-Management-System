@@ -104,23 +104,23 @@
 <hr>
 
 ![Third Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%203.png)
-<p align="center"><strong>Image 3</strong> - selecting an item from the list (a new window titled "Infor produs selectat", containing the product's details (name, type, price and producer), is opened and also, the details will be displayed in the line edits (input elements) from the right (the same way it works from selecting a cell from the table))</p>
+<p align="center"><strong>Image 3</strong> - selecting an item from the list (a new window titled "Info produs selectat", containing the product's details (name, type, price and producer), is opened and also, the details will be displayed in the line edits (input elements) from the right (the same way it is done when selecting a cell from the table))</p>
 <hr>
 
 ![Fourth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%204.png)
-<p align="center"><strong>Image 4</strong> - sorting the items/products from both list and table descending ("descrescator" radio button is checked) after price ("Pret" option was selected from the combo box (select element that contains 4 options: "Nume" (sort after name attribute/field), "Tip" (sort after type attribute/field), "Nume + tip" (sort after name and type attributes/fields), "Pret" (sort after price attribute/field) and "Producator" (sort after producer attribute/field)))<p>
+<p align="center"><strong>Image 4</strong> - sorting the items/products from both list and table descending ("descrescator" radio button is checked) after price ("Pret" option was selected from the combo box). The combo box (select control/element) contains 4 options: "Nume" (sort after name attribute/field), "Tip" (sort after type attribute/field), "Nume + tip" (sort after name and type attributes/fields), "Pret" (sort after price attribute/field) and "Producator" (sort after producer attribute/field)<p>
 <hr>
 
 ![Fifth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%205.png)
-<p align="center"><strong>Image 5</strong> - sorting the items/products from both list and table ascending ("crescator" radio button is checked) after type ("Tip" option was selected from the combo box).  We can sort the items/products from the virtual store's catalog (by selecting an option from the select element (combo box)) after name, type, name + type (if two or more products have the same name then they will be sorted after their type), price and producer in both ascending ("crescator" radio button is checked) and descending ("descrescator" radio button is checked) order</p>
+<p align="center"><strong>Image 5</strong> - sorting the items/products from both list and table ascending ("crescator" radio button is checked) after type ("Tip" option was selected from the combo box).  We can sort the items/products from the virtual store's catalogue (by selecting an option from the select element (combo box)) after name, type, name + type (if two or more products have the same name then they will be sorted after their specific type), price and producer in both ascending ("crescator" radio button is checked) and descending ("descrescator" radio button is checked) order</p>
 <hr>
 
 ![Sixth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%206.png)
-<p align="center"><strong>Image 6</strong> - filtering products/items from the list after price (we want to filter all products that have the price greater than the value 5 introduced in the input (line edit)). We can see that all items with the price greater that the provided price are colored in green and the itmes with the attribute/field price less or equal with the provided price are colored in red (these products are the ones that fail to adhere to the filter)</p>
+<p align="center"><strong>Image 6</strong> - filtering products/items from the list after price (we want to filter all products that have the price greater than the value 5 introduced in the input (line edit) with the label "Nume/Tip/Pret/Producator filtrare"). We can see that all items with the price greater that the provided price (which is 5 in this situation) are colored in green and the itmes with the attribute/field price less or equal with the provided price are colored in red (these products are the ones that fail to adhere to the given filter)</p>
 <hr>
 
 ![Seventh Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%207.png)
-<p align="center"><strong>Image 7</strong> - filtering products/items from the list after type (green items are the filtered products that have the type "produse lactate" introduced by the user and red items are the products that does not have the type "produse lactate" (have a different type)). The filtering is case insensitive (is not case sensitive) which means that we can also search for "ProDuSe LACtaTE" and get the exact same results. The filter text is also trimmed (the spaces before first non-space character and the spaces after the last non-space character are removed (which means that we can also filter after "  produse lactate   " and get the same results like the first filter))</p>
+<p align="center"><strong>Image 7</strong> - filtering products/items from the list after type (green items are the filtered products that have the type "produse lactate" introduced by the user and red items are the products that does not have the type "produse lactate" (have a different type)). The filtering is case insensitive (is not case sensitive) which means that we can also search for "ProDuSe LACtaTE" and get the exact same results. The filter text is also trimmed (the spaces before first non-space character and the spaces after the last non-space character are removed, which means that we can also filter after "  produse lactate   " and get the same results as before)</p>
 <hr>
 
 ![Eighth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%208.png)
@@ -128,27 +128,27 @@
 <hr>
 
 ![Ninth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%209.png)
-<p align="center"><strong>Image 9</strong> - generating 50 products/items for the shopping cart (buy list) by clicking on the "Genereaza cos" button (a confirmation message box, which will print the total price of the generated products and the number of generated items, will be opened and displayed on the screen)</p>
+<p align="center"><strong>Image 9</strong> - generating 50 products/items for the shopping cart (buy list) by clicking on the "Genereaza cos" button (a confirmation message box, which will print the total price of the generated products and the number of generated items, will be displayed on the screen)</p>
 <hr>
 
 ![Tenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2010.png)
-<p align="center"><strong>Image 10</strong> - window that contains all the types existing in the virtual store's catalog and the number of products from each type (side note: window will not be available if the data is stored in the MySQL database)</p>
+<p align="center"><strong>Image 10</strong> - window that contains all the types existing in the virtual store's catalog and the number of products from each type (side note: window will not be available if the products/items are stored in a MySQL database)</p>
 <hr>
 
 ![Eleventh Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2011.png)
-<p align="center"><strong>Image 11</strong> - histogram that displays the distribution of the types with number of products for each type</p>
+<p align="center"><strong>Image 11</strong> - histogram that displays the distribution of the types in the virtual store's catalogue with number of products for each type</p>
 <hr>
 
 ![Twelfth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2012.png)
-<p align="center"><strong>Image 12</strong> - histogram that displays the distribution of the types with percentage for each type</p>
+<p align="center"><strong>Image 12</strong> - histogram that displays the distribution of the types in the virtual store's catalogue with percentage for each type</p>
 <hr>
 
 ![Thirteenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2013.png)
-<p align="center"><strong>Image 13</strong> - window containing 50 random vertical and horizontal rectangles with random colors (one rectangle for each item/product from the shopping cart (buy list))</p>
+<p align="center"><strong>Image 13</strong> - window containing 50 (because there are 50 items/products in the shopping cart) random vertical and horizontal rectangles with random colors (one rectangle for each item/product from the shopping cart (buy list))</p>
 <hr>
 
 ![Fourteenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2014.png)
-<p align="center"><strong>Image 14</strong> - selecting an item from the list (which contains the products/items from the shopping cart) from "Fereastra CosCRUDGUI" window (window that allow us (the users) to generate products/items from the virtual store's catalogue to the shopping cart, to empty the shopping cart and to view the items from the shopping cart in a list and table)</p>
+<p align="center"><strong>Image 14</strong> - selecting an item from the list (which contains the products/items from the shopping cart) from "Fereastra CosCRUDGUI" window (window that allows us (the users) to generate products/items (from the virtual store's catalogue) for the shopping cart, to empty the shopping cart and to view the items from the shopping cart in both a list and a table)</p>
 <hr>
 
 ![Fifteenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2015.png)
@@ -160,43 +160,43 @@
 <hr>
 
 ![Seventeenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2017.png)
-<p align="center"><strong>Image 17</strong> - selecting an item from the list, that displays the items from the shopping cart (buy list), from "Cos de cumparaturi" window</p>
+<p align="center"><strong>Image 17</strong> - selecting an item from the list, that displays the items from the shopping cart (buy list), from "Cos de cumparaturi" window (the slected item/product from the shopping cart will be colored in green in the list and a window containing the product's specifications (name, type, price and producer) will be displayed on the screen)</p>
 <hr>
 
 ![Eighteenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2018.png)
-<p align="center"><strong>Image 18</strong> - selecting a cell from the table, that displays the items from the shopping cart (buy list), from "Cos de cumparaturi" window</p>
+<p align="center"><strong>Image 18</strong> - selecting a cell from the table, that displays the items from the shopping cart (buy list), from "Cos de cumparaturi" window ("Nume", "Tip", "Pret" and "Producator" line edits will be updated with the selected item's information). Line edit for type (the one with the label "Tip") and line edit for price (the one with the label "Pret" are both readonly which means that cannot be modified)</p>
 <hr>
 
 ![Nineteenth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2019.png)
-<p align="center"><strong>Image 19</strong> - searching for a product/item in the shopping cart (the total number of products with the searched name/type/price/producer will be displayed inside a message box)</p>
+<p align="center"><strong>Image 19</strong> - searching for a product/item in the shopping cart (the total number of products with the searched name/type/price/producer will be displayed inside a message box). The search is not case sensitive and the searched string is trimmed before calling the search (the trimmed search text will be searched in the shopping cart's list)</p>
 <hr>
 
 ![Twentieth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2020.png)
-<p align="center"><strong>Image 20</strong> - exporting the shopping cart's content to a CSV (Comma-Separated Values) and an HTML (HyperText Markup Language) files (the name of the file will be "shopping" + the extension of the file (.csv for CSV file and .html for the HTML file)). CSV file can be opened with Notepad, Notepad++ or Excel (recommended). Meanwhile, HTML file can be opened with one of the following: Notepad, Notepad++ or a web browser (recommended) like Google Chrome, Mozilla Firefox or Internet Edge</p>
+<p align="center"><strong>Image 20</strong> - exporting the shopping cart's content to a CSV (Comma-Separated Values) and an HTML (HyperText Markup Language) files (the name of the file will be "shopping" + the extension of the file (.csv for the CSV file and .html for the HTML file)). CSV file can be opened with Notepad, Notepad++ or Excel (recommended). Meanwhile, HTML file can be opened with one of the following: Notepad, Notepad++ or a web browser (recommended) like Google Chrome, Mozilla Firefox or Internet Explorer/Edge</p>
 <hr>
 
 ![Twenty-first Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2021.png)
-<p align="center"><strong>Image 21</strong> - confirmation message (message box) for closing the "Cos de cumparaturi" window (the window will be closed only if the "Yes" option will be clicked by the user)</p>
+<p align="center"><strong>Image 21</strong> - confirmation message (message box (QMessageBox element)) for closing the "Cos de cumparaturi" window (the window will be closed only if the "Yes" option will be clicked/selected by the user)</p>
 <hr>
 
 ![Twenty-second Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2022.png)
-<p align="center"><strong>Image 22</strong> - content of "shopping.csv" export file opened using Excel program (you can see all the products/items from the shopping cart and the quantity of each product)</p>
+<p align="center"><strong>Image 22</strong> - content of "shopping.csv" export file opened using Excel program (you can see all the products/items from the shopping cart and the quantity of each product inside an Excel table)</p>
 <hr>
 
 ![Twenty-third Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2023.png)
-<p align="center"><strong>Image 23</strong> - content of "shopping.html" export file opened using Google Chrome web browser (you can see all the products/items from the shopping cart and the quantity of each product). Note: this export file is an old version of the export file into a HTML file feature</p>
+<p align="center"><strong>Image 23</strong> - content of "shopping.html" export file opened using Google Chrome web browser (you can see all the products/items from the shopping cart and the quantity of each product inside a table HTML element). Note: this export file is an old version of the export file into a HTML file feature (it uses HTML and Bootstrap)</p>
 <hr>
 
 ![Twenty-fourth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2024.png)
-<p align="center"><strong>Image 24</strong> - content of "shopping.html" export file opened using Google Chrome web browser (you can see all the products/items from the shopping cart and the quantity of each product). In the bottom of the page we can see the total number of products from the shopping list with the total price. Note: this export file is the new version of the export file into a HTML file feature</p>
+<p align="center"><strong>Image 24</strong> - content of "shopping.html" export file opened using Google Chrome web browser (you can see all the products/items from the shopping cart and the quantity of each product inside a table HTML element). In the bottom of the page we can see the total number of products from the shopping list with the total price. Note: this export file is the new version of the export file into a HTML file feature (it uses HTML (h1, fieldset, legend, table, thead, tbody, label and more HTML elements are used in the page), CSS (for styling the document) and JavaScript (for creating a sortable table behaviour for the table from the web page))</p>
 <hr>
 
 ![Twenty-fifth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2025.png)
-<p align="center"><strong>Image 25</strong> - sorting the table from export HTML file ascending after price ("Pret" column). Note: the table is sortable which means that if the user clicks on a header, all the lines/rows/records from the table will be sorted ascending/descending based on the values from the column which contains the clicked header. For example, if we click on "Producator" header then all products/items from the table will be sorted in ascending order after producer attribute/field. If we click again on "Producer" header then the products/items will be sorted in descending order</p>
+<p align="center"><strong>Image 25</strong> - sorting the table from export HTML file in ascending order after price ("Pret" column). Note: the table is sortable which means that if the user clicks on a header ("#", "Nume", "Tip", "Pret", "Producator", "Cantitate"), all the lines/rows/records from the table will be sorted ascending/descending based on the values from the column which contains the clicked header. For example, if we click on "Producator" header then all products/items from the table will be sorted in ascending order after producer attribute/field. If we click again on "Producer" header then the products/items will be sorted in descending order</p>
 <hr>
 
 ![Twenty-sixth Screenshot](https://github.com/Ampersand25/Store-Management-System/blob/main/Screenshots/Screenshot%2026.png)
-<p align="center"><strong>Image 26</strong> - overview of the application (all existing windows)</p>
+<p align="center"><strong>Image 26</strong> - overview of the application with all existing windows</p>
 <hr>
 
 <strong>TODO</strong>:
