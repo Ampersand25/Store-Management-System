@@ -201,12 +201,12 @@
 
 <strong>TODO</strong>:
 - remove/delete option for an existing item from the shopping cart ✅
-- save the shopping cart content/list in a text file (data persistence for the shopping cart in CSV (Comma-Separated Values) file) ✅
+- save the content of the shopping cart (buy list) in a text file (data persistence for the shopping cart in text file) ✅
 - create database repository (add data persistence in a SQL (Structured Query Language) database like MySQL or PostgreSQL) ✅
 - redo operation (for undo operations) ✅
-- add tooltips for different graphical elements ✅
-- create a new histogram that displays the percentage for each type that exists in the virtual store's catalog. The histogram should represent the distribution of different types of items/products in the catalog, with each type represented by a horizontal bar, and the width of each bar indicating the percentage of that type in the catalog ✅
-- solve the dangling pointers problem: if the data (items/products) is saved/stored in a MySQL database, then search will create a dangling pointer for each call (because in search function/method from repository the address of the searched products (if found) is returned (should return a copy instead)) ✅
-- make the table from HTML (HyperText Markup Language) export file (table which contains the products/items from the shopping cart (buy list)) sortable (so that the lines/rows/records can be sorted ascending/descending after the values from one of the columns (on user clicks on a header, the records from the table will be sorted ascending/descending after the values from that column (that contains the header))) ✅
-- search a product from the shopping cart's list after name, type, price or producer (the total number of products with the provided name/type/price/producer should be displayed in a message box (QMessageBox element)) ✅
-- update the screenshots after all the new features are implemented (the application is in its final version) ✅
+- add tooltips for different graphical elements like buttons, line edits, radio buttons, checkboxes and more ✅
+- create a new histogram that displays the percentage for each type that exists in the virtual store's catalog. The histogram should represent the distribution of different types of items/products in the catalog, with each type represented by a horizontal bar, and the width of each bar should indicate the percentage of that type in the catalog (for example 10% for "bauturi racoritoare" type if 10% of the total products from the virtual store's catalog have the type "bauturi racoritoare") ✅
+- solve the dangling pointers problem: if the data (items/products) is saved/stored in a MySQL database, then search method/function will create a dangling pointer for each call (because in search method from repository the address of the searched products (if found) is returned (to fix this problem we should return a copy instead)) ✅
+- make the table from HTML (HyperText Markup Language) export file (table which contains the products/items from the shopping cart (buy list)) sortable (so that the lines/rows/records can be sorted ascending/descending after the values from one of the columns (if user clicks on a header, the records from the table will be sorted ascending/descending after the values from that column (column which contains the header that was clicked by the user))) ✅
+- search a product from the shopping cart's list after name, type, price or producer (the total number of products with the provided name/type/price/producer should be displayed in a message box (QMessageBox element)). The search must not be case sensitive (must be case insensitive) and the searched string (which represents the name, type, price or producer of the product we want to search in the shopping cart) must be trimmed ✅
+- update the screenshots after all the new features are done/implemented (the application is in its final version) ✅
