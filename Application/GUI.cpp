@@ -2810,20 +2810,9 @@ void GUI::connectSignals()
 
 			percentage_hist_widget = new PercentageHistogram{ srv };
 			percentage_hist_widget->show();
-			
-			if (!database_repo_flag)
-			{
-				tipuri_produse_widget = new TipuriProduseWidget{ srv };
-				tipuri_produse_widget->show();
-			}
-			else
-			{
-				hist_widget->setFixedHeight(hist_widget->height());
-				hist_widget->setFixedWidth(hist_widget->width());
 
-				percentage_hist_widget->setFixedHeight(percentage_hist_widget->height());
-				percentage_hist_widget->setFixedWidth(percentage_hist_widget->width());
-			}
+			tipuri_produse_widget = new TipuriProduseWidget{ srv };
+			tipuri_produse_widget->show();
 		}
 		catch (const RepoException& re) {
 			qDebug() << QString::fromStdString(re.getMessage());

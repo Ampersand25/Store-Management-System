@@ -33,8 +33,6 @@ private:
 
 	// atribute/campuri private
 
-	bool database_repo_flag;
-
 	Service& srv; // referinta la un obiect de clasa Service
 
 	QPushButton* btn_adaugare_cumparaturi_main = new QPushButton{ "Adauga produs in cos" };
@@ -234,7 +232,7 @@ public:
 	GUI() = delete;
 
 	// constructor custom al unui obiect de clasa GUI
-	GUI(Service& srv, bool database_repo_flag) : srv{ srv }, database_repo_flag{ database_repo_flag } {
+	GUI(Service& srv) : srv{ srv } {
 		initGuiCmp();
 		connectSignals();
 		setInitialState();

@@ -78,20 +78,17 @@ int main(int argc, char* argv[])
         // ~IN MEMORY REPOSITORY
 
         // FILE REPOSITORY
-        const auto repo_type{ REPO_TYPE::FILE_REPO };
+        //const auto repo_type{ REPO_TYPE::FILE_REPO };
         // ~FILE REPOSITORY
 
         // DATABASE REPOSITORY
-        //const auto repo_type{ REPO_TYPE::DATABASE_REPO };
+        const auto repo_type{ REPO_TYPE::DATABASE_REPO };
         // ~DATABASE REPOSITORY
 
         auto repo{ repoFactory(repo_type) }; // <=> unique_ptr<AbstractRepo> repo{ repoFactory(repo_type) };
 
         ProductValidator valid;
         
-        // COSUL DE CUMPARATURI SALVAT IN FISIER TEXT FUNCTIONEAZA DOAR DACA SALVAREA PRODUSELOR SE FACE IN MEMORIE SAU IN FISIER TEXT
-        // DACA SALVAREA PRODUSELOR APLICATIEI SE FACE IN BAZA DE DATE MySQL ATUNCI APLICATIA VA RETURNA CODUL DE ERAORE 11 (EXIT CODE)
-
         // COS DE CUMPARATURI SALVAT IN MEMORIE (IN MEMORY SHOPPING CART)
         //CosCumparaturi cos{ *repo };
         // ~COS DE CUMPARATURI SALVAT IN MEMORIE (IN MEMORY SHOPPING CART)
@@ -102,7 +99,7 @@ int main(int argc, char* argv[])
         // ~COS DE CUMPARATURI SALVAT IN FISIER TEXT (FILE SHOPPING CART)
         
         Service srv{ *repo, valid, cos };
-        const auto gui{ new GUI{ srv, repo_type == REPO_TYPE::DATABASE_REPO } };
+        const auto gui{ new GUI{ srv } };
         gui->show();
 
         exit_code = a.exec();

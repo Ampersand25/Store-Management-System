@@ -1,16 +1,20 @@
 #pragma once
 
 #include "AbstractRepo.h"
+#include "DatabaseException.h"
+
+#include <mysql.h>
 
 class DatabaseRepository : public AbstractRepo
 {
 private:
-	const string server;
-	const string username;
-	const string password;
-	const string database;
-	const string table;
-	const int port;
+	const string server;   // numele serverului la care vrem sa ne conectam
+	const string username; // numele de utilizator cu care dorim sa ne autentificam
+	const string password; // parola cu care dorim sa ne autentificam
+	const string database; // numele bazei de date la care vrem sa ne conectam
+	const string table;    // numele tabelului/tabelei care contine datele aplicatiei (produsele din stocul magazinului)
+	const int port;        // portul pe care ne conectam la baza de date de pe server
+	MYSQL* conn;           // variabila in care pastram conexiunea la baza de date (o sa folosim aceasta variabila pentru a face interogari pe baza de date)
 
 public:
 	// metode/functii publice
@@ -18,15 +22,16 @@ public:
 	/*
 	* Constructorul (de instantiere a) unui obiect de clasa DatabaseRepository
 	* Cream un constructor custom care primeste 5 parametrii de intrare (parametrii formali/simbolici) ci anume: server, username, password, database
+	* In constructor vom stabili conexiunea catre baza de date MySQL (aceasta conexiune va fi mentinuta cat timp obiectul traieste)
+	* Ulterior, vom incheia conexiunea in destructorul obiectului (astfel incat conexiunea sa se inchida cand obiectul isi incheie ciclul de viata (iese din scope))
 	*/
-	DatabaseRepository(const string& server, const string& username, const string& password, const string& database, const string& table, const int& port) : server{ server }, username{ username }, password{ password }, database{ database }, table{ table }, port{ port } {
+	DatabaseRepository(const string& server, const string& username, const string& password, const string& database, const string& table, const int& port) : conn{ mysql_init(0) }, server { server }, username{ username }, password{ password }, database{ database }, table{ table }, port{ port } {
+		this->conn = mysql_real_connect(this->conn, this->server.c_str(), this->username.c_str(), this->password.c_str(), this->database.c_str(), this->port, NULL, 0); // stabilim conexiunea la baza de date
 		
+		if (!this->conn) // if (conn)
+			// conexiunea la baza de date MySQL nu s-a putut realiza
+			throw DatabaseException("[!]Nu s-a putut realiza conexiunea la baza de date MySQL!\n"); // aruncam/ridicam exceptie (obiect de clasa DatabaseException) cu mesajul (sir de caractere (string)): "[!]Nu s-a putut realiza conexiunea la baza de date MySQL!\n"
 	}
-
-	/*
-	* Destructorul virtual al unui obiect de clasa DatabaseRepository (il setam ca fiind default)
-	*/
-	virtual ~DatabaseRepository() = default;
 
 	/*
 	* Constructorul de copiere a unui obiect de clasa DatabaseRepository (il setam ca fiind delete)
@@ -106,4 +111,17 @@ public:
 	* Postconditii: len() = numarul de entitati/inregistrari din repo
 	*/
 	unsigned len() const noexcept override;
+
+	/*
+	* Destructorul unui obiect de clasa DatabaseRepository
+	* In destructor vom inchide conexiunea catre baza de date MySQL (conexiune stabilita in constructor)
+	*/
+	~DatabaseRepository() {
+		if (this->conn) // if (conn)
+		{
+			// conexiunea la baza de date este activa
+			mysql_close(this->conn); // inchidem conexiunea la baza de date
+			this->conn = nullptr;    // marcam in variabila conn faptul ca conexiunea a fost inchisa
+		}
+	}
 };
