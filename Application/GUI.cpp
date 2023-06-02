@@ -2745,6 +2745,23 @@ void GUI::connectSignals()
 			filterProductsGUI("4", "");
 		});
 
+	QObject::connect(filter_options_combo_box, &QComboBox::currentIndexChanged, this, [&]() {
+		if (filter_options_combo_box->currentIndex() == 2)
+		{
+			// Optiune de filtrare: Pret
+			radio_btn_less->setCheckable(true);
+			radio_btn_equal->setCheckable(true);
+			radio_btn_greater->setCheckable(true);
+		}
+		else
+		{
+			// Optiune de filtrare: Nume, Tip sau Producator
+			radio_btn_less->setCheckable(false);
+			radio_btn_equal->setCheckable(false);
+			radio_btn_greater->setCheckable(false);
+		}
+		});
+
 	QObject::connect(btn_type, &QPushButton::clicked, this, [&]() {
 		last_selected_item_list = nullptr;
 
@@ -3306,6 +3323,10 @@ void GUI::setInitialState()
 		btn_delete->setEnabled(false); // btn_delete->setDisabled(true);
 		btn_search->setEnabled(false); // btn_search->setDisabled(true);
 	}
+
+	radio_btn_less->setCheckable(false);
+	radio_btn_equal->setCheckable(false);
+	radio_btn_greater->setCheckable(false);
 	
 	addShortcuts();
 	addToolTips();
