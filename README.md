@@ -209,4 +209,4 @@
 - solve the dangling pointers problem: if the data (items/products) is saved/stored in a MySQL database, then search will create a dangling pointer for each call (because in search function/method from repository the address of the searched products (if found) is returned (should return a copy instead)) ✅
 - make the table from HTML (HyperText Markup Language) export file (table which contains the products/items from the shopping cart (buy list)) sortable (so that the lines/rows/records can be sorted ascending/descending after the values from one of the columns (on user clicks on a header, the records from the table will be sorted ascending/descending after the values from that column (that contains the header))) ✅
 - search a product from the shopping cart's list after name, type, price or producer (the total number of products with the provided name/type/price/producer should be displayed in a message box (QMessageBox element)) ✅
-- update the screenshots after all the new features are implemented (the application is in its final version)
+- update the screenshots after all the new features are implemented (the application is in its final version) ✅
