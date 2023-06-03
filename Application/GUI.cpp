@@ -1163,8 +1163,8 @@ void GUI::setToolTipsCosCumparaturi()
 void GUI::setPlaceholdersCosCumparaturi()
 {
 	name_cos_line_edit->setPlaceholderText("Introduceti numele produsului...");
-	type_cos_line_edit->setPlaceholderText("Introduceti tipul produsului...");
-	price_cos_line_edit->setPlaceholderText("Introduceti pretul produsului...");
+	type_cos_line_edit->setPlaceholderText("Tipul produsului selectat");
+	price_cos_line_edit->setPlaceholderText("Pretul produsului selectat");
 	producer_cos_line_edit->setPlaceholderText("Introduceti producatorul produsului...");
 
 	search_product_shopping_cart_line_edit->setPlaceholderText("Introduceti nume produs...");
